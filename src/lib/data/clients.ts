@@ -10,10 +10,10 @@ export interface ClientLogo {
  * /public/clients/ y completes "src" aquí, se reemplaza automáticamente.
  */
 export const clients: ClientLogo[] = [
+  { name: "Diproc", src: "/clients/jflogo.png" },
+  { name: "Diproc", src: "/clients/marisollogo.png" },
+  { name: "Diproc", src: "/clients/trulylogo.png" },
+  { name: "Diproc", src: "/clients/compeniellogo.png" },
+  { name: "Diproc", src: "/clients/inomoalogo.png" },
   { name: "Diproc", src: "/clients/diproclogo.png" },
-  { name: "[EDITAR: Logo cliente 2]" },
-  { name: "[EDITAR: Logo cliente 3]" },
-  { name: "[EDITAR: Logo cliente 4]" },
-  { name: "[EDITAR: Logo cliente 5]" },
-  { name: "[EDITAR: Logo cliente 6]" },
 ];
