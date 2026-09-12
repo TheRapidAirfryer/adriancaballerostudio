@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import Image from "next/image";
 import { useEffect, useState } from "react";
 import { NAV_LINKS } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
@@ -31,9 +32,15 @@ export function Header() {
           scrolled ? "py-4" : "py-6"
         )}
       >
-        <Link href="/" className="z-50 flex flex-col leading-[0.95]" aria-label="Adrian Caballero Studio — inicio">
-          <span className="text-sm font-semibold tracking-tight">ADRIAN CABALLERO</span>
-          <span className="font-mono text-[10px] tracking-[0.3em] text-neutral-500">STUDIO</span>
+        <Link href="/" className="z-50 flex items-center" aria-label="Adrian Caballero Studio — inicio">
+          <Image
+            src="/logo.svg"
+            alt="Adrian Caballero Studio"
+            width={220}
+            height={40}
+            priority
+            className="h-8 w-auto md:h-9"
+          />
         </Link>
 
         <nav aria-label="Navegación principal" className="hidden md:block">
