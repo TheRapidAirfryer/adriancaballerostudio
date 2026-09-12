@@ -12,7 +12,7 @@ export const siteConfig = {
   tagline: "Creatividad, tecnología y estrategia para marcas que quieren avanzar.",
   description:
     "Estudio creativo y tecnológico especializado en contenido audiovisual, diseño, publicidad y desarrollo de tecnología para marcas que quieren verse mejor, comunicar mejor, vender mejor y operar mejor.",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.adriancaballerostudio.com",
+  url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.adriancaballero.studio",
   locale: "es",
   founder: {
     name: "Adrian Caballero",
