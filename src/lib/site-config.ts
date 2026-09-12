@@ -19,7 +19,7 @@ export const siteConfig = {
     role: "Fundador y Director del Studio",
   },
   contact: {
-    email: "hola@adriancaballerostudio.com [EDITAR]",
+    email: "contacto@adriancaballero.studio",
     phone: "+00 000 000 0000 [EDITAR]",
     whatsapp: "+00 000 000 0000 [EDITAR]",
     whatsappLink: "https://wa.me/000000000000 [EDITAR: número real]",

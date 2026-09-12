@@ -28,8 +28,29 @@ npm run lint    # ESLint
 
 Ver `.env.example`. Todas son opcionales excepto `NEXT_PUBLIC_SITE_URL` en
 producción (se usa para canonical, sitemap y JSON-LD). La analítica (GA4,
-GTM, Meta Pixel) y el webhook de contacto solo se activan si su variable
-tiene un valor real: nada se carga con IDs de ejemplo.
+GTM, Meta Pixel) solo se activa si su variable tiene un valor real: nada se
+carga con IDs de ejemplo.
+
+### Activar el envío real de correo del formulario de contacto
+
+Por defecto el formulario valida y registra el lead, pero **no envía
+ningún correo** hasta que configures esto:
+
+1. Crea una cuenta gratis en [resend.com](https://resend.com).
+2. Verifica el dominio `adriancaballero.studio` siguiendo las instrucciones
+   de Resend (agregar unos registros DNS — TXT/CNAME — donde tengas
+   contratado el dominio).
+3. Genera un API key en Resend y ponlo en `.env.local` como `RESEND_API_KEY`.
+4. Opcional: define `CONTACT_FROM_EMAIL` con una dirección de ese dominio
+   (ej. `notificaciones@adriancaballero.studio`). Mientras el dominio no
+   esté verificado, deja esta variable vacía: se usa la dirección de
+   pruebas de Resend, que solo entrega al correo de tu propia cuenta.
+5. Los leads llegan a `contacto@adriancaballero.studio` (definido en
+   `src/lib/site-config.ts`) salvo que definas `CONTACT_TO_EMAIL` con otra
+   dirección.
+
+Sin `RESEND_API_KEY`, el formulario cae de vuelta a `CONTACT_WEBHOOK_URL`
+si está definida, o si no, deja el lead en el log del servidor.
 
 ## Estructura
 
