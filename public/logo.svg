@@ -1,4 +1,6 @@
-<svg width="220" height="40" viewBox="0 0 220 40" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Adrian Caballero Studio">
-  <text x="0" y="16" font-family="Arial, Helvetica, sans-serif" font-size="14" font-weight="700" letter-spacing="0.3" fill="#0a0a0a">ADRIAN CABALLERO</text>
-  <text x="0" y="32" font-family="Courier New, monospace" font-size="10" letter-spacing="3" fill="#737373">STUDIO</text>
+<svg width="1280" height="280" viewBox="0 0 1280 280" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Adrian Caballero Studio">
+  <polygon points="118,4 232,220 176,220 118,108 60,220 4,220" fill="#101012"/>
+  <polygon points="40,246 150,246 130,268 20,268" fill="#101012"/>
+  <text x="270" y="158" font-family="Arial, Helvetica, sans-serif" font-size="92" font-weight="800" letter-spacing="-1" fill="#101012">ADRIAN CABALLERO</text>
+  <text x="272" y="212" font-family="Arial, Helvetica, sans-serif" font-size="40" font-weight="600" letter-spacing="14" fill="#101012">STUDIO</text>
 </svg>
