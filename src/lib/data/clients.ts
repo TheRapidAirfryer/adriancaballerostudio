@@ -15,5 +15,10 @@ export const clients: ClientLogo[] = [
   { name: "Trulynolen", src: "/clients/trulylogo.png" },
   { name: "Compeniel", src: "/clients/compeniellogo.png" },
   { name: "Inomoa", src: "/clients/inomoalogos.png" },
+  { name: "Costello", src: "/clients/costellologo.png" },
+  { name: "centpro", src: "/clients/centprologo.png" },
+  { name: "MultiserviciosPremium", src: "/clients/multiservicioslogo.png" },
+  { name: "SazondelaNegra", src: "/clients/sazonlogo.png" },
+  { name: "Adcopro", src: "/clients/adcoprologo.png" },
   { name: "Diproc", src: "/clients/diproclogo.png" },
 ];
