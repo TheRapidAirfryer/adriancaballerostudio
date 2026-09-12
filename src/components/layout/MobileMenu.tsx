@@ -2,11 +2,18 @@
 
 import Link from "next/link";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
 import { NAV_LINKS } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 
 export function MobileMenu() {
   const [open, setOpen] = useState(false);
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    // eslint-disable-next-line react-hooks/set-state-in-effect -- portal target (document.body) only exists client-side; this is the standard mount-detection pattern.
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     document.documentElement.style.overflow = open ? "hidden" : "";
@@ -14,6 +21,45 @@ export function MobileMenu() {
       document.documentElement.style.overflow = "";
     };
   }, [open]);
+
+  const panel = (
+    <div
+      id="mobile-menu"
+      className={cn(
+        "fixed inset-0 z-40 flex flex-col justify-between bg-white px-6 pb-8 pt-24 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
+        open ? "translate-y-0" : "-translate-y-full pointer-events-none"
+      )}
+    >
+      <nav aria-label="Navegación principal móvil">
+        <ul className="flex flex-col gap-1">
+          {NAV_LINKS.map((link, i) => (
+            <li
+              key={link.href}
+              className="border-b border-black/10 py-4"
+              style={{
+                transitionDelay: open ? `${i * 40}ms` : "0ms",
+              }}
+            >
+              <Link
+                href={link.href}
+                onClick={() => setOpen(false)}
+                className="text-3xl font-medium tracking-tight"
+              >
+                {link.label}
+              </Link>
+            </li>
+          ))}
+        </ul>
+      </nav>
+      <Link
+        href="/contacto"
+        onClick={() => setOpen(false)}
+        className="inline-flex w-full items-center justify-center rounded-full bg-black px-6 py-4 text-base font-medium text-white"
+      >
+        Hablemos
+      </Link>
+    </div>
+  );
 
   return (
     <div className="md:hidden">
@@ -39,42 +85,14 @@ export function MobileMenu() {
         />
       </button>
 
-      <div
-        id="mobile-menu"
-        className={cn(
-          "fixed inset-0 z-40 flex flex-col justify-between bg-white px-6 pb-8 pt-24 transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)]",
-          open ? "translate-y-0" : "-translate-y-full pointer-events-none"
-        )}
-      >
-        <nav aria-label="Navegación principal móvil">
-          <ul className="flex flex-col gap-1">
-            {NAV_LINKS.map((link, i) => (
-              <li
-                key={link.href}
-                className="border-b border-black/10 py-4"
-                style={{
-                  transitionDelay: open ? `${i * 40}ms` : "0ms",
-                }}
-              >
-                <Link
-                  href={link.href}
-                  onClick={() => setOpen(false)}
-                  className="text-3xl font-medium tracking-tight"
-                >
-                  {link.label}
-                </Link>
-              </li>
-            ))}
-          </ul>
-        </nav>
-        <Link
-          href="/contacto"
-          onClick={() => setOpen(false)}
-          className="inline-flex w-full items-center justify-center rounded-full bg-black px-6 py-4 text-base font-medium text-white"
-        >
-          Hablemos
-        </Link>
-      </div>
+      {/*
+        Renderizado en un portal a document.body: el header puede activar
+        backdrop-blur al hacer scroll, y backdrop-filter crea un nuevo
+        "contenedor" en CSS para cualquier descendiente position:fixed.
+        Sin el portal, este panel quedaría encogido al tamaño del header
+        en vez de cubrir toda la pantalla.
+      */}
+      {mounted ? createPortal(panel, document.body) : null}
     </div>
   );
 }
