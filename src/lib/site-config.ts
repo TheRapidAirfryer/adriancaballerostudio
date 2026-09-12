@@ -20,9 +20,9 @@ export const siteConfig = {
   },
   contact: {
     email: "contacto@adriancaballero.studio",
-    phone: "+00 000 000 0000 [EDITAR]",
-    whatsapp: "+00 000 000 0000 [EDITAR]",
-    whatsappLink: "https://wa.me/000000000000 [EDITAR: número real]",
+    phone: "+504 8879-5325",
+    whatsapp: "+504 8879-5325",
+    whatsappLink: "https://wa.me/50488795325",
   },
   address: {
     street: "[EDITAR: dirección]",
@@ -33,9 +33,9 @@ export const siteConfig = {
   },
   hours: "[EDITAR: horario de atención, ej. Lun–Vie 9:00–18:00]",
   social: {
-    instagram: "https://instagram.com/adriancaballerostudio [EDITAR]",
-    facebook: "https://facebook.com/adriancaballerostudio [EDITAR]",
-    tiktok: "https://tiktok.com/@adriancaballerostudio [EDITAR]",
+    instagram: "https://www.instagram.com/adriancaballero.studio/",
+    facebook: "https://www.facebook.com/profile.php?id=61594193676032",
+    tiktok: "https://www.tiktok.com/@cabsan28",
     youtube: "https://youtube.com/@adriancaballerostudio [EDITAR]",
     behance: "https://behance.net/adriancaballerostudio [EDITAR]",
   },
