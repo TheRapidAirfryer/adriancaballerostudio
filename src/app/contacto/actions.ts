@@ -1,5 +1,6 @@
 "use server";
 
+import nodemailer from "nodemailer";
 import { siteConfig } from "@/lib/site-config";
 
 export interface ContactFormState {
@@ -33,20 +34,8 @@ interface LeadPayload {
   receivedAt: string;
 }
 
-/**
- * Envía el lead por correo usando la API HTTP de Resend (sin SDK: una sola
- * llamada fetch, cero dependencias nuevas). Requiere RESEND_API_KEY.
- * CONTACT_TO_EMAIL / CONTACT_FROM_EMAIL son opcionales para sobreescribir
- * los valores por defecto.
- */
-async function sendLeadEmail(lead: LeadPayload) {
-  const apiKey = process.env.RESEND_API_KEY;
-  if (!apiKey) return { sent: false, reason: "no-api-key" as const };
-
-  const to = process.env.CONTACT_TO_EMAIL || siteConfig.contact.email;
-  const from = process.env.CONTACT_FROM_EMAIL || "Adrian Caballero Studio <onboarding@resend.dev>";
-
-  const html = `
+function buildEmailHtml(lead: LeadPayload) {
+  return `
     <h2>Nuevo mensaje desde el sitio web</h2>
     <p><strong>Nombre:</strong> ${escapeHtml(lead.name)}</p>
     <p><strong>Empresa:</strong> ${escapeHtml(lead.company) || "—"}</p>
@@ -57,6 +46,55 @@ async function sendLeadEmail(lead: LeadPayload) {
     <p><strong>Mensaje:</strong></p>
     <p>${escapeHtml(lead.message).replace(/\n/g, "<br />")}</p>
   `;
+}
+
+type SendResult = { sent: true } | { sent: false; reason: "not-configured" };
+
+/**
+ * Envía el lead por SMTP usando la cuenta de correo del hosting (ej.
+ * Hostinger): host, usuario y contraseña de un correo real como
+ * contacto@adriancaballero.studio. No agrega ningún servicio externo.
+ */
+async function sendViaSmtp(lead: LeadPayload): Promise<SendResult> {
+  const host = process.env.SMTP_HOST;
+  const user = process.env.SMTP_USER;
+  const pass = process.env.SMTP_PASS;
+  if (!host || !user || !pass) return { sent: false, reason: "not-configured" };
+
+  const port = Number(process.env.SMTP_PORT ?? 465);
+
+  const transporter = nodemailer.createTransport({
+    host,
+    port,
+    secure: port === 465,
+    auth: { user, pass },
+  });
+
+  const to = process.env.CONTACT_TO_EMAIL || siteConfig.contact.email;
+  const from = process.env.CONTACT_FROM_EMAIL || user;
+
+  await transporter.sendMail({
+    from,
+    to,
+    replyTo: lead.email,
+    subject: `Nuevo proyecto de ${lead.name} — ${lead.service}`,
+    html: buildEmailHtml(lead),
+  });
+
+  return { sent: true };
+}
+
+/**
+ * Alternativa: envía el lead por correo usando la API HTTP de Resend (sin
+ * SDK, una sola llamada fetch). Requiere RESEND_API_KEY. Se usa solo si no
+ * hay credenciales SMTP configuradas.
+ */
+async function sendViaResend(lead: LeadPayload): Promise<SendResult> {
+  const apiKey = process.env.RESEND_API_KEY;
+  if (!apiKey) return { sent: false, reason: "not-configured" };
+
+  const to = process.env.CONTACT_TO_EMAIL || siteConfig.contact.email;
+  const from = process.env.CONTACT_FROM_EMAIL || "Adrian Caballero Studio <onboarding@resend.dev>";
 
   const response = await fetch("https://api.resend.com/emails", {
     method: "POST",
@@ -69,7 +107,7 @@ async function sendLeadEmail(lead: LeadPayload) {
       to,
       reply_to: lead.email,
       subject: `Nuevo proyecto de ${lead.name} — ${lead.service}`,
-      html,
+      html: buildEmailHtml(lead),
     }),
   });
 
@@ -78,7 +116,7 @@ async function sendLeadEmail(lead: LeadPayload) {
     throw new Error(`Resend respondió ${response.status}: ${detail}`);
   }
 
-  return { sent: true as const };
+  return { sent: true };
 }
 
 export async function submitContactForm(
@@ -122,12 +160,12 @@ export async function submitContactForm(
   };
 
   try {
-    const result = await sendLeadEmail(lead);
+    // Orden de intento: SMTP (ej. Hostinger) → Resend → webhook → log.
+    // Cada uno se usa solo si el anterior no está configurado.
+    let result = await sendViaSmtp(lead);
+    if (!result.sent) result = await sendViaResend(lead);
 
     if (!result.sent) {
-      // Sin RESEND_API_KEY configurada: intentamos un webhook alterno y,
-      // si tampoco existe, dejamos el lead en el log para no perderlo
-      // mientras se activa el envío de correo real.
       const webhookUrl = process.env.CONTACT_WEBHOOK_URL;
       if (webhookUrl) {
         await fetch(webhookUrl, {
@@ -136,7 +174,7 @@ export async function submitContactForm(
           body: JSON.stringify(lead),
         });
       } else {
-        console.info("[contacto] Nuevo lead recibido (falta configurar RESEND_API_KEY):", lead);
+        console.info("[contacto] Nuevo lead recibido (falta configurar el envío de correo):", lead);
       }
     }
   } catch (error) {

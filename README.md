@@ -34,23 +34,34 @@ carga con IDs de ejemplo.
 ### Activar el envío real de correo del formulario de contacto
 
 Por defecto el formulario valida y registra el lead, pero **no envía
-ningún correo** hasta que configures esto:
+ningún correo** hasta que configures una de estas dos opciones (ver
+`.env.example` para el detalle de cada variable):
+
+**Opción A — SMTP de Hostinger (recomendado si tu correo ya está ahí)**
+
+1. En hPanel de Hostinger, entra a Correo electrónico → la cuenta
+   `contacto@adriancaballero.studio` → "Configurar cliente de correo" para
+   ver el host SMTP exacto (normalmente `smtp.hostinger.com`).
+2. En `.env.local` define `SMTP_HOST`, `SMTP_USER` (el correo completo) y
+   `SMTP_PASS` (su contraseña). `SMTP_PORT` ya viene en 465 por defecto.
+3. Reinicia el servidor. Listo — usa nodemailer para enviar por SMTP.
+
+**Opción B — Resend (alternativa sin depender del hosting)**
 
 1. Crea una cuenta gratis en [resend.com](https://resend.com).
 2. Verifica el dominio `adriancaballero.studio` siguiendo las instrucciones
    de Resend (agregar unos registros DNS — TXT/CNAME — donde tengas
    contratado el dominio).
 3. Genera un API key en Resend y ponlo en `.env.local` como `RESEND_API_KEY`.
-4. Opcional: define `CONTACT_FROM_EMAIL` con una dirección de ese dominio
-   (ej. `notificaciones@adriancaballero.studio`). Mientras el dominio no
-   esté verificado, deja esta variable vacía: se usa la dirección de
-   pruebas de Resend, que solo entrega al correo de tu propia cuenta.
-5. Los leads llegan a `contacto@adriancaballero.studio` (definido en
-   `src/lib/site-config.ts`) salvo que definas `CONTACT_TO_EMAIL` con otra
-   dirección.
+4. Opcional: define `CONTACT_FROM_EMAIL` con una dirección de ese dominio.
+   Mientras el dominio no esté verificado, deja esta variable vacía: se usa
+   la dirección de pruebas de Resend, que solo entrega a tu propia cuenta.
 
-Sin `RESEND_API_KEY`, el formulario cae de vuelta a `CONTACT_WEBHOOK_URL`
-si está definida, o si no, deja el lead en el log del servidor.
+Los leads llegan a `contacto@adriancaballero.studio` (definido en
+`src/lib/site-config.ts`) salvo que definas `CONTACT_TO_EMAIL` con otra
+dirección. Si configuras SMTP y Resend a la vez, se usa SMTP primero. Sin
+ninguna de las dos, el formulario cae a `CONTACT_WEBHOOK_URL` si está
+definida, o si no, deja el lead en el log del servidor.
 
 ## Estructura
 
