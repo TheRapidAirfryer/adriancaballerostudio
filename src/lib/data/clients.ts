@@ -14,6 +14,6 @@ export const clients: ClientLogo[] = [
   { name: "Diproc", src: "/clients/marisollogo.png" },
   { name: "Diproc", src: "/clients/trulylogo.png" },
   { name: "Diproc", src: "/clients/compeniellogo.png" },
-  { name: "Diproc", src: "/clients/inomoalogo.png" },
+  { name: "Diproc", src: "/clients/inomoalogos.png" },
   { name: "Diproc", src: "/clients/diproclogo.png" },
 ];
