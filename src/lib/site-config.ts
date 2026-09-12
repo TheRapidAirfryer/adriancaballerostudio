@@ -34,9 +34,9 @@ export const siteConfig = {
   hours: "[EDITAR: horario de atención, ej. Lun–Vie 9:00–18:00]",
   social: {
     instagram: "https://instagram.com/adriancaballerostudio [EDITAR]",
+    facebook: "https://facebook.com/adriancaballerostudio [EDITAR]",
     tiktok: "https://tiktok.com/@adriancaballerostudio [EDITAR]",
     youtube: "https://youtube.com/@adriancaballerostudio [EDITAR]",
-    linkedin: "https://linkedin.com/company/adriancaballerostudio [EDITAR]",
     behance: "https://behance.net/adriancaballerostudio [EDITAR]",
   },
   analytics: {
