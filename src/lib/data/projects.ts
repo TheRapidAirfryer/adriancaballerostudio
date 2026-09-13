@@ -166,11 +166,27 @@ export const projects: Project[] = [
     metrics: [
       { label: "Fotografías entregadas", value: "Pendiente por definir", isPlaceholder: true },
     ],
-    featuredMedia: { type: "image", label: "Feria de la salud — Cooperativa Peniel — [EDITAR]" },
+    featuredMedia: {
+      type: "image",
+      label: "Feria de la salud — Cooperativa Peniel",
+      src: "/portfolio/peniel/compeniel-evento.png",
+    },
     gallery: [
-      { type: "image", label: "Registro de la feria de la salud" },
-      { type: "image", label: "Registro de la feria de la salud" },
-      { type: "image", label: "Registro de la feria de la salud" },
+      {
+        type: "image",
+        label: "Registro de la feria de la salud",
+        src: "/portfolio/peniel/registro-evento1.png",
+      },
+      {
+        type: "image",
+        label: "Registro de la feria de la salud",
+        src: "/portfolio/peniel/registro-evento2.png",
+      },
+      {
+        type: "image",
+        label: "Registro de la feria de la salud",
+        src: "/portfolio/peniel/registro-evento3.png",
+      },
     ],
     seoTitle: "Cobertura fotográfica de feria de la salud | Portafolio Adrian Caballero Studio",
     seoDescription: "Caso de estudio: cobertura fotográfica de la feria de la salud de Cooperativa Peniel.",
