@@ -128,7 +128,7 @@ export const projects: Project[] = [
   },
   {
     slug: "sitio-web-corporativo",
-    title: "Sitio web para empresa inmobiliaria",
+    title: "Desarrollo web — ADCOPRO",
     client: "Adcopro",
     industry: "Bienes raíces",
     categories: ["web"],
