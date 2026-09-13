@@ -30,15 +30,11 @@ export function CTA({
             ) : null}
           </div>
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
-            <Button href={primaryHref} variant="primary" className="bg-white text-black hover:bg-neutral-200">
+            <Button href={primaryHref} variant="inverted">
               {primaryLabel}
             </Button>
             {secondaryLabel && secondaryHref ? (
-              <Button
-                href={secondaryHref}
-                variant="secondary"
-                className="border-white/40 text-white hover:bg-white hover:text-black"
-              >
+              <Button href={secondaryHref} variant="secondary-inverted">
                 {secondaryLabel}
               </Button>
             ) : null}

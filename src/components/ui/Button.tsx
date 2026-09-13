@@ -9,6 +9,12 @@ const variants = {
   primary: "bg-black text-white hover:bg-neutral-800",
   secondary: "border border-black/80 text-black hover:bg-black hover:text-white",
   ghost: "text-black hover:text-neutral-500 px-0 py-0",
+  // Para usar sobre fondos oscuros (ej. secciones CTA en negro): en vez de
+  // sobreescribir clases de "primary"/"secondary" con className (lo cual
+  // puede dejar clases contradictorias como bg-black y bg-white a la vez,
+  // con un ganador impredecible), estas variantes ya vienen correctas.
+  inverted: "bg-white text-black hover:bg-neutral-200",
+  "secondary-inverted": "border border-white/40 text-white hover:bg-white hover:text-black",
 };
 
 type Variant = keyof typeof variants;
