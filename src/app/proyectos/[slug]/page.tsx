@@ -1,12 +1,13 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
-import { getProjectBySlug, getRelatedProjects, projects, PROJECT_CATEGORY_LABELS } from "@/lib/data/projects";
+// getRelatedProjects se deja sin usar mientras la sección "Más proyectos" está comentada.
+import { getProjectBySlug, projects, PROJECT_CATEGORY_LABELS } from "@/lib/data/projects";
 import { getServiceBySlug } from "@/lib/data/services";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { PlaceholderMedia } from "@/components/ui/PlaceholderMedia";
 import { ImageGallery } from "@/components/ui/ImageGallery";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { ProjectCard } from "@/components/portfolio/ProjectCard";
+// import { ProjectCard } from "@/components/portfolio/ProjectCard"; // usado solo por la sección "Más proyectos"
 import { CTA } from "@/components/ui/CTA";
 import { buildMetadata } from "@/lib/metadata";
 
@@ -35,7 +36,8 @@ export default async function ProjectPage({ params }: Props) {
   const project = getProjectBySlug(slug);
   if (!project) notFound();
 
-  const relatedProjects = getRelatedProjects(project);
+  // Sección "Más proyectos" desactivada temporalmente — ver más abajo.
+  // const relatedProjects = getRelatedProjects(project);
   const usedServices = project.services
     .map((s) => getServiceBySlug(s))
     .filter((s): s is NonNullable<typeof s> => Boolean(s));
@@ -158,6 +160,8 @@ export default async function ProjectPage({ params }: Props) {
         </div>
       </div>
 
+      {/* Sección "Más proyectos" desactivada temporalmente — descomentar junto con
+          la línea de relatedProjects más arriba cuando se vuelva a necesitar.
       {relatedProjects.length > 0 ? (
         <section className="border-t border-black/10 bg-neutral-50 py-16 md:py-24">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
@@ -170,6 +174,7 @@ export default async function ProjectPage({ params }: Props) {
           </div>
         </section>
       ) : null}
+      */}
 
       <CTA
         heading="¿Tienes un proyecto parecido?"
