@@ -89,7 +89,7 @@ export default async function ProjectPage({ params }: Props) {
         <PlaceholderMedia
           label={project.featuredMedia.label}
           src={project.featuredMedia.src}
-          ratio="wide"
+          ratio="video"
           dark
           priority
         />
