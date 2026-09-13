@@ -36,8 +36,10 @@ export interface ProjectMedia {
 }
 
 /** Proporción de PlaceholderMedia adecuada según el tipo de contenido. */
-export function mediaRatio(item: ProjectMedia): "video" | "portrait" {
-  return item.type === "video-vertical" || item.type === "image-vertical" ? "portrait" : "video";
+export function mediaRatio(item: ProjectMedia): "video" | "portrait" | "feed-vertical" {
+  if (item.type === "video-vertical") return "portrait";
+  if (item.type === "image-vertical") return "feed-vertical";
+  return "video";
 }
 
 export interface ProjectMetric {

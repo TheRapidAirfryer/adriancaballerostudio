@@ -3,7 +3,7 @@ import { cn } from "@/lib/utils";
 
 interface PlaceholderMediaProps {
   label: string;
-  ratio?: "video" | "square" | "portrait" | "wide";
+  ratio?: "video" | "square" | "portrait" | "wide" | "feed-vertical";
   className?: string;
   dark?: boolean;
   /** Ruta de la imagen real en /public. Si se define, reemplaza el placeholder. */
@@ -16,6 +16,8 @@ const ratios: Record<NonNullable<PlaceholderMediaProps["ratio"]>, string> = {
   square: "aspect-square",
   portrait: "aspect-[9/16]",
   wide: "aspect-[21/9]",
+  /** Post vertical de feed de Instagram (1080x1350). */
+  "feed-vertical": "aspect-[4/5]",
 };
 
 /**
