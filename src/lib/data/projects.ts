@@ -309,7 +309,7 @@ export const projects: Project[] = [
     services: ["redes-sociales", "videos-redes-sociales", "meta-ads"],
     year: "2025",
     isPlaceholder: true,
-    summary: "Manejo de redes sociales y creación de contenido (video y diseño gráfico) para JF Marítimos, además de la gestión de sus campañas publicitarias en Meta.",
+    summary: "Gestión estratégica de redes sociales, creación de contenido y campañas en Meta Ads para fortalecer la presencia digital de JF Marítimos y generar nuevas oportunidades comerciales.",
     objective: "Fortalecer la presencia digital y generar más ventas.",
     challenge: "Comunicar una oferta amplia de productos y servicios náuticos.",
     solution: "Contenido para redes sociales y campañas en Meta Ads orientadas a alcance y ventas.",
