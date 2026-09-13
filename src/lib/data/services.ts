@@ -77,7 +77,6 @@ export const services: Service[] = [
       "Grabación con cámara, audio y luz profesional.",
       "Edición, subtítulos y música con licencia.",
       "Exportación en los formatos de cada plataforma.",
-      "Batería de piezas por jornada de grabación, no solo una pieza suelta.",
     ],
     process: [
       { title: "Brief y objetivo", description: "Entendemos qué necesita comunicar la marca y a quién le habla." },
