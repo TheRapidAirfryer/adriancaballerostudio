@@ -31,6 +31,8 @@ export interface ProjectMedia {
   label: string;
   /** Ruta del archivo en /public, ej. "/portfolio/mi-proyecto/portada.jpg". */
   src?: string;
+  /** Si se define, la miniatura enlaza a esta URL externa (ej. el reel en Instagram) en vez de abrir el visor interno. */
+  href?: string;
 }
 
 /** Proporción de PlaceholderMedia adecuada según el tipo de contenido. */
@@ -62,6 +64,8 @@ export interface Project {
   metrics: ProjectMetric[];
   featuredMedia: ProjectMedia;
   gallery: ProjectMedia[];
+  /** Sección opcional "Artes" para piezas gráficas verticales, debajo de la galería principal. */
+  artGallery?: ProjectMedia[];
   seoTitle: string;
   seoDescription: string;
 }
@@ -280,10 +284,16 @@ export const projects: Project[] = [
       { label: "Crecimiento de comunidad", value: "Pendiente por definir", isPlaceholder: true },
       { label: "Interacciones", value: "Pendiente por definir", isPlaceholder: true },
     ],
-    featuredMedia: { type: "image-vertical", label: "Contenido de JF Marítimos — [EDITAR]" },
+    featuredMedia: { type: "image", label: "Contenido de JF Marítimos — [EDITAR]" },
     gallery: [
-      { type: "image-vertical", label: "Pieza gráfica de campaña" },
-      { type: "video-vertical", label: "Reel destacado" },
+      { type: "video-vertical", label: "Reel — [EDITAR: link de Instagram]" },
+      { type: "video-vertical", label: "Reel — [EDITAR: link de Instagram]" },
+      { type: "video-vertical", label: "Reel — [EDITAR: link de Instagram]" },
+    ],
+    artGallery: [
+      { type: "image-vertical", label: "Arte gráfico — [EDITAR]" },
+      { type: "image-vertical", label: "Arte gráfico — [EDITAR]" },
+      { type: "image-vertical", label: "Arte gráfico — [EDITAR]" },
     ],
     seoTitle: "Gestión de redes sociales para JF Marítimos | Portafolio Adrian Caballero Studio",
     seoDescription: "Caso de estudio: manejo de redes sociales, creación de contenido y campañas en Meta Ads para JF Marítimos.",

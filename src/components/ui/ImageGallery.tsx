@@ -35,17 +35,33 @@ export function ImageGallery({ items }: { items: ProjectMedia[] }) {
   return (
     <>
       <div className="grid grid-cols-1 gap-3 md:grid-cols-3">
-        {items.map((item, index) => (
-          <button
-            key={`${item.label}-${index}`}
-            type="button"
-            onClick={() => setActiveIndex(index)}
-            className="text-left transition-opacity duration-300 hover:opacity-80"
-            aria-label={`Ampliar: ${item.label}`}
-          >
-            <PlaceholderMedia label={item.label} src={item.src} ratio={mediaRatio(item)} />
-          </button>
-        ))}
+        {items.map((item, index) =>
+          item.href ? (
+            <a
+              key={`${item.label}-${index}`}
+              href={item.href}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group relative block text-left transition-opacity duration-300 hover:opacity-80"
+              aria-label={`Ver en Instagram: ${item.label}`}
+            >
+              <PlaceholderMedia label={item.label} src={item.src} ratio={mediaRatio(item)} />
+              <span className="pointer-events-none absolute bottom-2 right-2 rounded-full bg-black/70 px-2 py-1 font-mono text-[10px] uppercase tracking-wide text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
+                Ver en Instagram
+              </span>
+            </a>
+          ) : (
+            <button
+              key={`${item.label}-${index}`}
+              type="button"
+              onClick={() => setActiveIndex(index)}
+              className="text-left transition-opacity duration-300 hover:opacity-80"
+              aria-label={`Ampliar: ${item.label}`}
+            >
+              <PlaceholderMedia label={item.label} src={item.src} ratio={mediaRatio(item)} />
+            </button>
+          )
+        )}
       </div>
 
       {activeIndex !== null ? (

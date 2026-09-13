@@ -132,6 +132,15 @@ export default async function ProjectPage({ params }: Props) {
           </div>
         </div>
 
+        {project.artGallery && project.artGallery.length > 0 ? (
+          <div className="mt-14 md:mt-20">
+            <SectionHeading eyebrow="Diseño" title="Artes." className="max-w-2xl" />
+            <div className="mt-8">
+              <ImageGallery items={project.artGallery} />
+            </div>
+          </div>
+        ) : null}
+
         <div className="mt-14 grid gap-12 border-t border-black/10 pt-12 md:mt-20 md:grid-cols-2">
           <div>
             <h2 className="text-lg font-medium tracking-tight">Resultado</h2>
