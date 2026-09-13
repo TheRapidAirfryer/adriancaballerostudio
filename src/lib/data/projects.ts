@@ -256,7 +256,7 @@ export const projects: Project[] = [
     slug: "redes-sociales-jf-maritimos",
     title: "Gestión de redes sociales — JF Marítimos",
     client: "JF Marítimos",
-    industry: "Venta de motores Mercury, lanchas y accesorios marinos",
+    industry: "Náutica y marítima",
     categories: ["social"],
     services: ["redes-sociales", "videos-redes-sociales", "meta-ads"],
     year: "2025",
