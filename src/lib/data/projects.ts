@@ -8,7 +8,6 @@
 export type ProjectCategory =
   | "video"
   | "fotografia"
-  | "fotografia-eventos"
   | "dron"
   | "web"
   | "apps"
@@ -19,7 +18,6 @@ export type ProjectCategory =
 export const PROJECT_CATEGORY_LABELS: Record<ProjectCategory, string> = {
   video: "Video",
   fotografia: "Fotografía",
-  "fotografia-eventos": "Fotografía de eventos",
   dron: "Dron",
   web: "Web",
   apps: "Apps",
@@ -151,7 +149,7 @@ export const projects: Project[] = [
     title: "Cobertura fotográfica — Feria de Salud",
     client: "Cooperativa Peniel",
     industry: "Servicios financieros / Cooperativa",
-    categories: ["fotografia-eventos"],
+    categories: ["fotografia"],
     services: ["fotografia"],
     year: "2026",
     isPlaceholder: false,
