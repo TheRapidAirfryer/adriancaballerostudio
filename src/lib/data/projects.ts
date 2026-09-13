@@ -81,7 +81,7 @@ export const projects: Project[] = [
     categories: ["social"],
     services: ["redes-sociales", "videos-redes-sociales", "meta-ads"],
     year: "2025",
-    isPlaceholder: true,
+    isPlaceholder: false,
     summary: "Gestión estratégica de redes sociales, creación de contenido y campañas en Meta Ads para fortalecer la presencia digital de JF Marítimos y generar nuevas oportunidades comerciales.",
     objective: "Fortalecer la presencia digital y generar más ventas.",
     challenge: "Comunicar una oferta amplia de productos y servicios náuticos.",
@@ -91,10 +91,11 @@ export const projects: Project[] = [
       "Producción de piezas gráficas y video para publicaciones.",
       "Configuración, optimización y reporte de campañas en Meta Ads.",
     ],
-    results: "[EDITAR: resultados reales de la gestión de redes y campañas].",
+    results: "Crecimiento sostenido de la comunidad y del alcance en Facebook, Instagram y TikTok, con un fuerte aumento en interacciones con el contenido publicado.",
     metrics: [
-      { label: "Crecimiento de comunidad", value: "Pendiente por definir", isPlaceholder: true },
-      { label: "Interacciones", value: "Pendiente por definir", isPlaceholder: true },
+      { label: "Crecimiento de comunidad", value: "+87.2%", isPlaceholder: false },
+      { label: "Interacciones", value: "16.4 mil", isPlaceholder: false },
+      { label: "Alcance en TikTok", value: "815.2K reproducciones", isPlaceholder: false },
     ],
     featuredMedia: {
       type: "image",
