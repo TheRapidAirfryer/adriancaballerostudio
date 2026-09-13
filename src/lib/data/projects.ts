@@ -262,11 +262,27 @@ export const projects: Project[] = [
       { label: "Tráfico orgánico", value: "Pendiente por definir", isPlaceholder: true },
       { label: "Leads generados", value: "Pendiente por definir", isPlaceholder: true },
     ],
-    featuredMedia: { type: "image", label: "Vista del sitio web de Ciudad Pinares — [EDITAR]" },
+    featuredMedia: {
+      type: "image",
+      label: "Vista del sitio web de Ciudad Pinares",
+      src: "/portfolio/ciudad-pinares/ciudadpinares-website.png",
+    },
     gallery: [
-      { type: "image", label: "Vista de homepage en escritorio" },
-      { type: "image", label: "Vista móvil del sitio web" },
-      { type: "image", label: "Vista de página de contacto" },
+      {
+        type: "image",
+        label: "Vista de homepage en escritorio",
+        src: "/portfolio/ciudad-pinares/ciudadpinares-website.png",
+      },
+      {
+        type: "image",
+        label: "Vista móvil del sitio web",
+        src: "/portfolio/ciudad-pinares/ciudadpinares-website-phone.png",
+      },
+      {
+        type: "image",
+        label: "Vista de página interna",
+        src: "/portfolio/ciudad-pinares/ciudadpinares-preview.png",
+      },
     ],
     seoTitle: "Sitio web para Ciudad Pinares | Portafolio Adrian Caballero Studio",
     seoDescription: "Caso de estudio: diseño y desarrollo de un sitio web para el proyecto residencial Ciudad Pinares.",
