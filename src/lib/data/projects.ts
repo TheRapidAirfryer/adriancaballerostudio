@@ -98,7 +98,7 @@ export const projects: Project[] = [
   {
     slug: "sitio-web-corporativo",
     title: "Sitio web corporativo con enfoque en SEO",
-    client: "[EDITAR: Nombre del cliente]",
+    client: "Adcopro",
     industry: "[EDITAR: Industria — ej. Servicios profesionales]",
     categories: ["web"],
     services: ["desarrollo-web"],
@@ -119,7 +119,11 @@ export const projects: Project[] = [
       { label: "Tráfico orgánico", value: "Pendiente por definir", isPlaceholder: true },
       { label: "Leads generados", value: "Pendiente por definir", isPlaceholder: true },
     ],
-    featuredMedia: { type: "image", label: "Mockup del sitio — [EDITAR]" },
+    featuredMedia: {
+      type: "image",
+      label: "Vista del sitio web de Adcopro",
+      src: "/portfolio/adcopro/adcopro-website.png",
+    },
     gallery: [
       { type: "image", label: "Vista de homepage en escritorio" },
       { type: "image", label: "Vista de página de servicios en móvil" },
