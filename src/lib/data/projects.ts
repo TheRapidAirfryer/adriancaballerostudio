@@ -308,10 +308,7 @@ export const projects: Project[] = [
       "Edición de video resumen para redes sociales.",
     ],
     results: "Video bien recibido por los pescadores y la comunidad, reflejando el apoyo de JF Marítimos al evento.",
-    metrics: [
-      { label: "Piezas entregadas", value: "Pendiente por definir", isPlaceholder: true },
-      { label: "Reproducciones", value: "Pendiente por definir", isPlaceholder: true },
-    ],
+    metrics: [],
     featuredMedia: {
       type: "image",
       label: "Cobertura del Día del Pescador",
