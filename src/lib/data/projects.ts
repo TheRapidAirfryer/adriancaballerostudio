@@ -169,23 +169,23 @@ export const projects: Project[] = [
     featuredMedia: {
       type: "image",
       label: "Feria de la salud — Cooperativa Peniel",
-      src: "/portfolio/peniel/compeniel-evento.png",
+      src: "/portfolio/compeniel/compeniel-evento.png",
     },
     gallery: [
       {
         type: "image",
         label: "Registro de la feria de la salud",
-        src: "/portfolio/peniel/registro-evento1.png",
+        src: "/portfolio/compeniel/registro-evento1.png",
       },
       {
         type: "image",
         label: "Registro de la feria de la salud",
-        src: "/portfolio/peniel/registro-evento2.png",
+        src: "/portfolio/compeniel/registro-evento2.png",
       },
       {
         type: "image",
         label: "Registro de la feria de la salud",
-        src: "/portfolio/peniel/registro-evento3.png",
+        src: "/portfolio/compeniel/registro-evento3.png",
       },
     ],
     seoTitle: "Cobertura fotográfica de feria de la salud | Portafolio Adrian Caballero Studio",
