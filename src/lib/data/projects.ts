@@ -126,7 +126,11 @@ export const projects: Project[] = [
     },
     gallery: [
       { type: "image", label: "Vista de homepage en escritorio" },
-      { type: "image", label: "Vista de página de servicios en móvil" },
+      {
+        type: "image",
+        label: "Vista móvil del sitio web de Adcopro",
+        src: "/portfolio/adcopro/adcopro-website-phone.png",
+      },
       { type: "image", label: "Vista de página de contacto" },
     ],
     seoTitle: "Sitio web para inmobiliaria | Portafolio Adrian Caballero Studio",
