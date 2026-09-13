@@ -31,7 +31,7 @@ export const siteConfig = {
     country: "Honduras",
     postalCode: "21101",
   },
-  hours: "Lun–Dom 8:00 AM – 10:00 PM]",
+  hours: "Lun–Dom 8:00 AM – 10:00 PM",
   social: {
     instagram: "https://www.instagram.com/adriancaballero.studio/",
     facebook: "https://www.facebook.com/profile.php?id=61594193676032",
