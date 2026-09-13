@@ -103,7 +103,7 @@ export const projects: Project[] = [
     categories: ["web"],
     services: ["desarrollo-web"],
     year: "2025",
-    isPlaceholder: true,
+    isPlaceholder: false,
     summary: "Diseño y desarrollo de un sitio web multipágina construido desde cero para una empresa inmobiliaria.",
     objective: "Crear una plataforma inmobiliaria moderna para promocionar propiedades y generar contactos.",
     challenge: "Organizar diferentes tipos de propiedades en una experiencia clara y fácil de usar.",
@@ -125,13 +125,21 @@ export const projects: Project[] = [
       src: "/portfolio/adcopro/adcopro-website.png",
     },
     gallery: [
-      { type: "image", label: "Vista de homepage en escritorio" },
+      {
+        type: "image",
+        label: "Vista de homepage en escritorio",
+        src: "/portfolio/adcopro/adcopro-website.png",
+      },
       {
         type: "image",
         label: "Vista móvil del sitio web de Adcopro",
         src: "/portfolio/adcopro/adcopro-website-phone.png",
       },
-      { type: "image", label: "Vista de página de contacto" },
+      {
+        type: "image",
+        label: "Vista de página de contacto",
+        src: "/portfolio/adcopro/adcopro-contacto.png",
+      },
     ],
     seoTitle: "Sitio web para inmobiliaria | Portafolio Adrian Caballero Studio",
     seoDescription: "Caso de estudio: diseño y desarrollo desde cero de un sitio web multipágina para una empresa inmobiliaria.",
