@@ -311,13 +311,32 @@ export const projects: Project[] = [
       { label: "Piezas entregadas", value: "Pendiente por definir", isPlaceholder: true },
       { label: "Reproducciones", value: "Pendiente por definir", isPlaceholder: true },
     ],
-    featuredMedia: { type: "video-horizontal", label: "Resumen del Día del Pescador — [EDITAR]" },
+    featuredMedia: {
+      type: "image",
+      label: "Cobertura del Día del Pescador",
+      src: "/portfolio/jfmaritimos/dia-del-pescador/diadelpescador-portada.png",
+    },
     gallery: [
-      { type: "image", label: "Registro de la carrera de kayaks" },
-      { type: "image", label: "Registro del evento" },
+      {
+        type: "image",
+        label: "Registro de la carrera de kayaks",
+        src: "/portfolio/jfmaritimos/dia-del-pescador/diadelpescador-portada.png",
+      },
+      {
+        type: "image",
+        label: "Registro del evento",
+        src: "/portfolio/jfmaritimos/dia-del-pescador/foto-2.png",
+      },
+      {
+        type: "image",
+        label: "Registro del evento",
+        src: "/portfolio/jfmaritimos/dia-del-pescador/foto-3.png",
+      },
       {
         type: "video-horizontal",
-        label: "Entrevista al ganador — [EDITAR: link de Instagram]",
+        label: "Entrevista al ganador",
+        src: "/portfolio/jfmaritimos/dia-del-pescador/foto-video.png",
+        href: "https://www.instagram.com/reel/DbwL-eTOEwX/",
       },
     ],
     seoTitle: "Cobertura del Día del Pescador para JF Marítimos | Portafolio Adrian Caballero Studio",
