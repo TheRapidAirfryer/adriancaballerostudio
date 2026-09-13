@@ -11,8 +11,7 @@ export const siteConfig = {
   legalName: "Inversiones Cabsan S. de R. L.",
   tagline: "Creatividad, tecnología y estrategia para marcas que quieren avanzar.",
   description:
-    "Estudio creativo y tecnológico especializado en contenido audiovisual, diseño, publicidad y desarrollo de soluciones digitales para marcas que buscan fortalecer su imagen, comunicar con mayor impacto, vender más y optimizar su operación.
-",
+    "Estudio creativo y tecnológico especializado en contenido audiovisual, diseño, publicidad y desarrollo de soluciones digitales para marcas que buscan fortalecer su imagen, comunicar con mayor impacto, vender más y optimizar su operación.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.adriancaballero.studio",
   locale: "es",
   founder: {
