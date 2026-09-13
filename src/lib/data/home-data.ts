@@ -22,8 +22,8 @@ export const processSteps = [
 ];
 
 export const homeMetrics = [
-  { value: "—", label: "Proyectos entregados", isPlaceholder: true },
-  { value: "—", label: "Marcas acompañadas", isPlaceholder: true },
-  { value: "—", label: "Años de experiencia", isPlaceholder: true },
+  { value: "+100", label: "Proyectos entregados", isPlaceholder: false },
+  { value: "25+", label: "Marcas acompañadas", isPlaceholder: false },
+  { value: "5+", label: "Años de experiencia", isPlaceholder: false },
   { value: "9", label: "Servicios integrados", isPlaceholder: false },
 ];
