@@ -15,7 +15,7 @@ export default function TermsPage() {
       <Breadcrumbs items={[{ label: "Términos", href: "/terminos" }]} />
       <h1 className="text-3xl font-medium tracking-tight md:text-5xl">Términos y condiciones</h1>
       <p className="mt-4 text-sm text-neutral-500">
-        Última actualización: [EDITAR: fecha de publicación].
+        Última actualización: 13 de septiembre de 2026.
       </p>
 
       <div className="mt-10 flex flex-col gap-8 text-sm leading-relaxed text-neutral-600 md:text-base">
@@ -51,7 +51,7 @@ export default function TermsPage() {
             La información publicada sobre servicios tiene fines informativos. Los
             alcances, tiempos y costos definitivos de cada proyecto se establecen en una
             propuesta o contrato específico entre {siteConfig.legalName} y el cliente.
-            [EDITAR: ajustar según los términos comerciales reales del studio.]
+             
           </p>
         </section>
 
