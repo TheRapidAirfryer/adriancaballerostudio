@@ -113,11 +113,11 @@ export const projects: Project[] = [
       "Diseño UI a medida basado en la identidad de marca del cliente.",
       "Desarrollo con foco en SEO técnico y rendimiento.",
     ],
-    results: "[EDITAR: resultados reales tras el lanzamiento del sitio].",
+    results: "Sitio web inmobiliario moderno, funcional y preparado para captar clientes interesados en propiedades.",
     metrics: [
-      { label: "Velocidad (Lighthouse)", value: "Pendiente por definir", isPlaceholder: true },
-      { label: "Tráfico orgánico", value: "Pendiente por definir", isPlaceholder: true },
-      { label: "Leads generados", value: "Pendiente por definir", isPlaceholder: true },
+      { label: "Plataforma operativa", value: "Sitio publicado", isPlaceholder: false },
+      { label: "Optimizado para móvil y escritorio", value: "100% responsive", isPlaceholder: false },
+      { label: "Integración con WhatsApp", value: "Contacto directo", isPlaceholder: false },
     ],
     featuredMedia: {
       type: "image",
