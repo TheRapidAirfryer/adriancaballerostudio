@@ -8,10 +8,11 @@
 export const siteConfig = {
   name: "Adrian Caballero Studio",
   shortName: "ACS",
-  legalName: "Adrian Caballero Studio [EDITAR: razón social]",
+  legalName: "Inversiones Cabsan S. de R. L.",
   tagline: "Creatividad, tecnología y estrategia para marcas que quieren avanzar.",
   description:
-    "Estudio creativo y tecnológico especializado en contenido audiovisual, diseño, publicidad y desarrollo de tecnología para marcas que quieren verse mejor, comunicar mejor, vender mejor y operar mejor.",
+    "Estudio creativo y tecnológico especializado en contenido audiovisual, diseño, publicidad y desarrollo de soluciones digitales para marcas que buscan fortalecer su imagen, comunicar con mayor impacto, vender más y optimizar su operación.
+",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.adriancaballero.studio",
   locale: "es",
   founder: {
@@ -25,19 +26,17 @@ export const siteConfig = {
     whatsappLink: "https://wa.me/50488795325",
   },
   address: {
-    street: "[EDITAR: dirección]",
-    city: "[EDITAR: ciudad]",
-    region: "[EDITAR: estado / provincia]",
-    country: "[EDITAR: país]",
-    postalCode: "[EDITAR]",
+    street: "15 y 16 calle",
+    city: "San Pedro Sula",
+    region: "Cortés",
+    country: "Honduras",
+    postalCode: "21101",
   },
-  hours: "[EDITAR: horario de atención, ej. Lun–Vie 9:00–18:00]",
+  hours: "Lun–Dom 8:00 AM – 10:00 PM]",
   social: {
     instagram: "https://www.instagram.com/adriancaballero.studio/",
     facebook: "https://www.facebook.com/profile.php?id=61594193676032",
     tiktok: "https://www.tiktok.com/@cabsan28",
-    youtube: "https://youtube.com/@adriancaballerostudio [EDITAR]",
-    behance: "https://behance.net/adriancaballerostudio [EDITAR]",
   },
   analytics: {
     ga4Id: process.env.NEXT_PUBLIC_GA4_ID ?? "",
