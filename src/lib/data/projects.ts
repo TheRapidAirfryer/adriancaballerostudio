@@ -166,7 +166,7 @@ export const projects: Project[] = [
     ],
     results: "Cobertura fotográfica profesional con imágenes editadas y listas para comunicación institucional y redes sociales.",
     metrics: [
-      { label: "Fotografías entregadas y editadas", value: "Cobertura completa", isPlaceholder: false },
+      { label: "Fotografías entregadas y editadas", value: "90 fotos", isPlaceholder: false },
     ],
     featuredMedia: {
       type: "image",
