@@ -458,7 +458,7 @@ export const projects: Project[] = [
     isPlaceholder: true,
     summary: "Cobertura audiovisual del Día del Pescador, una carrera de kayaks patrocinada por JF Marítimos.",
     objective: "Documentar la participación de JF Marítimos como patrocinador del Día del Pescador y su carrera de kayaks.",
-    challenge: "[EDITAR: reto particular — ej. múltiples actividades simultáneas, locación grande].",
+    challenge: "Grabar en La Ceiba bajo sol fuerte y desde lanchas en movimiento, logrando buenas tomas de la carrera.",
     solution: "Grabación de un video resumen del evento y la carrera de kayaks, incluyendo una entrevista con el ganador.",
     processNotes: [
       "Levantamiento previo de la locación y agenda del evento.",
@@ -466,7 +466,7 @@ export const projects: Project[] = [
       "Entrevista al ganador de la carrera.",
       "Edición de video resumen para redes sociales.",
     ],
-    results: "[EDITAR: resultados reales de la cobertura].",
+    results: "Video bien recibido por los pescadores y la comunidad, reflejando el apoyo de JF Marítimos al evento.",
     metrics: [
       { label: "Piezas entregadas", value: "Pendiente por definir", isPlaceholder: true },
       { label: "Reproducciones", value: "Pendiente por definir", isPlaceholder: true },
