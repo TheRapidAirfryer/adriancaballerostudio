@@ -8,6 +8,7 @@
 export type ProjectCategory =
   | "video"
   | "fotografia"
+  | "fotografia-eventos"
   | "dron"
   | "web"
   | "apps"
@@ -18,6 +19,7 @@ export type ProjectCategory =
 export const PROJECT_CATEGORY_LABELS: Record<ProjectCategory, string> = {
   video: "Video",
   fotografia: "Fotografía",
+  "fotografia-eventos": "Fotografía de eventos",
   dron: "Dron",
   web: "Web",
   apps: "Apps",
@@ -145,26 +147,26 @@ export const projects: Project[] = [
     seoDescription: "Caso de estudio: diseño y desarrollo desde cero de un sitio web multipágina para una empresa inmobiliaria.",
   },
   {
-    slug: "cobertura-evento-corporativo",
-    title: "Cobertura fotográfica de feria de la salud",
+    slug: "cobertura-fotografica-feria-salud-peniel",
+    title: "Cobertura fotográfica — Feria de Salud",
     client: "Cooperativa Peniel",
-    industry: "Cooperativa",
-    categories: ["fotografia"],
+    industry: "Servicios financieros / Cooperativa",
+    categories: ["fotografia-eventos"],
     services: ["fotografia"],
-    year: "2024",
-    isPlaceholder: true,
-    summary: "Cobertura fotográfica de una feria de la salud organizada por Cooperativa Peniel para brindar chequeos médicos gratuitos a sus afiliados.",
-    objective: "[EDITAR: objetivo del cliente para la cobertura del evento].",
-    challenge: "[EDITAR: reto particular — ej. múltiples actividades simultáneas, locación grande].",
-    solution: "[EDITAR: cómo se organizó la cobertura para resolverlo].",
+    year: "2026",
+    isPlaceholder: false,
+    summary: "Cobertura fotográfica profesional de la Feria de Salud organizada por Cooperativa Peniel, documentando las actividades, atención médica y participación de sus afiliados.",
+    objective: "Crear contenido fotográfico profesional para documentar la Feria de Salud y fortalecer la comunicación institucional de Cooperativa Peniel.",
+    challenge: "Capturar las principales actividades y momentos del evento manteniendo una imagen natural, profesional y coherente con la marca.",
+    solution: "Realizamos una cobertura fotográfica enfocada en documentar la atención, participación de los afiliados y momentos más importantes de la jornada.",
     processNotes: [
       "Levantamiento previo de la locación y agenda del evento.",
       "Cobertura fotográfica de las actividades y espacios de la feria.",
       "Selección y edición de las fotografías finales.",
     ],
-    results: "[EDITAR: resultados reales de la cobertura].",
+    results: "Cobertura fotográfica profesional con imágenes editadas y listas para comunicación institucional y redes sociales.",
     metrics: [
-      { label: "Fotografías entregadas", value: "Pendiente por definir", isPlaceholder: true },
+      { label: "Fotografías entregadas y editadas", value: "Cobertura completa", isPlaceholder: false },
     ],
     featuredMedia: {
       type: "image",
@@ -188,8 +190,8 @@ export const projects: Project[] = [
         src: "/portfolio/compeniel/registro-evento3.png",
       },
     ],
-    seoTitle: "Cobertura fotográfica de feria de la salud | Portafolio Adrian Caballero Studio",
-    seoDescription: "Caso de estudio: cobertura fotográfica de la feria de la salud de Cooperativa Peniel.",
+    seoTitle: "Cobertura fotográfica — Feria de Salud | Portafolio Adrian Caballero Studio",
+    seoDescription: "Caso de estudio: cobertura fotográfica de la Feria de Salud organizada por Cooperativa Peniel.",
   },
   {
     slug: "app-gestion-interna",
