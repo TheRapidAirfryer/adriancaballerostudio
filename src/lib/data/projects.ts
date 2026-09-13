@@ -128,7 +128,7 @@ export const projects: Project[] = [
   },
   {
     slug: "sitio-web-corporativo",
-    title: "Desarrollo web — ADCOPRO",
+    title: "Desarrollo web — Adcopro",
     client: "Adcopro",
     industry: "Bienes raíces",
     categories: ["web"],
@@ -177,7 +177,7 @@ export const projects: Project[] = [
   },
   {
     slug: "cobertura-fotografica-feria-salud-peniel",
-    title: "Cobertura fotográfica — Feria de Salud",
+    title: "Cobertura Fotográfica — Compeniel",
     client: "Cooperativa Peniel",
     industry: "Servicios financieros / Cooperativa",
     categories: ["fotografia"],
