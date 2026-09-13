@@ -7,7 +7,11 @@ export function ProjectCard({ project }: { project: Project }) {
     <Link href={`/proyectos/${project.slug}`} className="group block">
       <div className="overflow-hidden">
         <div className="transition-transform duration-500 ease-[cubic-bezier(0.16,1,0.3,1)] group-hover:scale-[1.03]">
-          <PlaceholderMedia label={project.featuredMedia.label} ratio="video" />
+          <PlaceholderMedia
+            label={project.featuredMedia.label}
+            src={project.featuredMedia.src}
+            ratio="video"
+          />
         </div>
       </div>
       <div className="mt-4 flex items-start justify-between gap-4">

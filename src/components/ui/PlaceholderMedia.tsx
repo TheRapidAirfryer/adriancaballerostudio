@@ -1,3 +1,4 @@
+import Image from "next/image";
 import { cn } from "@/lib/utils";
 
 interface PlaceholderMediaProps {
@@ -5,6 +6,9 @@ interface PlaceholderMediaProps {
   ratio?: "video" | "square" | "portrait" | "wide";
   className?: string;
   dark?: boolean;
+  /** Ruta de la imagen real en /public. Si se define, reemplaza el placeholder. */
+  src?: string;
+  priority?: boolean;
 }
 
 const ratios: Record<NonNullable<PlaceholderMediaProps["ratio"]>, string> = {
@@ -17,14 +21,32 @@ const ratios: Record<NonNullable<PlaceholderMediaProps["ratio"]>, string> = {
 /**
  * Marcador visual elegante para espacios donde debe ir fotografía o video
  * real del cliente. No usamos imágenes de stock: dejamos explícito qué
- * contenido falta y en qué formato.
+ * contenido falta y en qué formato. En cuanto se define "src", muestra la
+ * imagen real en su lugar.
  */
 export function PlaceholderMedia({
   label,
   ratio = "video",
   className,
   dark = false,
+  src,
+  priority = false,
 }: PlaceholderMediaProps) {
+  if (src) {
+    return (
+      <div className={cn("relative overflow-hidden", ratios[ratio], className)}>
+        <Image
+          src={src}
+          alt={label}
+          fill
+          priority={priority}
+          sizes="(max-width: 768px) 100vw, 50vw"
+          className="object-cover"
+        />
+      </div>
+    );
+  }
+
   return (
     <div
       className={cn(

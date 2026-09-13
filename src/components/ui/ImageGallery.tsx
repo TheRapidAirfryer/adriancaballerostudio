@@ -47,7 +47,7 @@ export function ImageGallery({ items }: { items: ProjectMedia[] }) {
             className="text-left transition-opacity duration-300 hover:opacity-80"
             aria-label={`Ampliar: ${item.label}`}
           >
-            <PlaceholderMedia label={item.label} ratio={ratioFor(item)} />
+            <PlaceholderMedia label={item.label} src={item.src} ratio={ratioFor(item)} />
           </button>
         ))}
       </div>
@@ -78,6 +78,7 @@ export function ImageGallery({ items }: { items: ProjectMedia[] }) {
           <div className="w-full max-w-3xl">
             <PlaceholderMedia
               label={items[activeIndex].label}
+              src={items[activeIndex].src}
               ratio={ratioFor(items[activeIndex])}
               dark
               className="border-white/20"

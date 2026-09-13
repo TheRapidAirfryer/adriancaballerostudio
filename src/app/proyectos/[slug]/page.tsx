@@ -86,7 +86,13 @@ export default async function ProjectPage({ params }: Props) {
       </div>
 
       <div className="mx-auto max-w-[1400px] px-6 pt-10 md:px-10">
-        <PlaceholderMedia label={project.featuredMedia.label} ratio="wide" dark />
+        <PlaceholderMedia
+          label={project.featuredMedia.label}
+          src={project.featuredMedia.src}
+          ratio="wide"
+          dark
+          priority
+        />
       </div>
 
       <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-10 md:py-24">

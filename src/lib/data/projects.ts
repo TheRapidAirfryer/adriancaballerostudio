@@ -29,6 +29,8 @@ export const PROJECT_CATEGORY_LABELS: Record<ProjectCategory, string> = {
 export interface ProjectMedia {
   type: "image" | "video-vertical" | "video-horizontal";
   label: string;
+  /** Ruta del archivo en /public, ej. "/portfolio/mi-proyecto/portada.jpg". */
+  src?: string;
 }
 
 export interface ProjectMetric {
