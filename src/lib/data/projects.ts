@@ -74,6 +74,59 @@ export interface Project {
 
 export const projects: Project[] = [
   {
+    slug: "redes-sociales-jf-maritimos",
+    title: "Gestión de redes sociales — JF Marítimos",
+    client: "JF Marítimos",
+    industry: "Náutica y marítima",
+    categories: ["social"],
+    services: ["redes-sociales", "videos-redes-sociales", "meta-ads"],
+    year: "2025",
+    isPlaceholder: true,
+    summary: "Gestión estratégica de redes sociales, creación de contenido y campañas en Meta Ads para fortalecer la presencia digital de JF Marítimos y generar nuevas oportunidades comerciales.",
+    objective: "Fortalecer la presencia digital y generar más ventas.",
+    challenge: "Comunicar una oferta amplia de productos y servicios náuticos.",
+    solution: "Contenido para redes sociales y campañas en Meta Ads orientadas a alcance y ventas.",
+    processNotes: [
+      "Gestión mensual de contenido para redes sociales.",
+      "Producción de piezas gráficas y video para publicaciones.",
+      "Configuración, optimización y reporte de campañas en Meta Ads.",
+    ],
+    results: "[EDITAR: resultados reales de la gestión de redes y campañas].",
+    metrics: [
+      { label: "Crecimiento de comunidad", value: "Pendiente por definir", isPlaceholder: true },
+      { label: "Interacciones", value: "Pendiente por definir", isPlaceholder: true },
+    ],
+    featuredMedia: {
+      type: "image",
+      label: "Gestión de redes sociales de JF Marítimos",
+      src: "/portfolio/jfmaritimos/jfmaritimos-manejoderedes.png",
+    },
+    gallery: [
+      { type: "video-vertical", label: "Reel — [EDITAR: link de Instagram]" },
+      { type: "video-vertical", label: "Reel — [EDITAR: link de Instagram]" },
+      { type: "video-vertical", label: "Reel — [EDITAR: link de Instagram]" },
+    ],
+    artGallery: [
+      {
+        type: "image-vertical",
+        label: "Arte gráfico de JF Marítimos",
+        src: "/portfolio/jfmaritimos/jf-arte1.png",
+      },
+      {
+        type: "image-vertical",
+        label: "Arte gráfico de JF Marítimos",
+        src: "/portfolio/jfmaritimos/jf-arte2.png",
+      },
+      {
+        type: "image-vertical",
+        label: "Arte gráfico de JF Marítimos",
+        src: "/portfolio/jfmaritimos/jf-arte3.png",
+      },
+    ],
+    seoTitle: "Gestión de redes sociales para JF Marítimos | Portafolio Adrian Caballero Studio",
+    seoDescription: "Caso de estudio: manejo de redes sociales, creación de contenido y campañas en Meta Ads para JF Marítimos.",
+  },
+  {
     slug: "lanzamiento-linea-producto",
     title: "Campaña de lanzamiento para línea de producto",
     client: "[EDITAR: Nombre del cliente]",
@@ -299,59 +352,6 @@ export const projects: Project[] = [
     ],
     seoTitle: "Gestión de redes sociales para Bodega Marisol | Portafolio Adrian Caballero Studio",
     seoDescription: "Caso de estudio: manejo de redes sociales, creación de contenido y campañas en Meta Ads para Bodega Marisol.",
-  },
-  {
-    slug: "redes-sociales-jf-maritimos",
-    title: "Gestión de redes sociales — JF Marítimos",
-    client: "JF Marítimos",
-    industry: "Náutica y marítima",
-    categories: ["social"],
-    services: ["redes-sociales", "videos-redes-sociales", "meta-ads"],
-    year: "2025",
-    isPlaceholder: true,
-    summary: "Gestión estratégica de redes sociales, creación de contenido y campañas en Meta Ads para fortalecer la presencia digital de JF Marítimos y generar nuevas oportunidades comerciales.",
-    objective: "Fortalecer la presencia digital y generar más ventas.",
-    challenge: "Comunicar una oferta amplia de productos y servicios náuticos.",
-    solution: "Contenido para redes sociales y campañas en Meta Ads orientadas a alcance y ventas.",
-    processNotes: [
-      "Gestión mensual de contenido para redes sociales.",
-      "Producción de piezas gráficas y video para publicaciones.",
-      "Configuración, optimización y reporte de campañas en Meta Ads.",
-    ],
-    results: "[EDITAR: resultados reales de la gestión de redes y campañas].",
-    metrics: [
-      { label: "Crecimiento de comunidad", value: "Pendiente por definir", isPlaceholder: true },
-      { label: "Interacciones", value: "Pendiente por definir", isPlaceholder: true },
-    ],
-    featuredMedia: {
-      type: "image",
-      label: "Gestión de redes sociales de JF Marítimos",
-      src: "/portfolio/jfmaritimos/jfmaritimos-manejoderedes.png",
-    },
-    gallery: [
-      { type: "video-vertical", label: "Reel — [EDITAR: link de Instagram]" },
-      { type: "video-vertical", label: "Reel — [EDITAR: link de Instagram]" },
-      { type: "video-vertical", label: "Reel — [EDITAR: link de Instagram]" },
-    ],
-    artGallery: [
-      {
-        type: "image-vertical",
-        label: "Arte gráfico de JF Marítimos",
-        src: "/portfolio/jfmaritimos/jf-arte1.png",
-      },
-      {
-        type: "image-vertical",
-        label: "Arte gráfico de JF Marítimos",
-        src: "/portfolio/jfmaritimos/jf-arte2.png",
-      },
-      {
-        type: "image-vertical",
-        label: "Arte gráfico de JF Marítimos",
-        src: "/portfolio/jfmaritimos/jf-arte3.png",
-      },
-    ],
-    seoTitle: "Gestión de redes sociales para JF Marítimos | Portafolio Adrian Caballero Studio",
-    seoDescription: "Caso de estudio: manejo de redes sociales, creación de contenido y campañas en Meta Ads para JF Marítimos.",
   },
   {
     slug: "redes-sociales-truly-nolen",
