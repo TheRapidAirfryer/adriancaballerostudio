@@ -19,8 +19,8 @@ export default function PortfolioPage() {
         <Breadcrumbs items={[{ label: "Portafolio", href: "/portafolio" }]} />
         <SectionHeading
           eyebrow="Portafolio"
-          title="Proyectos, no promesas."
-          description="Una muestra de trabajo real en video, fotografía, dron, tecnología y estrategia. Los casos marcados como ejemplo se irán reemplazando por proyectos reales a medida que se publiquen."
+          title="Proyectos reales. Resultados reales."
+          description="Una selección de proyectos donde combinamos creatividad, tecnología y estrategia para fortalecer marcas, mejorar su comunicación y generar resultados."
           className="max-w-3xl"
         />
       </div>
