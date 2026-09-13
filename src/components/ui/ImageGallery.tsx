@@ -2,11 +2,7 @@
 
 import { useCallback, useEffect, useState } from "react";
 import { PlaceholderMedia } from "./PlaceholderMedia";
-import type { ProjectMedia } from "@/lib/data/projects";
-
-function ratioFor(item: ProjectMedia) {
-  return item.type === "video-vertical" ? "portrait" : "video";
-}
+import { mediaRatio, type ProjectMedia } from "@/lib/data/projects";
 
 export function ImageGallery({ items }: { items: ProjectMedia[] }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -47,7 +43,7 @@ export function ImageGallery({ items }: { items: ProjectMedia[] }) {
             className="text-left transition-opacity duration-300 hover:opacity-80"
             aria-label={`Ampliar: ${item.label}`}
           >
-            <PlaceholderMedia label={item.label} src={item.src} ratio={ratioFor(item)} />
+            <PlaceholderMedia label={item.label} src={item.src} ratio={mediaRatio(item)} />
           </button>
         ))}
       </div>
@@ -79,7 +75,7 @@ export function ImageGallery({ items }: { items: ProjectMedia[] }) {
             <PlaceholderMedia
               label={items[activeIndex].label}
               src={items[activeIndex].src}
-              ratio={ratioFor(items[activeIndex])}
+              ratio={mediaRatio(items[activeIndex])}
               dark
               className="border-white/20"
             />

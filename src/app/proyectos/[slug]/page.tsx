@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 // getRelatedProjects se deja sin usar mientras la sección "Más proyectos" está comentada.
-import { getProjectBySlug, projects, PROJECT_CATEGORY_LABELS } from "@/lib/data/projects";
+import { getProjectBySlug, mediaRatio, projects, PROJECT_CATEGORY_LABELS } from "@/lib/data/projects";
 import { getServiceBySlug } from "@/lib/data/services";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { PlaceholderMedia } from "@/components/ui/PlaceholderMedia";
@@ -91,7 +91,7 @@ export default async function ProjectPage({ params }: Props) {
         <PlaceholderMedia
           label={project.featuredMedia.label}
           src={project.featuredMedia.src}
-          ratio="video"
+          ratio={mediaRatio(project.featuredMedia)}
           dark
           priority
         />

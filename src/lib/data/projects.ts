@@ -27,10 +27,15 @@ export const PROJECT_CATEGORY_LABELS: Record<ProjectCategory, string> = {
 };
 
 export interface ProjectMedia {
-  type: "image" | "video-vertical" | "video-horizontal";
+  type: "image" | "image-vertical" | "video-vertical" | "video-horizontal";
   label: string;
   /** Ruta del archivo en /public, ej. "/portfolio/mi-proyecto/portada.jpg". */
   src?: string;
+}
+
+/** Proporción de PlaceholderMedia adecuada según el tipo de contenido. */
+export function mediaRatio(item: ProjectMedia): "video" | "portrait" {
+  return item.type === "video-vertical" || item.type === "image-vertical" ? "portrait" : "video";
 }
 
 export interface ProjectMetric {
@@ -275,10 +280,10 @@ export const projects: Project[] = [
       { label: "Crecimiento de comunidad", value: "Pendiente por definir", isPlaceholder: true },
       { label: "Interacciones", value: "Pendiente por definir", isPlaceholder: true },
     ],
-    featuredMedia: { type: "image", label: "Contenido de JF Marítimos — [EDITAR]" },
+    featuredMedia: { type: "image-vertical", label: "Contenido de JF Marítimos — [EDITAR]" },
     gallery: [
-      { type: "image", label: "Pieza gráfica de campaña" },
-      { type: "video-vertical", label: "Contenido de video destacado" },
+      { type: "image-vertical", label: "Pieza gráfica de campaña" },
+      { type: "video-vertical", label: "Reel destacado" },
     ],
     seoTitle: "Gestión de redes sociales para JF Marítimos | Portafolio Adrian Caballero Studio",
     seoDescription: "Caso de estudio: manejo de redes sociales, creación de contenido y campañas en Meta Ads para JF Marítimos.",
