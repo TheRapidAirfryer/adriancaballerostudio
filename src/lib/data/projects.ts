@@ -315,7 +315,10 @@ export const projects: Project[] = [
     gallery: [
       { type: "image", label: "Registro de la carrera de kayaks" },
       { type: "image", label: "Registro del evento" },
-      { type: "video-vertical", label: "Entrevista al ganador" },
+      {
+        type: "video-horizontal",
+        label: "Entrevista al ganador — [EDITAR: link de Instagram]",
+      },
     ],
     seoTitle: "Cobertura del Día del Pescador para JF Marítimos | Portafolio Adrian Caballero Studio",
     seoDescription: "Caso de estudio: cobertura audiovisual del Día del Pescador, carrera de kayaks patrocinada por JF Marítimos.",
