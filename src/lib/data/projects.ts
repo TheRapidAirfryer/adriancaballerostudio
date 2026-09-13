@@ -295,7 +295,7 @@ export const projects: Project[] = [
     categories: ["video", "dron"],
     services: ["produccion-audiovisual", "dron"],
     year: "2026",
-    isPlaceholder: true,
+    isPlaceholder: false,
     summary: "Cobertura audiovisual del Día del Pescador, una carrera de kayaks patrocinada por JF Marítimos.",
     objective: "Documentar la participación de JF Marítimos como patrocinador del Día del Pescador y su carrera de kayaks.",
     challenge: "Grabar en La Ceiba bajo sol fuerte y desde lanchas en movimiento, logrando buenas tomas de la carrera.",
@@ -319,11 +319,13 @@ export const projects: Project[] = [
         type: "image",
         label: "Registro del evento",
         src: "/portfolio/jfmaritimos/dia-del-pescador/foto-2.png",
+        href: "https://www.instagram.com/reel/DbwL-eTOEwX/",
       },
       {
         type: "image",
         label: "Registro del evento",
         src: "/portfolio/jfmaritimos/dia-del-pescador/foto-3.png",
+        href: "https://www.instagram.com/reel/DbwL-eTOEwX/",
       },
       {
         type: "video-horizontal",
