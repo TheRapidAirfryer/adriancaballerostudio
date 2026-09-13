@@ -454,7 +454,7 @@ export const projects: Project[] = [
     industry: "Náutica y marítima",
     categories: ["video"],
     services: ["produccion-audiovisual"],
-    year: "[EDITAR: año del evento]",
+    year: "2026",
     isPlaceholder: true,
     summary: "Cobertura audiovisual de un evento de JF Marítimos.",
     objective: "[EDITAR: objetivo de la cobertura del evento].",
