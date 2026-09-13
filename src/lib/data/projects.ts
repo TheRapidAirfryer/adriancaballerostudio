@@ -447,6 +447,38 @@ export const projects: Project[] = [
     seoTitle: "Gestión de redes sociales para Ciudad Pinares | Portafolio Adrian Caballero Studio",
     seoDescription: "Caso de estudio: manejo de redes sociales, creación de contenido y campañas en Meta Ads para Ciudad Pinares.",
   },
+  {
+    slug: "cobertura-evento-jf-maritimos",
+    title: "Cobertura de evento — JF Marítimos",
+    client: "JF Marítimos",
+    industry: "Náutica y marítima",
+    categories: ["video"],
+    services: ["produccion-audiovisual"],
+    year: "[EDITAR: año del evento]",
+    isPlaceholder: true,
+    summary: "Cobertura audiovisual de un evento de JF Marítimos.",
+    objective: "[EDITAR: objetivo de la cobertura del evento].",
+    challenge: "[EDITAR: reto particular — ej. múltiples actividades simultáneas, locación grande].",
+    solution: "[EDITAR: cómo se organizó la cobertura para resolverlo].",
+    processNotes: [
+      "Levantamiento previo de la locación y agenda del evento.",
+      "Cobertura en video de las actividades del evento.",
+      "Edición de video resumen y recortes para redes sociales.",
+    ],
+    results: "[EDITAR: resultados reales de la cobertura].",
+    metrics: [
+      { label: "Piezas entregadas", value: "Pendiente por definir", isPlaceholder: true },
+      { label: "Reproducciones", value: "Pendiente por definir", isPlaceholder: true },
+    ],
+    featuredMedia: { type: "video-horizontal", label: "Resumen del evento de JF Marítimos — [EDITAR]" },
+    gallery: [
+      { type: "image", label: "Registro del evento" },
+      { type: "image", label: "Registro del evento" },
+      { type: "video-vertical", label: "Recorte para redes sociales" },
+    ],
+    seoTitle: "Cobertura de evento para JF Marítimos | Portafolio Adrian Caballero Studio",
+    seoDescription: "Caso de estudio: cobertura audiovisual de un evento de JF Marítimos.",
+  },
 ];
 
 export function getProjectBySlug(slug: string) {
