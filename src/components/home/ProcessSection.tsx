@@ -8,8 +8,8 @@ export function ProcessSection() {
       <RevealOnScroll>
         <SectionHeading
           eyebrow="Cómo trabajamos"
-          title="Un proceso claro, sin caja negra."
-          description="No entregamos algo terminado sin haberte mostrado cómo se construyó."
+          title="Un proceso claro, de principio a fin."
+          description="Te mantenemos al tanto en cada etapa, con avances claros, decisiones compartidas y resultados sin sorpresas."
         />
       </RevealOnScroll>
 
