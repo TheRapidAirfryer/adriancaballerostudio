@@ -105,9 +105,9 @@ export const projects: Project[] = [
     year: "2025",
     isPlaceholder: true,
     summary: "Diseño y desarrollo de un sitio web multipágina construido desde cero para una empresa inmobiliaria.",
-    objective: "[EDITAR: objetivo — ej. generar más contactos de clientes interesados en propiedades].",
-    challenge: "[EDITAR: descripción del reto — ej. la empresa no contaba con presencia web previa].",
-    solution: "[EDITAR: arquitectura y decisiones técnicas tomadas para resolver el reto].",
+    objective: "Crear una plataforma inmobiliaria moderna para promocionar propiedades y generar contactos.",
+    challenge: "Organizar diferentes tipos de propiedades en una experiencia clara y fácil de usar.",
+    solution: "Diseño y desarrollo de un sitio web responsive, intuitivo y enfocado en conectar propietarios con clientes..",
     processNotes: [
       "Arquitectura de información y mapa de páginas.",
       "Diseño UI a medida basado en la identidad de marca del cliente.",
