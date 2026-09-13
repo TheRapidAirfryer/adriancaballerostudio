@@ -20,5 +20,6 @@ export const clients: ClientLogo[] = [
   { name: "MultiserviciosPremium", src: "/clients/multiservicioslogo.png" },
   { name: "SazondelaNegra", src: "/clients/sazonlogo.png" },
   { name: "Adcopro", src: "/clients/adcoprologo.png" },
+  { name: "CiudadPinares", src: "/clients/ciudadpinareslogo.png" },
   { name: "Diproc", src: "/clients/diproclogo.png" },
 ];

@@ -8,11 +8,11 @@ import { clients, type ClientLogo } from "@/lib/data/clients";
  */
 export function ClientLogos({ logos = clients }: { logos?: ClientLogo[] }) {
   return (
-    <ul className="grid grid-cols-2 divide-x divide-y divide-black/10 border border-black/10 sm:grid-cols-3 md:grid-cols-6 md:divide-y-0">
+    <ul className="flex flex-wrap border-b border-r border-black/10">
       {logos.map((client) => (
         <li
           key={client.name}
-          className="flex h-24 items-center justify-center px-6"
+          className="flex h-24 w-1/2 items-center justify-center border-l border-t border-black/10 px-6 sm:w-1/3 md:w-1/6"
         >
           {client.src ? (
             <Image
