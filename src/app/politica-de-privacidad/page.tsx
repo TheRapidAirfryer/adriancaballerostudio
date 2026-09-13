@@ -15,7 +15,7 @@ export default function PrivacyPolicyPage() {
       <Breadcrumbs items={[{ label: "Política de privacidad", href: "/politica-de-privacidad" }]} />
       <h1 className="text-3xl font-medium tracking-tight md:text-5xl">Política de privacidad</h1>
       <p className="mt-4 text-sm text-neutral-500">
-        Última actualización: [EDITAR: fecha de publicación].
+        Última actualización: 13 de septiembre de 2026.
       </p>
 
       <div className="prose-legal mt-10 flex flex-col gap-8 text-sm leading-relaxed text-neutral-600 md:text-base">
@@ -23,7 +23,7 @@ export default function PrivacyPolicyPage() {
           <h2 className="text-lg font-medium tracking-tight text-black">1. Responsable del tratamiento</h2>
           <p className="mt-2">
             {siteConfig.legalName}, con domicilio en {siteConfig.address.city},{" "}
-            {siteConfig.address.country} [EDITAR: dirección completa], es responsable del
+            {siteConfig.address.country} Barrio Paz Barhaona, 5 avenida, es responsable del
             tratamiento de los datos personales recopilados a través de este sitio web.
             Puedes contactarnos en {siteConfig.contact.email}.
           </p>
@@ -53,8 +53,7 @@ export default function PrivacyPolicyPage() {
           <p className="mt-2">
             Este sitio puede utilizar herramientas de analítica (como Google Analytics)
             y píxeles de publicidad (como Meta Pixel) para entender el uso del sitio y
-            medir el desempeño de campañas publicitarias. [EDITAR: detallar cookies
-            específicas utilizadas una vez configuradas las herramientas de analítica.]
+            medir el desempeño de campañas publicitarias.  
           </p>
         </section>
 
@@ -62,8 +61,7 @@ export default function PrivacyPolicyPage() {
           <h2 className="text-lg font-medium tracking-tight text-black">5. Tus derechos</h2>
           <p className="mt-2">
             Puedes solicitar acceso, corrección o eliminación de tus datos personales
-            escribiendo a {siteConfig.contact.email}. [EDITAR: ajustar según la
-            legislación de protección de datos aplicable en tu país.]
+            escribiendo a {siteConfig.contact.email}.  
           </p>
         </section>
 
