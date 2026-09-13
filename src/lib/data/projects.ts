@@ -292,8 +292,8 @@ export const projects: Project[] = [
     title: "Cobertura de evento — Día del Pescador",
     client: "JF Marítimos",
     industry: "Náutica y marítima",
-    categories: ["video"],
-    services: ["produccion-audiovisual"],
+    categories: ["video", "dron"],
+    services: ["produccion-audiovisual", "dron"],
     year: "2026",
     isPlaceholder: true,
     summary: "Cobertura audiovisual del Día del Pescador, una carrera de kayaks patrocinada por JF Marítimos.",
@@ -303,6 +303,7 @@ export const projects: Project[] = [
     processNotes: [
       "Levantamiento previo de la locación y agenda del evento.",
       "Cobertura en video del evento y la carrera de kayaks.",
+      "Tomas aéreas con dron de la carrera y la locación.",
       "Entrevista al ganador de la carrera.",
       "Edición de video resumen para redes sociales.",
     ],
@@ -317,11 +318,6 @@ export const projects: Project[] = [
       src: "/portfolio/jfmaritimos/dia-del-pescador/diadelpescador-portada.png",
     },
     gallery: [
-      {
-        type: "image",
-        label: "Registro de la carrera de kayaks",
-        src: "/portfolio/jfmaritimos/dia-del-pescador/diadelpescador-portada.png",
-      },
       {
         type: "image",
         label: "Registro del evento",
