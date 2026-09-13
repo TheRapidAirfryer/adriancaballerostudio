@@ -102,7 +102,7 @@ export const projects: Project[] = [
     industry: "Bienes raíces",
     categories: ["web"],
     services: ["desarrollo-web"],
-    year: "2025",
+    year: "2026",
     isPlaceholder: false,
     summary: "Diseño y desarrollo de un sitio web multipágina construido desde cero para una empresa inmobiliaria.",
     objective: "Crear una plataforma inmobiliaria moderna para promocionar propiedades y generar contactos.",
