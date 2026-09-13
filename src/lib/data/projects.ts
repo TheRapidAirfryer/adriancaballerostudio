@@ -102,9 +102,24 @@ export const projects: Project[] = [
       src: "/portfolio/jfmaritimos/jfmaritimos-manejoderedes.png",
     },
     gallery: [
-      { type: "video-vertical", label: "Reel — [EDITAR: link de Instagram]" },
-      { type: "video-vertical", label: "Reel — [EDITAR: link de Instagram]" },
-      { type: "video-vertical", label: "Reel — [EDITAR: link de Instagram]" },
+      {
+        type: "video-vertical",
+        label: "Reel de JF Marítimos",
+        src: "/portfolio/jfmaritimos/jf-video1.png",
+        href: "https://www.instagram.com/reel/DcymlwJRKDt/",
+      },
+      {
+        type: "video-vertical",
+        label: "Reel de JF Marítimos",
+        src: "/portfolio/jfmaritimos/jf-video2.png",
+        href: "https://www.instagram.com/reel/DcgzXsORXBM/",
+      },
+      {
+        type: "video-vertical",
+        label: "Reel de JF Marítimos",
+        src: "/portfolio/jfmaritimos/jf-video3.png",
+        href: "https://www.instagram.com/reel/Dc6XDOWxsbx/",
+      },
     ],
     artGallery: [
       {
