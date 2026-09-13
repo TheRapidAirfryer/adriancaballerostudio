@@ -5,7 +5,7 @@ import { FeaturedProjects } from "@/components/home/FeaturedProjects";
 import { ProcessSection } from "@/components/home/ProcessSection";
 import { MetricsSection } from "@/components/home/MetricsSection";
 import { AboutTeaser } from "@/components/home/AboutTeaser";
-import { LatestArticles } from "@/components/home/LatestArticles";
+// import { LatestArticles } from "@/components/home/LatestArticles"; // Blog desactivado temporalmente
 import { CTA } from "@/components/ui/CTA";
 import { buildMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site-config";
@@ -26,7 +26,7 @@ export default function Home() {
       <ProcessSection />
       <MetricsSection />
       <AboutTeaser />
-      <LatestArticles />
+      {/* <LatestArticles /> — Blog desactivado temporalmente */}
       <CTA
         heading="¿Conversamos sobre tu proyecto?"
         description="Cuéntanos qué necesita tu marca. Te respondemos con una propuesta concreta, no con un formulario genérico."

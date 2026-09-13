@@ -48,7 +48,7 @@ export const NAV_LINKS = [
   { href: "/portafolio", label: "Trabajo" },
   { href: "/servicios", label: "Servicios" },
   { href: "/nosotros", label: "Studio" },
-  { href: "/blog", label: "Blog" },
+  // { href: "/blog", label: "Blog" }, // Blog desactivado temporalmente — ver src/app/blog/page.tsx
   { href: "/contacto", label: "Contacto" },
 ] as const;
 
@@ -56,7 +56,7 @@ export const FOOTER_LINKS = {
   studio: [
     { href: "/nosotros", label: "Studio" },
     { href: "/portafolio", label: "Portafolio" },
-    { href: "/blog", label: "Blog" },
+    // { href: "/blog", label: "Blog" }, // Blog desactivado temporalmente — ver src/app/blog/page.tsx
     { href: "/contacto", label: "Contacto" },
   ],
   legal: [

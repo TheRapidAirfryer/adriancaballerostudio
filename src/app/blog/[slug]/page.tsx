@@ -1,4 +1,12 @@
 import { notFound } from "next/navigation";
+
+// Blog desactivado temporalmente — ver src/app/blog/page.tsx para la nota
+// completa sobre cómo reactivarlo.
+export default function BlogPostPage() {
+  notFound();
+}
+
+/*
 import Link from "next/link";
 import { getPostBySlug, getRelatedPosts, posts } from "@/lib/data/posts";
 import { getServiceBySlug } from "@/lib/data/services";
@@ -140,3 +148,4 @@ export default async function BlogPostPage({ params }: Props) {
     </>
   );
 }
+*/

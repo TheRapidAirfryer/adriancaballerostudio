@@ -2,7 +2,7 @@ import type { MetadataRoute } from "next";
 import { siteConfig } from "@/lib/site-config";
 import { services } from "@/lib/data/services";
 import { projects } from "@/lib/data/projects";
-import { posts } from "@/lib/data/posts";
+// import { posts } from "@/lib/data/posts"; // Blog desactivado temporalmente
 
 export default function sitemap(): MetadataRoute.Sitemap {
   const staticRoutes = [
@@ -10,7 +10,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     "/servicios",
     "/portafolio",
     "/nosotros",
-    "/blog",
+    // "/blog", // Blog desactivado temporalmente — ver src/app/blog/page.tsx
     "/contacto",
     "/politica-de-privacidad",
     "/terminos",
@@ -35,12 +35,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
     priority: 0.6,
   }));
 
-  const postRoutes = posts.map((post) => ({
-    url: `${siteConfig.url}/blog/${post.slug}`,
-    lastModified: new Date(post.updatedAt ?? post.publishedAt),
-    changeFrequency: "yearly" as const,
-    priority: 0.5,
-  }));
+  // Blog desactivado temporalmente — ver src/app/blog/page.tsx
+  // const postRoutes = posts.map((post) => ({
+  //   url: `${siteConfig.url}/blog/${post.slug}`,
+  //   lastModified: new Date(post.updatedAt ?? post.publishedAt),
+  //   changeFrequency: "yearly" as const,
+  //   priority: 0.5,
+  // }));
 
-  return [...staticRoutes, ...serviceRoutes, ...projectRoutes, ...postRoutes];
+  return [...staticRoutes, ...serviceRoutes, ...projectRoutes];
 }

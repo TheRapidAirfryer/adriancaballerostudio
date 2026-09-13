@@ -1,3 +1,14 @@
+import { notFound } from "next/navigation";
+
+// Blog desactivado temporalmente — descomentar el bloque de abajo (y quitar
+// este stub) junto con las entradas "/blog" en src/lib/site-config.ts y
+// src/app/sitemap.ts, y el <LatestArticles /> en src/app/page.tsx, para
+// reactivarlo.
+export default function BlogPage() {
+  notFound();
+}
+
+/*
 import Link from "next/link";
 import { posts, BLOG_CATEGORIES } from "@/lib/data/posts";
 import { ArticleCard } from "@/components/blog/ArticleCard";
@@ -68,3 +79,4 @@ export default async function BlogPage({ searchParams }: Props) {
     </div>
   );
 }
+*/
