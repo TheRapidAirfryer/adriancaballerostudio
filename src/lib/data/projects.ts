@@ -321,16 +321,32 @@ export const projects: Project[] = [
       { label: "Crecimiento de comunidad", value: "Pendiente por definir", isPlaceholder: true },
       { label: "Interacciones", value: "Pendiente por definir", isPlaceholder: true },
     ],
-    featuredMedia: { type: "image", label: "Contenido de JF Marítimos — [EDITAR]" },
+    featuredMedia: {
+      type: "image",
+      label: "Gestión de redes sociales de JF Marítimos",
+      src: "/portfolio/jfmaritimos/jfmaritimos-manejoderedes.png",
+    },
     gallery: [
       { type: "video-vertical", label: "Reel — [EDITAR: link de Instagram]" },
       { type: "video-vertical", label: "Reel — [EDITAR: link de Instagram]" },
       { type: "video-vertical", label: "Reel — [EDITAR: link de Instagram]" },
     ],
     artGallery: [
-      { type: "image-vertical", label: "Arte gráfico — [EDITAR]" },
-      { type: "image-vertical", label: "Arte gráfico — [EDITAR]" },
-      { type: "image-vertical", label: "Arte gráfico — [EDITAR]" },
+      {
+        type: "image-vertical",
+        label: "Arte gráfico de JF Marítimos",
+        src: "/portfolio/jfmaritimos/jf-arte1.png",
+      },
+      {
+        type: "image-vertical",
+        label: "Arte gráfico de JF Marítimos",
+        src: "/portfolio/jfmaritimos/jf-arte2.png",
+      },
+      {
+        type: "image-vertical",
+        label: "Arte gráfico de JF Marítimos",
+        src: "/portfolio/jfmaritimos/jf-arte3.png",
+      },
     ],
     seoTitle: "Gestión de redes sociales para JF Marítimos | Portafolio Adrian Caballero Studio",
     seoDescription: "Caso de estudio: manejo de redes sociales, creación de contenido y campañas en Meta Ads para JF Marítimos.",
