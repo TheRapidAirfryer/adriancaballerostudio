@@ -259,7 +259,7 @@ export const projects: Project[] = [
     industry: "Venta de motores Mercury, lanchas y accesorios marinos",
     categories: ["social"],
     services: ["redes-sociales", "videos-redes-sociales", "meta-ads"],
-    year: "[EDITAR: año de inicio del servicio]",
+    year: "2025",
     isPlaceholder: true,
     summary: "Manejo de redes sociales y creación de contenido (video y diseño gráfico) para JF Marítimos, además de la gestión de sus campañas publicitarias en Meta.",
     objective: "[EDITAR: objetivo acordado con el cliente para la gestión de redes y campañas].",
