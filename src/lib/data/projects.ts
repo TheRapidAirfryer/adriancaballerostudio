@@ -360,16 +360,32 @@ export const projects: Project[] = [
       { label: "Crecimiento de comunidad", value: "Pendiente por definir", isPlaceholder: true },
       { label: "Interacciones", value: "Pendiente por definir", isPlaceholder: true },
     ],
-    featuredMedia: { type: "image", label: "Contenido de Bodega Marisol — [EDITAR]" },
+    featuredMedia: {
+      type: "image",
+      label: "Gestión de redes sociales de Bodega Marisol",
+      src: "/portfolio/bodega-marisol/bodegamarisol-showcase.png",
+    },
     gallery: [
       { type: "video-vertical", label: "Reel — [EDITAR: link de Instagram]" },
       { type: "video-vertical", label: "Reel — [EDITAR: link de Instagram]" },
       { type: "video-vertical", label: "Reel — [EDITAR: link de Instagram]" },
     ],
     artGallery: [
-      { type: "image-vertical", label: "Arte gráfico — [EDITAR]" },
-      { type: "image-vertical", label: "Arte gráfico — [EDITAR]" },
-      { type: "image-vertical", label: "Arte gráfico — [EDITAR]" },
+      {
+        type: "image-vertical",
+        label: "Arte gráfico de Bodega Marisol",
+        src: "/portfolio/bodega-marisol/bm-arte1.png",
+      },
+      {
+        type: "image-vertical",
+        label: "Arte gráfico de Bodega Marisol",
+        src: "/portfolio/bodega-marisol/bm-arte2.png",
+      },
+      {
+        type: "image-vertical",
+        label: "Arte gráfico de Bodega Marisol",
+        src: "/portfolio/bodega-marisol/bm-arte3.png",
+      },
     ],
     seoTitle: "Gestión de redes sociales para Bodega Marisol | Portafolio Adrian Caballero Studio",
     seoDescription: "Caso de estudio: manejo de redes sociales, creación de contenido y campañas en Meta Ads para Bodega Marisol.",
