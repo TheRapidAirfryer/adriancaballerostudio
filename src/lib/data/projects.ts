@@ -366,9 +366,24 @@ export const projects: Project[] = [
       src: "/portfolio/bodega-marisol/bodegamarisol-showcase.png",
     },
     gallery: [
-      { type: "video-vertical", label: "Reel — [EDITAR: link de Instagram]" },
-      { type: "video-vertical", label: "Reel — [EDITAR: link de Instagram]" },
-      { type: "video-vertical", label: "Reel — [EDITAR: link de Instagram]" },
+      {
+        type: "video-vertical",
+        label: "Reel de Bodega Marisol",
+        src: "/portfolio/bodega-marisol/bm-video1.png",
+        href: "https://www.instagram.com/reel/DdR3EAZvJga/",
+      },
+      {
+        type: "video-vertical",
+        label: "Reel de Bodega Marisol",
+        src: "/portfolio/bodega-marisol/bm-video2.png",
+        href: "https://www.instagram.com/reel/DdHU7D5KJuQ/",
+      },
+      {
+        type: "video-vertical",
+        label: "Video de Bodega Marisol en TikTok",
+        src: "/portfolio/bodega-marisol/bm-video3.png",
+        href: "https://www.tiktok.com/@bodega.marisol/video/7678378995322260754",
+      },
     ],
     artGallery: [
       {
