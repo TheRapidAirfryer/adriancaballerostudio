@@ -126,7 +126,11 @@ export default async function ProjectPage({ params }: Props) {
         </div>
 
         <div className="mt-14 md:mt-20">
-          <SectionHeading eyebrow="Contenido" title="Galería del proyecto." className="max-w-2xl" />
+          <SectionHeading
+            eyebrow="Contenido"
+            title={project.artGallery && project.artGallery.length > 0 ? "Videos." : "Galería del proyecto."}
+            className="max-w-2xl"
+          />
           <div className="mt-8">
             <ImageGallery items={project.gallery} />
           </div>
