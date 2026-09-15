@@ -36,8 +36,8 @@ export function Header() {
           <Image
             src="/logo.svg"
             alt="Adrian Caballero Studio"
-            width={1280}
-            height={280}
+            width={1108}
+            height={249}
             priority
             className="h-9 w-auto md:h-10"
           />
