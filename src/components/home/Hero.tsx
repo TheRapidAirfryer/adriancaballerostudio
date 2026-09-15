@@ -6,11 +6,11 @@ export function Hero() {
     <section className="mx-auto max-w-[1400px] px-6 pt-14 md:px-10 md:pt-20">
       <RevealOnScroll>
         <h1 className="max-w-4xl text-balance text-[2.5rem] font-medium leading-[1.05] tracking-tight md:text-7xl">
-          Contenido que comunica.
+          Hacemos que tu marca
           <br />
-          Tecnología que funciona.
+          se vea, conecte
           <br />
-          Estrategia que conecta ambas.
+          y avance.
         </h1>
       </RevealOnScroll>
 
