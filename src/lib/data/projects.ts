@@ -12,8 +12,7 @@ export type ProjectCategory =
   | "web"
   | "apps"
   | "sistemas"
-  | "social"
-  | "publicidad";
+  | "social";
 
 export const PROJECT_CATEGORY_LABELS: Record<ProjectCategory, string> = {
   video: "Video",
@@ -23,7 +22,6 @@ export const PROJECT_CATEGORY_LABELS: Record<ProjectCategory, string> = {
   apps: "Apps",
   sistemas: "Sistemas",
   social: "Social Media",
-  publicidad: "Publicidad",
 };
 
 export interface ProjectMedia {
