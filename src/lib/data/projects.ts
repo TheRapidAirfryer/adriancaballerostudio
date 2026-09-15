@@ -345,7 +345,7 @@ export const projects: Project[] = [
     categories: ["social"],
     services: ["redes-sociales", "videos-redes-sociales"],
     year: "2026",
-    isPlaceholder: true,
+    isPlaceholder: false,
     summary: "Manejo de redes sociales y creación de contenido (video y diseño gráfico) para Bodega Marisol.",
     objective: "Fortalecer la presencia digital de la marca con contenido constante y alineado a su identidad.",
     challenge: "Mantener una comunicación activa, profesional y atractiva en redes sociales.",
@@ -354,10 +354,10 @@ export const projects: Project[] = [
       "Gestión mensual de contenido para redes sociales.",
       "Producción de piezas gráficas y video para publicaciones.",
     ],
-    results: "[EDITAR: resultados reales de la gestión de redes y campañas].",
+    results: "En el primer mes se lograron más de 500,000 visualizaciones orgánicas, +700 seguidores orgánicos entre las tres redes sociales y un incremento en ventas.",
     metrics: [
-      { label: "Crecimiento de comunidad", value: "Pendiente por definir", isPlaceholder: true },
-      { label: "Interacciones", value: "Pendiente por definir", isPlaceholder: true },
+      { label: "Crecimiento de comunidad", value: "+700 seguidores", isPlaceholder: false },
+      { label: "Visualizaciones orgánicas", value: "+500,000", isPlaceholder: false },
     ],
     featuredMedia: {
       type: "image",
