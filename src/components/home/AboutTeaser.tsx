@@ -8,7 +8,11 @@ export function AboutTeaser() {
     <section className="border-t border-black/10 bg-neutral-50 py-20 md:py-28">
       <div className="mx-auto grid max-w-[1400px] gap-10 px-6 md:grid-cols-2 md:gap-16 md:px-10">
         <RevealOnScroll>
-          <PlaceholderMedia label={`${siteConfig.founder.name} — [EDITAR: fotografía del fundador]`} ratio="square" />
+          <PlaceholderMedia
+            label={`${siteConfig.founder.name} — [EDITAR: fotografía del fundador]`}
+            src={siteConfig.founder.photo}
+            ratio="feed-vertical"
+          />
         </RevealOnScroll>
         <RevealOnScroll>
           <div className="flex h-full flex-col justify-center">

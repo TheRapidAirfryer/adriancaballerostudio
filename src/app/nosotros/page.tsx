@@ -52,7 +52,7 @@ export default function AboutPage() {
           <PlaceholderMedia
             label={`${siteConfig.founder.name} — [EDITAR: fotografía del fundador]`}
             src={siteConfig.founder.photo}
-            ratio="square"
+            ratio="feed-vertical"
           />
           <div className="flex flex-col justify-center">
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-neutral-500">
