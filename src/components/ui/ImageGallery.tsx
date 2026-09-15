@@ -4,6 +4,13 @@ import { useCallback, useEffect, useState } from "react";
 import { PlaceholderMedia } from "./PlaceholderMedia";
 import { mediaRatio, type ProjectMedia } from "@/lib/data/projects";
 
+function platformLabel(href: string) {
+  if (href.includes("tiktok.com")) return "Ver en TikTok";
+  if (href.includes("instagram.com")) return "Ver en Instagram";
+  if (href.includes("youtube.com") || href.includes("youtu.be")) return "Ver en YouTube";
+  return "Ver video";
+}
+
 export function ImageGallery({ items }: { items: ProjectMedia[] }) {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
 
@@ -43,11 +50,11 @@ export function ImageGallery({ items }: { items: ProjectMedia[] }) {
               target="_blank"
               rel="noopener noreferrer"
               className="group relative block text-left transition-opacity duration-300 hover:opacity-80"
-              aria-label={`Ver en Instagram: ${item.label}`}
+              aria-label={`${platformLabel(item.href)}: ${item.label}`}
             >
               <PlaceholderMedia label={item.label} src={item.src} ratio={mediaRatio(item)} />
               <span className="pointer-events-none absolute bottom-2 right-2 rounded-full bg-black/70 px-2 py-1 font-mono text-[10px] uppercase tracking-wide text-white opacity-0 transition-opacity duration-300 group-hover:opacity-100">
-                Ver en Instagram
+                {platformLabel(item.href)}
               </span>
             </a>
           ) : (
