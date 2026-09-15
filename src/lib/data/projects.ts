@@ -347,9 +347,9 @@ export const projects: Project[] = [
     year: "2026",
     isPlaceholder: true,
     summary: "Manejo de redes sociales y creación de contenido (video y diseño gráfico) para Bodega Marisol.",
-    objective: "Fortalecer la presencia digital de la marca mediante una gestión constante y estratégica de sus redes sociales, creando contenido alineado con su identidad y dirigido a conectar con su público.",
-    challenge: "Mantener una comunicación activa y profesional en redes sociales, con contenido atractivo, coherente y constante que permita mejorar la imagen de la marca y generar mayor interacción.",
-    solution: "Producción y gestión constante de contenido para redes sociales, incluyendo fotografía, video y piezas gráficas, manteniendo una línea visual coherente y adaptando cada contenido a los diferentes formatos digitales.",
+    objective: "Fortalecer la presencia digital de la marca con contenido constante y alineado a su identidad.",
+    challenge: "Mantener una comunicación activa, profesional y atractiva en redes sociales.",
+    solution: "Producción y gestión de contenido para redes sociales mediante fotografía, video y piezas gráficas.",
     processNotes: [
       "Gestión mensual de contenido para redes sociales.",
       "Producción de piezas gráficas y video para publicaciones.",
