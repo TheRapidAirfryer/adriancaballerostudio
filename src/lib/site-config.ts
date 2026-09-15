@@ -15,9 +15,9 @@ export const siteConfig = {
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.adriancaballero.studio",
   locale: "es",
   founder: {
-    name: "Adrian Caballero",
+    name: "Adrián Caballero",
     role: "Fundador y Director del Studio",
-    bio: "Adrian Caballero es fundador y director de Adrian Caballero Studio. Su trabajo integra contenido audiovisual, marketing, diseño y tecnología para crear soluciones que ayuden a las marcas a comunicar mejor, crecer y diferenciarse.",
+    bio: "Adrián Caballero es fundador y director de Adrian Caballero Studio. Su trabajo integra contenido audiovisual, marketing, diseño y tecnología para crear soluciones que ayuden a las marcas a comunicar mejor, crecer y diferenciarse.",
     /** Ruta de la foto en /public, ej. "/team/adrian-caballero.jpg". Undefined muestra el placeholder. */
     photo: undefined as string | undefined,
   },
