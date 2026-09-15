@@ -17,6 +17,9 @@ export const siteConfig = {
   founder: {
     name: "Adrian Caballero",
     role: "Fundador y Director del Studio",
+    bio: "Adrian Caballero es fundador y director de Adrian Caballero Studio. Su trabajo integra contenido audiovisual, marketing, diseño y tecnología para crear soluciones que ayuden a las marcas a comunicar mejor, crecer y diferenciarse.",
+    /** Ruta de la foto en /public, ej. "/team/adrian-caballero.jpg". Undefined muestra el placeholder. */
+    photo: undefined as string | undefined,
   },
   contact: {
     email: "contacto@adriancaballero.studio",

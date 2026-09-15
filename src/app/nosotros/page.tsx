@@ -49,7 +49,11 @@ export default function AboutPage() {
 
       <section className="mx-auto max-w-[1400px] px-6 py-16 md:px-10 md:py-24">
         <div className="grid gap-10 md:grid-cols-2 md:gap-16">
-          <PlaceholderMedia label={`${siteConfig.founder.name} — [EDITAR: fotografía del fundador]`} ratio="square" />
+          <PlaceholderMedia
+            label={`${siteConfig.founder.name} — [EDITAR: fotografía del fundador]`}
+            src={siteConfig.founder.photo}
+            ratio="square"
+          />
           <div className="flex flex-col justify-center">
             <p className="font-mono text-[11px] uppercase tracking-[0.2em] text-neutral-500">
               {siteConfig.founder.role}
@@ -58,9 +62,7 @@ export default function AboutPage() {
               {siteConfig.founder.name}
             </h2>
             <p className="mt-5 text-base leading-relaxed text-neutral-600 md:text-lg">
-              [EDITAR: biografía breve del fundador — formación, trayectoria y qué lo llevó
-              a fundar el studio. Escribir en primera o tercera persona, con datos reales,
-              sin inventar premios ni cifras de experiencia.]
+              {siteConfig.founder.bio}
             </p>
           </div>
         </div>
