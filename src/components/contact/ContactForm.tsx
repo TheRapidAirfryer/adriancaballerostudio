@@ -28,7 +28,7 @@ function SubmitButton() {
     <button
       type="submit"
       disabled={pending}
-      className="mt-4 inline-flex w-full items-center justify-center rounded-full bg-black px-6 py-4 text-sm font-medium text-white transition-colors hover:bg-neutral-800 disabled:opacity-50 sm:w-auto"
+      className="mt-4 inline-flex w-full cursor-pointer items-center justify-center rounded-full bg-black px-6 py-4 text-sm font-medium text-white transition-colors hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
     >
       {pending ? "Enviando..." : "Cuéntanos tu proyecto"}
     </button>
