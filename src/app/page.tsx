@@ -1,5 +1,5 @@
 import { Hero } from "@/components/home/Hero";
-import { ShowreelSection } from "@/components/home/ShowreelSection";
+// import { ShowreelSection } from "@/components/home/ShowreelSection"; // Sin reel real todavía
 import { ServicesOverview } from "@/components/home/ServicesOverview";
 import { FeaturedProjects } from "@/components/home/FeaturedProjects";
 import { ProcessSection } from "@/components/home/ProcessSection";
@@ -20,7 +20,7 @@ export default function Home() {
   return (
     <>
       <Hero />
-      <ShowreelSection />
+      {/* <ShowreelSection /> — sin reel real todavía */}
       <ServicesOverview />
       <FeaturedProjects />
       <ProcessSection />
