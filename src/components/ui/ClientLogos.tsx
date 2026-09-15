@@ -12,15 +12,15 @@ export function ClientLogos({ logos = clients }: { logos?: ClientLogo[] }) {
       {logos.map((client) => (
         <li
           key={client.name}
-          className="flex h-24 w-1/2 items-center justify-center border-l border-t border-black/10 px-6 sm:w-1/3 md:w-1/6"
+          className="flex h-28 w-1/2 items-center justify-center border-l border-t border-black/10 px-6 sm:w-1/4"
         >
           {client.src ? (
             <Image
               src={client.src}
               alt={client.name}
-              width={160}
-              height={64}
-              className="h-10 w-auto object-contain grayscale transition-[filter] duration-300 hover:grayscale-0"
+              width={200}
+              height={80}
+              className="h-14 w-auto object-contain grayscale transition-[filter] duration-300 hover:grayscale-0"
             />
           ) : (
             <span className="text-center font-mono text-[10px] uppercase tracking-wide text-neutral-500">
