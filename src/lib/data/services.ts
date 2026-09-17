@@ -28,6 +28,8 @@ export interface Service {
   relatedSlugs: string[];
   ctaHeading: string;
   ctaText: string;
+  /** ID del producto en el catálogo de Meta, si este servicio está publicado ahí. */
+  metaCatalogId?: string;
 }
 
 export const CATEGORY_LABELS: Record<ServiceCategory, { label: string; description: string }> = {
@@ -145,6 +147,7 @@ export const services: Service[] = [
     relatedSlugs: ["dron", "fotografia", "videos-redes-sociales"],
     ctaHeading: "¿Tienes un evento o proyecto institucional en puerta?",
     ctaText: "Hablemos del formato, la fecha y lo que necesitas registrar.",
+    metaCatalogId: "s1m1u8mp90",
   },
   {
     slug: "dron",
@@ -193,6 +196,7 @@ export const services: Service[] = [
     relatedSlugs: ["produccion-audiovisual", "fotografia", "videos-redes-sociales"],
     ctaHeading: "¿Tu proyecto necesita verse desde otra perspectiva?",
     ctaText: "Cuéntanos la locación y el objetivo de las tomas aéreas.",
+    metaCatalogId: "z5rqny26b6",
   },
   {
     slug: "fotografia",
@@ -488,6 +492,7 @@ export const services: Service[] = [
     relatedSlugs: ["meta-ads", "videos-redes-sociales", "fotografia"],
     ctaHeading: "¿Tus redes necesitan una estrategia real?",
     ctaText: "Cuéntanos cómo va tu presencia actual y qué te gustaría lograr.",
+    metaCatalogId: "exouxp5uv5",
   },
 ];
 

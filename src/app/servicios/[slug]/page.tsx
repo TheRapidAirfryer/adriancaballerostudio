@@ -9,6 +9,7 @@ import { ServiceCard } from "@/components/services/ServiceCard";
 import { FAQ } from "@/components/ui/FAQ";
 import { CTA } from "@/components/ui/CTA";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { MetaViewContent } from "@/components/analytics/MetaViewContent";
 import { buildMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site-config";
 import { omitPlaceholders } from "@/lib/utils";
@@ -58,6 +59,7 @@ export default async function ServicePage({ params }: Props) {
   return (
     <>
       <JsonLd data={serviceJsonLd} />
+      {service.metaCatalogId ? <MetaViewContent contentId={service.metaCatalogId} /> : null}
 
       <div className="mx-auto max-w-[1400px] px-6 pt-10 md:px-10">
         <Breadcrumbs
