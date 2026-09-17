@@ -4,7 +4,7 @@ import "./globals.css";
 import { Header } from "@/components/layout/Header";
 import { Footer } from "@/components/layout/Footer";
 import { JsonLd } from "@/components/seo/JsonLd";
-import { Analytics, GtmNoScript } from "@/components/analytics/Analytics";
+import { Analytics, GtmNoScript, MetaPixelNoScript } from "@/components/analytics/Analytics";
 import { siteConfig } from "@/lib/site-config";
 import { omitPlaceholders } from "@/lib/utils";
 
@@ -106,6 +106,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
       </head>
       <body className="min-h-full flex flex-col">
         <GtmNoScript />
+        <MetaPixelNoScript />
         <a
           href="#main-content"
           className="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[100] focus:rounded-full focus:bg-black focus:px-5 focus:py-3 focus:text-sm focus:text-white"

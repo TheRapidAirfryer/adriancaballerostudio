@@ -63,3 +63,21 @@ export function GtmNoScript() {
     </noscript>
   );
 }
+
+export function MetaPixelNoScript() {
+  const { metaPixelId } = siteConfig.analytics;
+  if (!metaPixelId) return null;
+
+  return (
+    <noscript>
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
+        height="1"
+        width="1"
+        style={{ display: "none" }}
+        src={`https://www.facebook.com/tr?id=${metaPixelId}&ev=PageView&noscript=1`}
+        alt=""
+      />
+    </noscript>
+  );
+}
