@@ -1,9 +1,15 @@
 "use client";
 
-import { useActionState } from "react";
+import { useActionState, useEffect } from "react";
 import { useFormStatus } from "react-dom";
 import { submitContactForm, type ContactFormState } from "@/app/contacto/actions";
 import { cn } from "@/lib/utils";
+
+declare global {
+  interface Window {
+    fbq?: (...args: unknown[]) => void;
+  }
+}
 
 const SERVICE_OPTIONS = [
   { value: "video", label: "Video" },
@@ -37,6 +43,12 @@ function SubmitButton() {
 
 export function ContactForm() {
   const [state, formAction] = useActionState(submitContactForm, initialState);
+
+  useEffect(() => {
+    if (state.status === "success" && typeof window.fbq === "function") {
+      window.fbq("track", "Lead");
+    }
+  }, [state.status]);
 
   return (
     <form action={formAction} noValidate className="flex flex-col gap-6">
