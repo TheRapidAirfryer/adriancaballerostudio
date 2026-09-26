@@ -1,3 +1,5 @@
+import { defaultLocale, type Locale } from "@/lib/i18n/config";
+
 export type ServiceCategory = "contenido" | "marketing" | "tecnologia";
 
 export interface ServiceFaq {
@@ -32,7 +34,7 @@ export interface Service {
   metaCatalogId?: string;
 }
 
-export const CATEGORY_LABELS: Record<ServiceCategory, { label: string; description: string }> = {
+const CATEGORY_LABELS_ES: Record<ServiceCategory, { label: string; description: string }> = {
   contenido: {
     label: "Contenido",
     description: "Video, fotografía y producción audiovisual con criterio de dirección de arte.",
@@ -46,6 +48,28 @@ export const CATEGORY_LABELS: Record<ServiceCategory, { label: string; descripti
     description: "Sitios, aplicaciones y sistemas construidos para operar, no solo para existir.",
   },
 };
+
+const CATEGORY_LABELS_EN: Record<ServiceCategory, { label: string; description: string }> = {
+  contenido: {
+    label: "Content",
+    description: "Video, photography and audiovisual production with real art direction.",
+  },
+  marketing: {
+    label: "Marketing",
+    description: "Strategy, ad spend and social management so content works for the business.",
+  },
+  tecnologia: {
+    label: "Technology",
+    description: "Sites, apps and systems built to operate, not just to exist.",
+  },
+};
+
+export function getCategoryLabels(locale: Locale = defaultLocale) {
+  return locale === "en" ? CATEGORY_LABELS_EN : CATEGORY_LABELS_ES;
+}
+
+/** @deprecated Usa getCategoryLabels(locale). Se mantiene para compatibilidad con el español por defecto. */
+export const CATEGORY_LABELS = CATEGORY_LABELS_ES;
 
 export const services: Service[] = [
   {
@@ -496,16 +520,471 @@ export const services: Service[] = [
   },
 ];
 
-export function getServiceBySlug(slug: string) {
-  return services.find((service) => service.slug === slug);
+export const servicesEn: Service[] = [
+  {
+    slug: "videos-redes-sociales",
+    category: "contenido",
+    navTitle: "Social Video",
+    title: "Social media video production",
+    seoTitle: "Social media video production | Adrian Caballero Studio",
+    seoDescription:
+      "Vertical and horizontal video production for Instagram, TikTok and YouTube. Script, filming, editing and platform-ready formats.",
+    summary: "Video with script, pacing and art direction, built for the algorithm and for the brand.",
+    intro: [
+      "Most content published on social media is forgotten in three seconds. The problem is almost never the platform: it's that the video was shot without a clear idea behind it.",
+      "We produce short- and mid-length video for Instagram, TikTok and YouTube with a real pre-production, filming and editing process. This isn't generic content to fill a calendar — every piece answers to a specific brand objective.",
+    ],
+    whatWeDo: [
+      { title: "Script and structure", description: "We define the hook, the core message and the close before turning on the camera." },
+      { title: "Filming", description: "Production on location or in studio, with audio and video gear adapted to each format." },
+      { title: "Editing and pacing", description: "Editing built for retention: cuts, subtitles, music and motion graphics when they add value." },
+      { title: "Format adaptation", description: "Delivered in vertical, horizontal and square formats depending on each platform and its behavior." },
+    ],
+    forWho: [
+      "Brands publishing without a clear editorial line that want order and consistency.",
+      "Businesses that need recurring content without relying on improvising every week.",
+      "Teams that already have a social strategy but are missing quality production.",
+      "Product launches that need a batch of content in a short time.",
+    ],
+    includes: [
+      "Pre-production: brief, script and shoot planning.",
+      "Art direction and location.",
+      "Filming with professional camera, audio and lighting.",
+      "Editing, subtitles and licensed music.",
+      "Export in each platform's required formats.",
+    ],
+    process: [
+      { title: "Brief and objective", description: "We understand what the brand needs to communicate and to whom." },
+      { title: "Script and shoot plan", description: "We structure each piece before filming, not in editing." },
+      { title: "Production", description: "We film with the crew needed for the project's complexity." },
+      { title: "Editing", description: "We edit, color-correct and adjust pacing for each platform." },
+      { title: "Delivery and feedback", description: "We review with you and adjust until the result is ready to publish." },
+    ],
+    faqs: [
+      { question: "How many videos are produced per filming session?", answer: "It depends on the script and shoot time, but we typically plan each day to get several pieces, not just one." },
+      { question: "Do you write the script or does the brand?", answer: "We write it based on a brief, though if the internal team already has ideas or key messages, we work them into the process." },
+      { question: "Do you work with influencers or only with in-house talent?", answer: "We produce content with the brand's own team, an internal spokesperson, or by coordinating outside talent if the project requires it." },
+      { question: "Does the price include ad spend?", answer: "No. This is content production. Ad management is quoted alongside the Meta Ads service if needed." },
+    ],
+    portfolioFilter: "video",
+    relatedSlugs: ["produccion-audiovisual", "redes-sociales", "fotografia"],
+    ctaHeading: "Need content that actually gets seen?",
+    ctaText: "Tell us what your brand wants to communicate and we'll put together a production plan tailored to you.",
+  },
+  {
+    slug: "produccion-audiovisual",
+    category: "contenido",
+    navTitle: "Audiovisual production",
+    title: "Audiovisual production for businesses and events",
+    seoTitle: "Audiovisual production for businesses and events | Adrian Caballero Studio",
+    seoDescription:
+      "Professional audiovisual coverage for corporate events, launches and institutional video. Full crew, direction and post-production.",
+    summary: "Coverage and production of institutional, corporate and event video with a cinematic standard.",
+    intro: [
+      "A well-produced event or institutional video communicates something no text can: that the brand knows what it's doing and cares about the details.",
+      "We handle full audiovisual production for companies: from live event coverage to institutional pieces, corporate videos and brand content with real direction.",
+    ],
+    whatWeDo: [
+      { title: "Event coverage", description: "Multi-camera recording of conferences, launches, activations and corporate events." },
+      { title: "Institutional video", description: "Pieces that present the company, its team, its culture or its way of working." },
+      { title: "Testimonials and interviews", description: "Production with controlled lighting and audio for spokesperson and client content." },
+      { title: "Post-production", description: "Editing, color correction and sound for a professional-level result." },
+    ],
+    forWho: [
+      "Companies organizing events, conferences or launches that need professional coverage.",
+      "Brands that want an institutional video for their website or sales presentations.",
+      "HR or employer-brand teams that need internal culture content.",
+      "Businesses looking for well-produced client testimonials.",
+    ],
+    includes: [
+      "Technical site visit or venue survey when applicable.",
+      "Camera, audio and lighting crew scaled to the event.",
+      "Production direction during the event or shoot.",
+      "Editing of the material in long form and in cutdowns for social.",
+      "Delivery in the resolution and format each use requires.",
+    ],
+    process: [
+      { title: "Survey", description: "We review the event, the venue or the institutional video's objective." },
+      { title: "Production plan", description: "We define crew, schedule and required shots." },
+      { title: "Filming", description: "Coverage on the day of the event or scheduled institutional video production." },
+      { title: "Editing", description: "We edit the main piece and the cutdowns for social." },
+      { title: "Final delivery", description: "We share the final files in the agreed formats." },
+    ],
+    faqs: [
+      { question: "Do you cover full-day events?", answer: "Yes, we adapt the crew and number of camera operators based on the length and number of simultaneous activities." },
+      { question: "Do you also deliver short pieces for social from the same event?", answer: "Yes, from the event material we create cutdowns optimized for Instagram, TikTok or LinkedIn." },
+      { question: "Do we need a script for an institutional video?", answer: "We help structure it. We define key messages and interviews before filming so the result has a narrative thread." },
+      { question: "Do you work outside the city?", answer: "Yes, we coordinate production in other locations depending on the project's scope." },
+    ],
+    portfolioFilter: "video",
+    relatedSlugs: ["dron", "fotografia", "videos-redes-sociales"],
+    ctaHeading: "Have an event or institutional project coming up?",
+    ctaText: "Let's talk about the format, the date and what you need covered.",
+    metaCatalogId: "s1m1u8mp90",
+  },
+  {
+    slug: "dron",
+    category: "contenido",
+    navTitle: "Drone",
+    title: "Drone photography and video",
+    seoTitle: "Drone photography and video | Adrian Caballero Studio",
+    seoDescription:
+      "Professional drone footage for real estate, events, tourism and corporate audiovisual production.",
+    summary: "Aerial footage that gives scale and perspective to real estate projects, events and brand production.",
+    intro: [
+      "There are shots only a drone can capture: the real scale of a project, the context of a location, or the aerial movement that gives a video another dimension.",
+      "We offer drone production for photography and video, integrated as part of a larger audiovisual project or as a standalone service when the objective is specific.",
+    ],
+    whatWeDo: [
+      { title: "Aerial photography", description: "Photography of properties, land, facilities and events from the air." },
+      { title: "Aerial video", description: "Moving shots that integrate into audiovisual productions or social pieces." },
+      { title: "Visual inspection", description: "Documentation of facades, roofs or hard-to-reach facilities for record-keeping purposes." },
+      { title: "Integration with ground production", description: "We coordinate aerial shots alongside ground cameras for a complete narrative result." },
+    ],
+    forWho: [
+      "Real estate companies and developers that need to show the scale of a project.",
+      "Organizers of outdoor or large-format events.",
+      "Tourism or hospitality brands, or businesses with visually striking locations from the air.",
+      "Audiovisual productions that need aerial shots as part of their narrative.",
+    ],
+    includes: [
+      "Assessment of the area and flight conditions.",
+      "Professional drone pilot and equipment.",
+      "High-resolution aerial photography.",
+      "4K aerial video with stabilization.",
+      "Editing and delivery in the required format.",
+    ],
+    process: [
+      { title: "Site assessment", description: "We review the location, flight restrictions and weather conditions." },
+      { title: "Shot planning", description: "We define angles and movements based on the project's objective." },
+      { title: "Flight and capture", description: "We carry out the session with the necessary permits and precautions." },
+      { title: "Editing", description: "We process the photo or video material for final delivery." },
+    ],
+    faqs: [
+      { question: "Do you fly in restricted zones?", answer: "No. We operate within applicable aviation regulations and assess each location before confirming the flight." },
+      { question: "Can the drone service be hired on its own, without ground production?", answer: "Yes, it can be hired as a standalone service or integrated into a larger audiovisual production." },
+      { question: "What happens if the weather doesn't allow flying on the scheduled day?", answer: "We reschedule the session. Flight safety always comes before the date." },
+    ],
+    portfolioFilter: "dron",
+    relatedSlugs: ["produccion-audiovisual", "fotografia", "videos-redes-sociales"],
+    ctaHeading: "Does your project need to be seen from another perspective?",
+    ctaText: "Tell us the location and the objective of the aerial shots.",
+    metaCatalogId: "z5rqny26b6",
+  },
+  {
+    slug: "fotografia",
+    category: "contenido",
+    navTitle: "Photography",
+    title: "Professional photography",
+    seoTitle: "Professional photography for brands | Adrian Caballero Studio",
+    seoDescription:
+      "Product, corporate, space and brand photography with art direction. Studio or on-location production.",
+    summary: "Product, brand and corporate photography with art direction consistent with your visual identity.",
+    intro: [
+      "A well-directed photograph communicates quality before anyone reads a single word. A poorly lit one, or one shot without judgment, does exactly the opposite, no matter how good the product or service is.",
+      "We produce professional photography of product, brand, spaces and teams, with art direction that respects each client's visual identity instead of applying a generic formula.",
+    ],
+    whatWeDo: [
+      { title: "Product photography", description: "Studio production with controlled lighting for catalog, e-commerce or campaigns." },
+      { title: "Corporate photography", description: "Team portraits, workspaces and brand culture with art direction." },
+      { title: "Space photography", description: "Documentation of stores, offices or facilities for commercial or real estate use." },
+      { title: "Brand photography", description: "Concept sessions aligned to visual identity for campaigns and social media." },
+    ],
+    forWho: [
+      "Product brands that need consistent images for their store or e-commerce.",
+      "Companies that want to refresh their corporate photo library.",
+      "Businesses with physical spaces that want to show them off professionally.",
+      "Marketing teams that need original photography instead of stock images.",
+    ],
+    includes: [
+      "Art direction ahead of the session.",
+      "Studio or on-location production.",
+      "Professional lighting and photography equipment.",
+      "Retouching and color editing.",
+      "Delivery in the formats and resolutions each use requires.",
+    ],
+    process: [
+      { title: "Art direction", description: "We define style, references and visual identity before the session." },
+      { title: "Production", description: "We carry out the session in studio or at the agreed location." },
+      { title: "Selection", description: "We curate the best shots from each set together with the client." },
+      { title: "Retouching and delivery", description: "We edit the selected images and deliver them in the required formats." },
+    ],
+    faqs: [
+      { question: "Do you offer studio and outdoor sessions?", answer: "Yes, depending on the type of product or brand, we recommend the format that best serves the objective." },
+      { question: "How many final photos are delivered?", answer: "It varies with the session's length. We define this together before shooting so the number makes sense for how you'll use it." },
+      { question: "Does it include advanced retouching?", answer: "It includes color correction and standard retouching. Advanced retouching (compositing, complex removal) is quoted separately." },
+    ],
+    portfolioFilter: "fotografia",
+    relatedSlugs: ["dron", "produccion-audiovisual", "redes-sociales"],
+    ctaHeading: "Does your brand need its own images, not stock?",
+    ctaText: "Tell us what you need photographed and we'll design the session.",
+  },
+  {
+    slug: "desarrollo-web",
+    category: "tecnologia",
+    navTitle: "Websites",
+    title: "Web design and development",
+    seoTitle: "Web design and development | Adrian Caballero Studio",
+    seoDescription:
+      "Design and development of fast, SEO-optimized websites built to convert. Custom sites, not generic templates.",
+    summary: "Fast, well-structured, SEO-optimized sites, designed to measure instead of built on a template.",
+    intro: [
+      "A slow, cluttered website that doesn't show up on Google isn't helping the business, no matter how good it looked at launch.",
+      "We design and develop custom websites: architecture planned from the start for SEO, speed and conversion, not a generic template with the logo swapped out.",
+    ],
+    whatWeDo: [
+      { title: "UI/UX design", description: "Information architecture, wireframes and visual design aligned with the brand." },
+      { title: "Custom development", description: "Built with modern technology, clean and maintainable code." },
+      { title: "Technical SEO", description: "Metadata, structured data, speed and architecture built to rank." },
+      { title: "Conversion optimization", description: "Clear paths to contact or purchase, with no unnecessary friction." },
+    ],
+    forWho: [
+      "Companies that need a new website or a full redesign.",
+      "Brands whose current site is slow, outdated or doesn't generate clients.",
+      "Businesses that want a multi-page site with portfolio, blog and real SEO.",
+      "Teams that need a site they can keep updating without depending on a developer for every change.",
+    ],
+    includes: [
+      "Site architecture and page map.",
+      "Custom UI/UX design, responsive from the first sketch.",
+      "Development with modern performance and accessibility standards.",
+      "Technical SEO: metadata, sitemap, structured data and speed.",
+      "Basic training or editable content structure.",
+    ],
+    process: [
+      { title: "Discovery", description: "We understand the business, the competition and the site's real objective." },
+      { title: "Architecture and UX", description: "We define pages, navigation and flow before designing visually." },
+      { title: "UI design", description: "We design each page with the brand identity and a focus on conversion." },
+      { title: "Development", description: "We build the site with performance and SEO best practices." },
+      { title: "QA and launch", description: "We test on real devices, optimize and publish." },
+    ],
+    faqs: [
+      { question: "Is the site optimized for Google from launch?", answer: "Yes. Technical SEO (metadata, speed, data structure) is built into the architecture, not added afterward." },
+      { question: "Will I be able to edit the content myself?", answer: "We design the data architecture so portfolio and blog content is editable without touching code, or migratable to a CMS." },
+      { question: "How long does it take to develop a multi-page site?", answer: "It depends on the number of pages and features. We define this in the discovery stage with a clear timeline." },
+      { question: "Does it include hosting and domain?", answer: "Hosting and domain setup is coordinated based on your preferred platform; we advise you on that decision." },
+    ],
+    portfolioFilter: "web",
+    relatedSlugs: ["desarrollo-apps", "sistemas-empresariales", "meta-ads"],
+    ctaHeading: "Let's build your next website.",
+    ctaText: "Tell us what your site needs to achieve and we'll propose the architecture.",
+  },
+  {
+    slug: "desarrollo-apps",
+    category: "tecnologia",
+    navTitle: "Apps",
+    title: "App development",
+    seoTitle: "Mobile and web app development | Adrian Caballero Studio",
+    seoDescription:
+      "Custom mobile and web app development, from idea to functional product. Product design and development in one team.",
+    summary: "From idea to functional product, with product design and development on the same team.",
+    intro: [
+      "A good app idea doesn't become a product just by having working code. It needs product design, the right technical decisions and a clear roadmap.",
+      "We develop custom mobile and web apps, guiding you from product definition through launch, focused on solving a real problem for the end user.",
+    ],
+    whatWeDo: [
+      { title: "Product definition", description: "We clarify the problem to solve, the target user and the real scope of the MVP." },
+      { title: "UX/UI design", description: "User flows and interface design built for real use, not just to look good in a presentation." },
+      { title: "Development", description: "Building the app with technology suited to the project and its scale." },
+      { title: "Launch and support", description: "Publishing to stores or web deployment, with support after launch." },
+    ],
+    forWho: [
+      "Entrepreneurs with an app idea who need a first functional product.",
+      "Companies that want to digitize an internal or customer-facing process.",
+      "Businesses that need an app to complement their web platform.",
+      "Teams that already have an app and need to redesign or scale it.",
+    ],
+    includes: [
+      "Definition of MVP scope and features.",
+      "User experience and interface design.",
+      "Product development with scalable architecture.",
+      "Functional testing before launch.",
+      "Support through publishing and the first iterations.",
+    ],
+    process: [
+      { title: "Discovery", description: "We understand the problem the app needs to solve." },
+      { title: "Scope definition", description: "We prioritize features for a first viable product." },
+      { title: "Product design", description: "We design the flows and interface before coding." },
+      { title: "Development", description: "We build the app in reviewable cycles, not as a black box." },
+      { title: "Launch", description: "We publish and support the first post-launch iterations." },
+    ],
+    faqs: [
+      { question: "Do you develop for iOS, Android or both?", answer: "We evaluate the most suitable technology with you based on the target audience and project budget." },
+      { question: "Can I start with just an MVP?", answer: "That's what we recommend in most cases: validate with a minimum product before investing in additional features." },
+      { question: "What happens after launch?", answer: "We offer support for adjustments, bug fixes and new iterations based on real user behavior." },
+    ],
+    portfolioFilter: "apps",
+    relatedSlugs: ["sistemas-empresariales", "desarrollo-web", "meta-ads"],
+    ctaHeading: "Let's talk about your idea.",
+    ctaText: "Tell us the problem you want to solve and we'll evaluate how to build it.",
+  },
+  {
+    slug: "sistemas-empresariales",
+    category: "tecnologia",
+    navTitle: "Business systems",
+    title: "Custom business software and systems",
+    seoTitle: "Custom business system development | Adrian Caballero Studio",
+    seoDescription:
+      "Custom software and internal systems development to automate processes, manage information and eliminate scattered spreadsheets.",
+    summary: "Custom software that organizes internal processes that today depend on spreadsheets and loose messages.",
+    intro: [
+      "Many companies still operate with spreadsheets, WhatsApp messages and manual processes that eat up time and create avoidable errors.",
+      "We develop custom business systems: internal management platforms, admin dashboards and tools that automate each business's specific processes.",
+    ],
+    whatWeDo: [
+      { title: "Process diagnosis", description: "We identify which manual processes make sense to turn into software." },
+      { title: "System design", description: "We define modules, user roles and information flows." },
+      { title: "Custom development", description: "We build the system fitted to the business's real operation, not a generic mold." },
+      { title: "Integrations", description: "We connect the system with other tools the company already uses when needed." },
+    ],
+    forWho: [
+      "Companies managing inventory, orders or clients in scattered spreadsheets.",
+      "Businesses with repetitive processes that eat up the team's time.",
+      "Organizations that need an internal control panel for their operation.",
+      "Companies that already have a system but have outgrown it or find it hard to maintain.",
+    ],
+    includes: [
+      "Survey of current processes.",
+      "Design of system flows and roles.",
+      "Development of the platform with an admin panel.",
+      "Testing with the team that will use the system day to day.",
+      "Basic usage documentation.",
+    ],
+    process: [
+      { title: "Diagnosis", description: "We review how the process to be systematized operates today." },
+      { title: "System design", description: "We define modules, permissions and information flow." },
+      { title: "Development", description: "We build the system in reviewable stages together with the client's team." },
+      { title: "Internal testing", description: "We validate with real users before putting the system into production." },
+      { title: "Rollout", description: "We support the transition from the manual process to the new system." },
+    ],
+    faqs: [
+      { question: "Does this replace a commercial ERP?", answer: "In some cases yes, when the business needs something specific that a generic ERP doesn't handle well. We evaluate case by case." },
+      { question: "How long does it take to develop an internal system?", answer: "It depends on the scope. A system focused on one specific process takes less time than a platform with multiple modules." },
+      { question: "Does the team need training to use it?", answer: "Yes, we include a support stage and basic documentation for the transition from the manual process to the system." },
+    ],
+    portfolioFilter: "sistemas",
+    relatedSlugs: ["desarrollo-apps", "desarrollo-web"],
+    ctaHeading: "Is a manual process costing you time?",
+    ctaText: "Tell us how your team operates today and we'll evaluate whether it makes sense to systematize it.",
+  },
+  {
+    slug: "meta-ads",
+    category: "marketing",
+    navTitle: "Meta Ads",
+    title: "Meta Ads advertising campaigns",
+    seoTitle: "Meta Ads campaign management | Adrian Caballero Studio",
+    seoDescription:
+      "Professional management of Facebook and Instagram Ads campaigns: strategy, creative, targeting and continuous optimization.",
+    summary: "Facebook and Instagram campaigns with original creative, real targeting and constant optimization.",
+    intro: [
+      "Investing in ads without a clear strategy behind them almost always ends in spend you can't explain. The problem is rarely the platform: it's the lack of creative, targeting and follow-through.",
+      "We manage Meta Ads campaigns end to end: strategy, creative, technical setup and continuous optimization based on each campaign's real results.",
+    ],
+    whatWeDo: [
+      { title: "Campaign strategy", description: "We define objective, audience and campaign structure before spending a single dollar." },
+      { title: "Creative", description: "We produce or adapt pieces specifically for advertising, not reuse organic content without judgment." },
+      { title: "Technical setup", description: "Pixel, conversion events and targeting set up correctly from the start." },
+      { title: "Optimization", description: "Constant review of metrics to adjust budget, targeting and creative." },
+    ],
+    forWho: [
+      "Brands already spending on ads but not seeing clear results.",
+      "Businesses that want to start advertising with the right structure from day one.",
+      "E-commerce that needs to generate sales consistently, not just reach.",
+      "Companies that need to generate qualified leads predictably.",
+    ],
+    includes: [
+      "Ad account, pixel and conversion event setup.",
+      "Campaign strategy and targeting structure.",
+      "Production or adaptation of ad creative.",
+      "Ongoing budget management and optimization.",
+      "Regular reports with real metrics, not vanity ones.",
+    ],
+    process: [
+      { title: "Diagnosis", description: "We review business goals, ad account and history if it already exists." },
+      { title: "Strategy", description: "We define audience, campaign objective and ad structure." },
+      { title: "Creative", description: "We produce the specific pieces for each campaign." },
+      { title: "Launch", description: "We set up and activate the campaigns with tracking from day one." },
+      { title: "Optimization", description: "We adjust based on real results, not assumptions." },
+    ],
+    faqs: [
+      { question: "What's the recommended minimum ad spend?", answer: "It depends on the objective and industry. We review this in the initial diagnosis to propose a realistic budget." },
+      { question: "Does it include creative production?", answer: "Yes, we produce or adapt specific pieces for ads; we can also work with material the brand already has." },
+      { question: "How are results reported?", answer: "With regular reports focused on business metrics: cost per result, conversions and return, not just reach or likes." },
+      { question: "Do you also work with TikTok Ads or Google Ads?", answer: "Our current focus is Meta Ads. If your strategy needs other platforms, we discuss it case by case." },
+    ],
+    portfolioFilter: "publicidad",
+    relatedSlugs: ["redes-sociales", "videos-redes-sociales", "desarrollo-web"],
+    ctaHeading: "Isn't your ad spend giving you clear results?",
+    ctaText: "Tell us what you've tried and we'll review together what's not working.",
+  },
+  {
+    slug: "redes-sociales",
+    category: "marketing",
+    navTitle: "Social media",
+    title: "Professional social media management",
+    seoTitle: "Social media management and strategy | Adrian Caballero Studio",
+    seoDescription:
+      "Professional social media management: content strategy, editorial calendar, production and community. Purposeful content, not just filling a calendar.",
+    summary: "Strategy, calendar and content production so your social media works toward a clear purpose.",
+    intro: [
+      "Posting every day isn't a strategy. Many brands keep their social media active without really knowing what objective each post is pursuing.",
+      "We manage social media with a real content strategy: we define goals, editorial line, calendar and production, and we measure results beyond likes and followers.",
+    ],
+    whatWeDo: [
+      { title: "Content strategy", description: "We define content pillars, brand tone and objectives per platform." },
+      { title: "Editorial calendar", description: "Monthly post planning aligned with key dates and moments for the business." },
+      { title: "Content production", description: "We coordinate the audiovisual and graphic production each post needs." },
+      { title: "Community management", description: "Response and follow-up on interactions according to the brand's guidelines." },
+    ],
+    forWho: [
+      "Brands posting without a strategy and not seeing real growth.",
+      "Businesses that need a constant presence but have no in-house content team.",
+      "Companies that want to integrate social media with their overall business strategy.",
+      "Brands that already produce audiovisual content with us and need strategic management.",
+    ],
+    includes: [
+      "Audit of current social media and strategy definition.",
+      "Monthly editorial calendar.",
+      "Coordination of content production.",
+      "Publishing and basic community management.",
+      "Monthly performance report per platform.",
+    ],
+    process: [
+      { title: "Audit", description: "We review the current state of the social accounts and their historical performance." },
+      { title: "Strategy", description: "We define content pillars, tone and objectives per platform." },
+      { title: "Calendar", description: "We plan the month's content with set dates and topics." },
+      { title: "Production and publishing", description: "We coordinate the needed production and publish according to the calendar." },
+      { title: "Report and adjustment", description: "We measure results and adjust next month's strategy." },
+    ],
+    faqs: [
+      { question: "Is content production included in social media management?", answer: "Strategy, calendar and management are. Audiovisual production is coordinated alongside the video or photography service depending on the volume needed." },
+      { question: "How soon do you see results?", answer: "It depends on the starting point and the objective. We discuss this in the initial audit to set realistic expectations." },
+      { question: "Do you manage all platforms or can I choose?", answer: "We decide together which platforms are worth the effort based on your audience and objectives." },
+    ],
+    portfolioFilter: "social",
+    relatedSlugs: ["meta-ads", "videos-redes-sociales", "fotografia"],
+    ctaHeading: "Does your social media need a real strategy?",
+    ctaText: "Tell us how your current presence is doing and what you'd like to achieve.",
+    metaCatalogId: "exouxp5uv5",
+  },
+];
+
+const servicesByLocale: Record<Locale, Service[]> = { es: services, en: servicesEn };
+
+export function getServices(locale: Locale = defaultLocale) {
+  return servicesByLocale[locale];
 }
 
-export function getRelatedServices(service: Service) {
+export function getServiceBySlug(slug: string, locale: Locale = defaultLocale) {
+  return servicesByLocale[locale].find((service) => service.slug === slug);
+}
+
+export function getRelatedServices(service: Service, locale: Locale = defaultLocale) {
   return service.relatedSlugs
-    .map((slug) => getServiceBySlug(slug))
+    .map((slug) => getServiceBySlug(slug, locale))
     .filter((s): s is Service => Boolean(s));
 }
 
-export function getServicesByCategory(category: ServiceCategory) {
-  return services.filter((service) => service.category === category);
+export function getServicesByCategory(category: ServiceCategory, locale: Locale = defaultLocale) {
+  return servicesByLocale[locale].filter((service) => service.category === category);
 }

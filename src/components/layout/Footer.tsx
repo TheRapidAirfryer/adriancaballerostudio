@@ -1,22 +1,26 @@
 import Link from "next/link";
 import { FOOTER_LINKS, siteConfig } from "@/lib/site-config";
-import { services } from "@/lib/data/services";
+import { getServices } from "@/lib/data/services";
+import { getDictionary } from "@/lib/i18n/dictionaries";
+import { withLocale, type Locale } from "@/lib/i18n/config";
 
-export function Footer() {
+export function Footer({ lang }: { lang: Locale }) {
   const year = new Date().getFullYear();
+  const dict = getDictionary(lang);
+  const services = getServices(lang);
 
   return (
     <footer className="border-t border-black/10 bg-white">
       <div className="mx-auto max-w-[1400px] px-6 pb-10 pt-16 md:px-10 md:pt-24">
         <div className="mb-16 md:mb-24">
           <p className="max-w-3xl text-2xl font-medium tracking-tight text-balance md:text-4xl">
-            ¿Listo para construir algo que tu marca realmente necesita?
+            {dict.footer.ctaHeading}
           </p>
           <Link
-            href="/contacto"
+            href={withLocale(lang, "/contacto")}
             className="hover-underline mt-6 inline-flex items-center gap-2 text-lg font-medium"
           >
-            Cuéntanos tu proyecto
+            {dict.footer.ctaLink}
             <span aria-hidden>→</span>
           </Link>
         </div>
@@ -24,16 +28,18 @@ export function Footer() {
         <div className="grid grid-cols-2 gap-10 border-t border-black/10 pt-12 md:grid-cols-5">
           <div className="col-span-2">
             <p className="text-sm font-semibold tracking-tight">ADRIAN CABALLERO STUDIO</p>
-            <p className="mt-3 max-w-xs text-sm text-neutral-500">{siteConfig.description}</p>
+            <p className="mt-3 max-w-xs text-sm text-neutral-500">{dict.site.description}</p>
           </div>
 
           <div>
-            <p className="font-mono text-[11px] uppercase tracking-wide text-neutral-500">Servicios</p>
+            <p className="font-mono text-[11px] uppercase tracking-wide text-neutral-500">
+              {dict.footer.servicesHeading}
+            </p>
             <ul className="mt-4 flex flex-col gap-2.5">
               {services.slice(0, 6).map((service) => (
                 <li key={service.slug}>
                   <Link
-                    href={`/servicios/${service.slug}`}
+                    href={withLocale(lang, `/servicios/${service.slug}`)}
                     className="hover-underline text-sm text-neutral-700"
                   >
                     {service.navTitle}
@@ -44,12 +50,14 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="font-mono text-[11px] uppercase tracking-wide text-neutral-500">Studio</p>
+            <p className="font-mono text-[11px] uppercase tracking-wide text-neutral-500">
+              {dict.links.studio}
+            </p>
             <ul className="mt-4 flex flex-col gap-2.5">
               {FOOTER_LINKS.studio.map((link) => (
                 <li key={link.href}>
-                  <Link href={link.href} className="hover-underline text-sm text-neutral-700">
-                    {link.label}
+                  <Link href={withLocale(lang, link.href)} className="hover-underline text-sm text-neutral-700">
+                    {dict.links[link.labelKey]}
                   </Link>
                 </li>
               ))}
@@ -57,7 +65,9 @@ export function Footer() {
           </div>
 
           <div>
-            <p className="font-mono text-[11px] uppercase tracking-wide text-neutral-500">Contacto</p>
+            <p className="font-mono text-[11px] uppercase tracking-wide text-neutral-500">
+              {dict.links.contact}
+            </p>
             <ul className="mt-4 flex flex-col gap-2.5 text-sm text-neutral-700">
               <li>
                 <a href={`mailto:${siteConfig.contact.email}`} className="hover-underline">
@@ -71,7 +81,7 @@ export function Footer() {
                   rel="noopener noreferrer"
                   className="hover-underline"
                 >
-                  WhatsApp
+                  {dict.footer.whatsapp}
                 </a>
               </li>
               <li>
@@ -109,11 +119,11 @@ export function Footer() {
         </div>
 
         <div className="mt-16 flex flex-col-reverse items-start justify-between gap-4 border-t border-black/10 pt-6 text-xs text-neutral-500 md:flex-row md:items-center">
-          <p>© {year} {siteConfig.name}. Todos los derechos reservados.</p>
+          <p>© {year} {siteConfig.name}. {dict.footer.rights}</p>
           <div className="flex gap-6">
             {FOOTER_LINKS.legal.map((link) => (
-              <Link key={link.href} href={link.href} className="hover-underline">
-                {link.label}
+              <Link key={link.href} href={withLocale(lang, link.href)} className="hover-underline">
+                {dict.links[link.labelKey]}
               </Link>
             ))}
           </div>

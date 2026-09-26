@@ -3,12 +3,18 @@
 import Link from "next/link";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
+import { usePathname } from "next/navigation";
 import { NAV_LINKS } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
+import { getDictionary } from "@/lib/i18n/dictionaries";
+import { locales, withLocale, type Locale } from "@/lib/i18n/config";
 
-export function MobileMenu() {
+export function MobileMenu({ lang }: { lang: Locale }) {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
+  const pathname = usePathname();
+  const dict = getDictionary(lang);
+  const pathWithoutLocale = pathname.replace(new RegExp(`^/(${locales.join("|")})`), "") || "/";
 
   useEffect(() => {
     // eslint-disable-next-line react-hooks/set-state-in-effect -- portal target (document.body) only exists client-side; this is the standard mount-detection pattern.
@@ -30,7 +36,7 @@ export function MobileMenu() {
         open ? "translate-y-0" : "-translate-y-full pointer-events-none"
       )}
     >
-      <nav aria-label="Navegación principal móvil">
+      <nav aria-label={dict.mobileMenu.navLabel}>
         <ul className="flex flex-col gap-1">
           {NAV_LINKS.map((link, i) => (
             <li
@@ -41,22 +47,37 @@ export function MobileMenu() {
               }}
             >
               <Link
-                href={link.href}
+                href={withLocale(lang, link.href)}
                 onClick={() => setOpen(false)}
                 className="text-3xl font-medium tracking-tight"
               >
-                {link.label}
+                {dict.links[link.labelKey]}
               </Link>
             </li>
           ))}
         </ul>
       </nav>
+      <div className="flex items-center justify-center gap-4 pb-6 text-sm font-medium uppercase tracking-wide text-neutral-500">
+        {locales.map((locale, index) => (
+          <span key={locale} className="flex items-center gap-4">
+            {index > 0 ? <span aria-hidden>/</span> : null}
+            <Link
+              href={withLocale(locale, pathWithoutLocale)}
+              onClick={() => setOpen(false)}
+              className={cn(locale === lang && "text-black")}
+              aria-current={locale === lang ? "true" : undefined}
+            >
+              {locale}
+            </Link>
+          </span>
+        ))}
+      </div>
       <Link
-        href="/contacto"
+        href={withLocale(lang, "/contacto")}
         onClick={() => setOpen(false)}
         className="inline-flex w-full items-center justify-center rounded-full bg-black px-6 py-4 text-base font-medium text-white"
       >
-        Hablemos
+        {dict.cta.talkToUs}
       </Link>
     </div>
   );
@@ -68,7 +89,7 @@ export function MobileMenu() {
         onClick={() => setOpen((v) => !v)}
         aria-expanded={open}
         aria-controls="mobile-menu"
-        aria-label={open ? "Cerrar menú" : "Abrir menú"}
+        aria-label={open ? dict.mobileMenu.closeLabel : dict.mobileMenu.openLabel}
         className="relative z-50 flex h-10 w-10 flex-col items-center justify-center gap-[5px]"
       >
         <span

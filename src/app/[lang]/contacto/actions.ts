@@ -2,6 +2,8 @@
 
 import nodemailer from "nodemailer";
 import { siteConfig } from "@/lib/site-config";
+import { getDictionary } from "@/lib/i18n/dictionaries";
+import type { Locale } from "@/lib/i18n/config";
 
 export interface ContactFormState {
   status: "idle" | "success" | "error";
@@ -120,14 +122,17 @@ async function sendViaResend(lead: LeadPayload): Promise<SendResult> {
 }
 
 export async function submitContactForm(
+  locale: Locale,
   _prevState: ContactFormState,
   formData: FormData
 ): Promise<ContactFormState> {
+  const dict = getDictionary(locale).contactForm;
+
   // Honeypot: los bots suelen rellenar todos los campos, incluido este,
   // que está oculto visualmente para personas reales.
   const honeypot = sanitize(formData.get("company_website"));
   if (honeypot) {
-    return { status: "success", message: "Gracias, hemos recibido tu mensaje." };
+    return { status: "success", message: dict.successMessage };
   }
 
   const name = sanitize(formData.get("name"));
@@ -139,13 +144,13 @@ export async function submitContactForm(
   const message = sanitize(formData.get("message"));
 
   const fieldErrors: ContactFormState["fieldErrors"] = {};
-  if (!name) fieldErrors.name = "Cuéntanos tu nombre.";
-  if (!email || !EMAIL_RE.test(email)) fieldErrors.email = "Escribe un correo válido.";
-  if (!service) fieldErrors.service = "Selecciona el servicio de tu interés.";
-  if (!message || message.length < 10) fieldErrors.message = "Cuéntanos un poco más sobre tu proyecto.";
+  if (!name) fieldErrors.name = dict.errors.name;
+  if (!email || !EMAIL_RE.test(email)) fieldErrors.email = dict.errors.email;
+  if (!service) fieldErrors.service = dict.errors.service;
+  if (!message || message.length < 10) fieldErrors.message = dict.errors.message;
 
   if (Object.keys(fieldErrors).length > 0) {
-    return { status: "error", message: "Revisa los campos marcados.", fieldErrors };
+    return { status: "error", message: dict.fieldErrors, fieldErrors };
   }
 
   const lead: LeadPayload = {
@@ -181,12 +186,12 @@ export async function submitContactForm(
     console.error("[contacto] Error enviando el lead:", error);
     return {
       status: "error",
-      message: "No pudimos enviar tu mensaje en este momento. Escríbenos por WhatsApp mientras lo resolvemos.",
+      message: dict.errorMessage,
     };
   }
 
   return {
     status: "success",
-    message: "Gracias. Recibimos tu mensaje y te contactaremos pronto.",
+    message: dict.successMessage,
   };
 }

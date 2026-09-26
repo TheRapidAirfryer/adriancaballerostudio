@@ -13,9 +13,11 @@ import { MetaViewContent } from "@/components/analytics/MetaViewContent";
 import { buildMetadata } from "@/lib/metadata";
 import { siteConfig } from "@/lib/site-config";
 import { omitPlaceholders } from "@/lib/utils";
+import { getDictionary } from "@/lib/i18n/dictionaries";
+import { isLocale, withLocale } from "@/lib/i18n/config";
 
 interface Props {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ lang: string; slug: string }>;
 }
 
 export function generateStaticParams() {
@@ -23,24 +25,28 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props) {
-  const { slug } = await params;
-  const service = getServiceBySlug(slug);
+  const { lang, slug } = await params;
+  if (!isLocale(lang)) return {};
+  const service = getServiceBySlug(slug, lang);
   if (!service) return {};
 
   return buildMetadata({
     title: service.seoTitle,
     description: service.seoDescription,
     path: `/servicios/${service.slug}`,
+    locale: lang,
   });
 }
 
 export default async function ServicePage({ params }: Props) {
-  const { slug } = await params;
-  const service = getServiceBySlug(slug);
+  const { lang, slug } = await params;
+  if (!isLocale(lang)) notFound();
+  const dict = getDictionary(lang);
+  const service = getServiceBySlug(slug, lang);
   if (!service) notFound();
 
-  const relatedServices = getRelatedServices(service);
-  const relatedProjects = getProjectsByCategory(service.portfolioFilter as ProjectCategory).slice(0, 3);
+  const relatedServices = getRelatedServices(service, lang);
+  const relatedProjects = getProjectsByCategory(service.portfolioFilter as ProjectCategory, lang).slice(0, 3);
 
   const serviceJsonLd = omitPlaceholders({
     "@context": "https://schema.org",
@@ -64,9 +70,10 @@ export default async function ServicePage({ params }: Props) {
       <div className="mx-auto max-w-[1400px] px-6 pt-10 md:px-10">
         <Breadcrumbs
           items={[
-            { label: "Servicios", href: "/servicios" },
+            { label: dict.serviceDetail.breadcrumbServices, href: "/servicios" },
             { label: service.navTitle, href: `/servicios/${service.slug}` },
           ]}
+          lang={lang}
         />
         <h1 className="max-w-3xl text-balance text-4xl font-medium leading-[1.1] tracking-tight md:text-6xl">
           {service.title}
@@ -81,7 +88,7 @@ export default async function ServicePage({ params }: Props) {
       </div>
 
       <section className="mx-auto max-w-[1400px] px-6 py-16 md:px-10 md:py-24">
-        <SectionHeading eyebrow="Qué hacemos" title="El servicio, en concreto." className="max-w-2xl" />
+        <SectionHeading eyebrow={dict.serviceDetail.whatWeDoEyebrow} title={dict.serviceDetail.whatWeDoTitle} className="max-w-2xl" />
         <div className="mt-10 grid gap-8 md:mt-12 md:grid-cols-2 md:gap-x-12 md:gap-y-10">
           {service.whatWeDo.map((item) => (
             <div key={item.title} className="border-t border-black/10 pt-5">
@@ -95,7 +102,7 @@ export default async function ServicePage({ params }: Props) {
       <section className="border-t border-black/10 bg-neutral-50 py-16 md:py-24">
         <div className="mx-auto grid max-w-[1400px] gap-12 px-6 md:grid-cols-2 md:px-10">
           <div>
-            <SectionHeading eyebrow="Para quién" title="¿Es esto para tu marca?" />
+            <SectionHeading eyebrow={dict.serviceDetail.forWhoEyebrow} title={dict.serviceDetail.forWhoTitle} />
             <ul className="mt-8 flex flex-col gap-4">
               {service.forWho.map((item) => (
                 <li key={item} className="flex gap-3 text-sm leading-relaxed text-neutral-600 md:text-base">
@@ -106,7 +113,7 @@ export default async function ServicePage({ params }: Props) {
             </ul>
           </div>
           <div>
-            <SectionHeading eyebrow="Qué incluye" title="Lo que vas a recibir." />
+            <SectionHeading eyebrow={dict.serviceDetail.includesEyebrow} title={dict.serviceDetail.includesTitle} />
             <ul className="mt-8 flex flex-col gap-4">
               {service.includes.map((item) => (
                 <li key={item} className="flex gap-3 text-sm leading-relaxed text-neutral-600 md:text-base">
@@ -120,7 +127,7 @@ export default async function ServicePage({ params }: Props) {
       </section>
 
       <section className="mx-auto max-w-[1400px] px-6 py-16 md:px-10 md:py-24">
-        <SectionHeading eyebrow="Nuestro proceso" title="Cómo trabajamos este servicio." className="max-w-2xl" />
+        <SectionHeading eyebrow={dict.serviceDetail.processEyebrow} title={dict.serviceDetail.processTitle} className="max-w-2xl" />
         <ol className="mt-10 grid gap-8 md:mt-12 md:grid-cols-5 md:gap-6">
           {service.process.map((step, index) => (
             <li key={step.title} className="border-t border-black/10 pt-5">
@@ -136,14 +143,14 @@ export default async function ServicePage({ params }: Props) {
         <section className="border-t border-black/10 bg-neutral-50 py-16 md:py-24">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
             <div className="flex flex-col items-start justify-between gap-4 md:flex-row md:items-end">
-              <SectionHeading eyebrow="Ejemplos" title="Proyectos relacionados." />
-              <Link href="/portafolio" className="hover-underline hidden text-sm font-medium md:inline-flex">
-                Ver portafolio completo →
+              <SectionHeading eyebrow={dict.serviceDetail.examplesEyebrow} title={dict.serviceDetail.examplesTitle} />
+              <Link href={withLocale(lang, "/portafolio")} className="hover-underline hidden text-sm font-medium md:inline-flex">
+                {dict.serviceDetail.viewFullPortfolio}
               </Link>
             </div>
             <div className="mt-10 grid gap-10 sm:grid-cols-2 md:mt-12 md:grid-cols-3">
               {relatedProjects.map((project) => (
-                <ProjectCard key={project.slug} project={project} />
+                <ProjectCard key={project.slug} project={project} lang={lang} />
               ))}
             </div>
           </div>
@@ -151,7 +158,7 @@ export default async function ServicePage({ params }: Props) {
       ) : null}
 
       <section className="mx-auto max-w-[1400px] px-6 py-16 md:px-10 md:py-24">
-        <SectionHeading eyebrow="Preguntas frecuentes" title="Lo que suelen preguntarnos." className="max-w-2xl" />
+        <SectionHeading eyebrow={dict.serviceDetail.faqEyebrow} title={dict.serviceDetail.faqTitle} className="max-w-2xl" />
         <div className="mt-10 md:mt-12">
           <FAQ items={service.faqs} />
         </div>
@@ -160,17 +167,17 @@ export default async function ServicePage({ params }: Props) {
       {relatedServices.length > 0 ? (
         <section className="border-t border-black/10 py-16 md:py-24">
           <div className="mx-auto max-w-[1400px] px-6 md:px-10">
-            <SectionHeading eyebrow="Servicios relacionados" title="Con esto también suele ir de la mano." />
+            <SectionHeading eyebrow={dict.serviceDetail.relatedEyebrow} title={dict.serviceDetail.relatedTitle} />
             <div className="mt-8 md:mt-10 md:grid md:grid-cols-3 md:gap-x-10">
               {relatedServices.map((related) => (
-                <ServiceCard key={related.slug} service={related} />
+                <ServiceCard key={related.slug} service={related} lang={lang} />
               ))}
             </div>
           </div>
         </section>
       ) : null}
 
-      <CTA heading={service.ctaHeading} description={service.ctaText} />
+      <CTA lang={lang} heading={service.ctaHeading} description={service.ctaText} />
     </>
   );
 }

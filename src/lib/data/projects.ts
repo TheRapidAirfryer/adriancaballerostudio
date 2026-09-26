@@ -5,6 +5,8 @@
  * No se inventan clientes, logos, testimonios ni cifras.
  */
 
+import { defaultLocale, type Locale } from "@/lib/i18n/config";
+
 export type ProjectCategory =
   | "video"
   | "fotografia"
@@ -14,7 +16,7 @@ export type ProjectCategory =
   | "sistemas"
   | "social";
 
-export const PROJECT_CATEGORY_LABELS: Record<ProjectCategory, string> = {
+const PROJECT_CATEGORY_LABELS_ES: Record<ProjectCategory, string> = {
   video: "Video",
   fotografia: "Fotografía",
   dron: "Dron",
@@ -23,6 +25,23 @@ export const PROJECT_CATEGORY_LABELS: Record<ProjectCategory, string> = {
   sistemas: "Sistemas",
   social: "Social Media",
 };
+
+const PROJECT_CATEGORY_LABELS_EN: Record<ProjectCategory, string> = {
+  video: "Video",
+  fotografia: "Photography",
+  dron: "Drone",
+  web: "Web",
+  apps: "Apps",
+  sistemas: "Systems",
+  social: "Social Media",
+};
+
+export function getProjectCategoryLabels(locale: Locale = defaultLocale) {
+  return locale === "en" ? PROJECT_CATEGORY_LABELS_EN : PROJECT_CATEGORY_LABELS_ES;
+}
+
+/** @deprecated Usa getProjectCategoryLabels(locale). Se mantiene para compatibilidad con el español por defecto. */
+export const PROJECT_CATEGORY_LABELS = PROJECT_CATEGORY_LABELS_ES;
 
 export interface ProjectMedia {
   type: "image" | "image-vertical" | "video-vertical" | "video-horizontal";
@@ -404,16 +423,357 @@ export const projects: Project[] = [
   },
 ];
 
-export function getProjectBySlug(slug: string) {
-  return projects.find((project) => project.slug === slug);
+export const projectsEn: Project[] = [
+  {
+    slug: "redes-sociales-jf-maritimos",
+    title: "Social media management — JF Marítimos",
+    client: "JF Marítimos",
+    industry: "Marine and boating",
+    categories: ["social"],
+    services: ["redes-sociales", "videos-redes-sociales", "meta-ads"],
+    year: "2025",
+    isPlaceholder: false,
+    summary:
+      "Strategic social media management, content creation and Meta Ads campaigns to strengthen JF Marítimos' digital presence and generate new business opportunities.",
+    objective: "Strengthen the digital presence and generate more sales.",
+    challenge: "Communicate a wide range of marine products and services.",
+    solution: "Social media content and Meta Ads campaigns focused on reach and sales.",
+    processNotes: [
+      "Monthly social media content management.",
+      "Production of graphic and video pieces for posts.",
+      "Setup, optimization and reporting of Meta Ads campaigns.",
+    ],
+    results:
+      "Sustained growth in community and reach on Facebook, Instagram and TikTok, with a strong increase in engagement with published content.",
+    metrics: [
+      { label: "Community growth", value: "+87.2%", isPlaceholder: false },
+      { label: "Interactions", value: "16.4K", isPlaceholder: false },
+      { label: "TikTok reach", value: "815.2K views", isPlaceholder: false },
+    ],
+    featuredMedia: {
+      type: "image",
+      label: "JF Marítimos social media management",
+      src: "/portfolio/jfmaritimos/jfmaritimos-manejoderedes.png",
+    },
+    gallery: [
+      {
+        type: "video-vertical",
+        label: "JF Marítimos reel",
+        src: "/portfolio/jfmaritimos/jf-video1.png",
+        href: "https://www.instagram.com/reel/DcymlwJRKDt/",
+      },
+      {
+        type: "video-vertical",
+        label: "JF Marítimos reel",
+        src: "/portfolio/jfmaritimos/jf-video2.png",
+        href: "https://www.instagram.com/reel/DcgzXsORXBM/",
+      },
+      {
+        type: "video-vertical",
+        label: "JF Marítimos reel",
+        src: "/portfolio/jfmaritimos/jf-video3.png",
+        href: "https://www.instagram.com/reel/Dc6XDOWxsbx/",
+      },
+    ],
+    artGallery: [
+      {
+        type: "image-vertical",
+        label: "JF Marítimos graphic artwork",
+        src: "/portfolio/jfmaritimos/jf-arte1.png",
+      },
+      {
+        type: "image-vertical",
+        label: "JF Marítimos graphic artwork",
+        src: "/portfolio/jfmaritimos/jf-arte2.png",
+      },
+      {
+        type: "image-vertical",
+        label: "JF Marítimos graphic artwork",
+        src: "/portfolio/jfmaritimos/jf-arte3.png",
+      },
+    ],
+    seoTitle: "Social media management for JF Marítimos | Adrian Caballero Studio Portfolio",
+    seoDescription: "Case study: social media management, content creation and Meta Ads campaigns for JF Marítimos.",
+  },
+  {
+    slug: "sitio-web-corporativo",
+    title: "Web development — Adcopro",
+    client: "Adcopro",
+    industry: "Real estate",
+    categories: ["web"],
+    services: ["desarrollo-web"],
+    year: "2026",
+    isPlaceholder: false,
+    summary: "Design and development of a multi-page website built from scratch for a real estate company.",
+    objective: "Create a modern real estate platform to promote properties and generate leads.",
+    challenge: "Organize different property types into a clear, easy-to-use experience.",
+    solution: "Design and development of a responsive, intuitive website focused on connecting property owners with clients.",
+    processNotes: [
+      "Information architecture and page map.",
+      "Custom UI design based on the client's brand identity.",
+      "Development with a focus on technical SEO and performance.",
+    ],
+    results: "A modern, functional real estate website ready to capture leads interested in properties.",
+    metrics: [
+      { label: "Live platform", value: "Site published", isPlaceholder: false },
+      { label: "Optimized for mobile and desktop", value: "100% responsive", isPlaceholder: false },
+      { label: "WhatsApp integration", value: "Direct contact", isPlaceholder: false },
+    ],
+    featuredMedia: {
+      type: "image",
+      label: "Adcopro website view",
+      src: "/portfolio/adcopro/adcopro-website.png",
+    },
+    gallery: [
+      {
+        type: "image",
+        label: "Desktop homepage view",
+        src: "/portfolio/adcopro/adcopro-website.png",
+      },
+      {
+        type: "image",
+        label: "Adcopro website mobile view",
+        src: "/portfolio/adcopro/adcopro-website-phone.png",
+      },
+      {
+        type: "image",
+        label: "Contact page view",
+        src: "/portfolio/adcopro/adcopro-contacto.png",
+      },
+    ],
+    seoTitle: "Website for real estate company | Adrian Caballero Studio Portfolio",
+    seoDescription: "Case study: design and development from scratch of a multi-page website for a real estate company.",
+  },
+  {
+    slug: "cobertura-fotografica-feria-salud-peniel",
+    title: "Photo coverage — Compeniel",
+    client: "Cooperativa Peniel",
+    industry: "Financial services / Cooperative",
+    categories: ["fotografia"],
+    services: ["fotografia"],
+    year: "2026",
+    isPlaceholder: false,
+    summary:
+      "Professional photo coverage of the Health Fair organized by Cooperativa Peniel, documenting activities, medical care and member participation.",
+    objective: "Create professional photo content to document the Health Fair and strengthen Cooperativa Peniel's institutional communication.",
+    challenge: "Capture the event's main activities and moments while keeping the imagery natural, professional and consistent with the brand.",
+    solution: "We carried out photo coverage focused on documenting the care provided, member participation and the day's key moments.",
+    processNotes: [
+      "Advance survey of the venue and event schedule.",
+      "Photo coverage of the fair's activities and spaces.",
+      "Selection and editing of the final photographs.",
+    ],
+    results: "Professional photo coverage with edited images ready for institutional communication and social media.",
+    metrics: [{ label: "Photos delivered and edited", value: "90 photos", isPlaceholder: false }],
+    featuredMedia: {
+      type: "image",
+      label: "Health Fair — Cooperativa Peniel",
+      src: "/portfolio/compeniel/compeniel-evento.png",
+    },
+    gallery: [
+      {
+        type: "image",
+        label: "Health fair coverage",
+        src: "/portfolio/compeniel/registro-evento1.png",
+      },
+      {
+        type: "image",
+        label: "Health fair coverage",
+        src: "/portfolio/compeniel/registro-evento2.png",
+      },
+      {
+        type: "image",
+        label: "Health fair coverage",
+        src: "/portfolio/compeniel/registro-evento3.png",
+      },
+    ],
+    seoTitle: "Photo coverage — Health Fair | Adrian Caballero Studio Portfolio",
+    seoDescription: "Case study: photo coverage of the Health Fair organized by Cooperativa Peniel.",
+  },
+  {
+    slug: "cobertura-evento-jf-maritimos",
+    title: "Event coverage — Fisherman's Day",
+    client: "JF Marítimos",
+    industry: "Marine and boating",
+    categories: ["video", "dron"],
+    services: ["produccion-audiovisual", "dron"],
+    year: "2026",
+    isPlaceholder: false,
+    summary: "Audiovisual coverage of Fisherman's Day, a kayak race sponsored by JF Marítimos.",
+    objective: "Document JF Marítimos' participation as a sponsor of Fisherman's Day and its kayak race.",
+    challenge: "Film in La Ceiba under strong sun and from moving boats, capturing good shots of the race.",
+    solution: "Filmed a recap video of the event and the kayak race, including an interview with the winner.",
+    processNotes: [
+      "Advance survey of the venue and event schedule.",
+      "Video coverage of the event and the kayak race.",
+      "Aerial drone shots of the race and the venue.",
+      "Interview with the race winner.",
+      "Editing of the recap video for social media.",
+    ],
+    results: "The video was well received by the fishermen and the community, reflecting JF Marítimos' support for the event.",
+    metrics: [],
+    featuredMedia: {
+      type: "image",
+      label: "Fisherman's Day coverage",
+      src: "/portfolio/jfmaritimos/dia-del-pescador/diadelpescador-portada.png",
+    },
+    gallery: [
+      {
+        type: "image",
+        label: "Event coverage",
+        src: "/portfolio/jfmaritimos/dia-del-pescador/foto-2.png",
+        href: "https://www.instagram.com/reel/DbwL-eTOEwX/",
+      },
+      {
+        type: "image",
+        label: "Event coverage",
+        src: "/portfolio/jfmaritimos/dia-del-pescador/foto-3.png",
+        href: "https://www.instagram.com/reel/DbwL-eTOEwX/",
+      },
+      {
+        type: "video-horizontal",
+        label: "Winner interview",
+        src: "/portfolio/jfmaritimos/dia-del-pescador/foto-video.png",
+        href: "https://www.instagram.com/reel/DbwL-eTOEwX/",
+      },
+    ],
+    seoTitle: "Fisherman's Day coverage for JF Marítimos | Adrian Caballero Studio Portfolio",
+    seoDescription: "Case study: audiovisual coverage of Fisherman's Day, a kayak race sponsored by JF Marítimos.",
+  },
+  {
+    slug: "sitio-web-ciudad-pinares",
+    title: "Web development — Ciudad Pinares",
+    client: "Ciudad Pinares",
+    industry: "Residential development",
+    categories: ["web"],
+    services: ["desarrollo-web"],
+    year: "2025",
+    isPlaceholder: false,
+    summary: "Design and development of a website for Ciudad Pinares, a residential project in Choloma.",
+    objective: "Create a platform to promote the Choloma residential project and generate leads.",
+    challenge: "Organize the residential project's information into a clear, easy-to-use experience.",
+    solution: "Design and development of a responsive, intuitive website focused on connecting the residential project with interested buyers.",
+    processNotes: [
+      "Information architecture and page map.",
+      "Custom UI design based on the client's brand identity.",
+      "Development with a focus on technical SEO and performance.",
+    ],
+    results: "A modern, functional website ready to capture people interested in the residential project.",
+    metrics: [
+      { label: "Live platform", value: "Site published", isPlaceholder: false },
+      { label: "Optimized for mobile and desktop", value: "100% responsive", isPlaceholder: false },
+      { label: "WhatsApp integration", value: "Direct contact", isPlaceholder: false },
+    ],
+    featuredMedia: {
+      type: "image",
+      label: "Ciudad Pinares website view",
+      src: "/portfolio/ciudad-pinares/ciudadpinares-website.png",
+    },
+    gallery: [
+      {
+        type: "image",
+        label: "Desktop homepage view",
+        src: "/portfolio/ciudad-pinares/ciudadpinares-website.png",
+      },
+      {
+        type: "image",
+        label: "Website mobile view",
+        src: "/portfolio/ciudad-pinares/ciudadpinares-website-phone.png",
+      },
+      {
+        type: "image",
+        label: "Internal page view",
+        src: "/portfolio/ciudad-pinares/ciudadpinares-preview.png",
+      },
+    ],
+    seoTitle: "Website for Ciudad Pinares | Adrian Caballero Studio Portfolio",
+    seoDescription: "Case study: design and development of a website for the Ciudad Pinares residential project.",
+  },
+  {
+    slug: "redes-sociales-bodega-marisol",
+    title: "Social media management — Bodega Marisol",
+    client: "Bodega Marisol",
+    industry: "Groceries and household goods",
+    categories: ["social"],
+    services: ["redes-sociales", "videos-redes-sociales"],
+    year: "2026",
+    isPlaceholder: false,
+    summary: "Social media management and content creation (video and graphic design) for Bodega Marisol.",
+    objective: "Strengthen the brand's digital presence with consistent content aligned with its identity.",
+    challenge: "Maintain active, professional and engaging communication on social media.",
+    solution: "Content production and management for social media through photography, video and graphic pieces.",
+    processNotes: [
+      "Monthly social media content management.",
+      "Production of graphic and video pieces for posts.",
+    ],
+    results: "In the first month, over 500,000 organic views, +700 organic followers across the three social networks, and an increase in sales.",
+    metrics: [
+      { label: "Community growth", value: "+700 followers", isPlaceholder: false },
+      { label: "Organic views", value: "+500,000", isPlaceholder: false },
+    ],
+    featuredMedia: {
+      type: "image",
+      label: "Bodega Marisol social media management",
+      src: "/portfolio/bodega-marisol/bodegamarisol-showcase.png",
+    },
+    gallery: [
+      {
+        type: "video-vertical",
+        label: "Bodega Marisol reel",
+        src: "/portfolio/bodega-marisol/bm-video1.png",
+        href: "https://www.instagram.com/reel/DdR3EAZvJga/",
+      },
+      {
+        type: "video-vertical",
+        label: "Bodega Marisol reel",
+        src: "/portfolio/bodega-marisol/bm-video2.png",
+        href: "https://www.instagram.com/reel/DdHU7D5KJuQ/",
+      },
+      {
+        type: "video-vertical",
+        label: "Bodega Marisol video on TikTok",
+        src: "/portfolio/bodega-marisol/bm-video3.png",
+        href: "https://www.tiktok.com/@bodega.marisol/video/7678378995322260754",
+      },
+    ],
+    artGallery: [
+      {
+        type: "image-vertical",
+        label: "Bodega Marisol graphic artwork",
+        src: "/portfolio/bodega-marisol/bm-arte1.png",
+      },
+      {
+        type: "image-vertical",
+        label: "Bodega Marisol graphic artwork",
+        src: "/portfolio/bodega-marisol/bm-arte2.png",
+      },
+      {
+        type: "image-vertical",
+        label: "Bodega Marisol graphic artwork",
+        src: "/portfolio/bodega-marisol/bm-arte3.png",
+      },
+    ],
+    seoTitle: "Social media management for Bodega Marisol | Adrian Caballero Studio Portfolio",
+    seoDescription: "Case study: social media management and content creation for Bodega Marisol.",
+  },
+];
+
+const projectsByLocale: Record<Locale, Project[]> = { es: projects, en: projectsEn };
+
+export function getProjects(locale: Locale = defaultLocale) {
+  return projectsByLocale[locale];
 }
 
-export function getProjectsByCategory(category: ProjectCategory) {
-  return projects.filter((project) => project.categories.includes(category));
+export function getProjectBySlug(slug: string, locale: Locale = defaultLocale) {
+  return projectsByLocale[locale].find((project) => project.slug === slug);
 }
 
-export function getRelatedProjects(project: Project, limit = 3) {
-  return projects
+export function getProjectsByCategory(category: ProjectCategory, locale: Locale = defaultLocale) {
+  return projectsByLocale[locale].filter((project) => project.categories.includes(category));
+}
+
+export function getRelatedProjects(project: Project, limit = 3, locale: Locale = defaultLocale) {
+  return projectsByLocale[locale]
     .filter(
       (p) =>
         p.slug !== project.slug &&

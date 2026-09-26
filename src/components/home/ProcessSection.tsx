@@ -1,20 +1,24 @@
-import { processSteps } from "@/lib/data/home-data";
+import { getProcessSteps } from "@/lib/data/home-data";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { RevealOnScroll } from "@/components/ui/RevealOnScroll";
+import { getDictionary } from "@/lib/i18n/dictionaries";
+import type { Locale } from "@/lib/i18n/config";
 
-export function ProcessSection() {
+export function ProcessSection({ lang }: { lang: Locale }) {
+  const dict = getDictionary(lang);
+
   return (
     <section className="mx-auto max-w-[1400px] px-6 py-20 md:px-10 md:py-28">
       <RevealOnScroll>
         <SectionHeading
-          eyebrow="Cómo trabajamos"
-          title="Un proceso claro, de principio a fin."
-          description="Te mantenemos al tanto en cada etapa, con avances claros, decisiones compartidas y resultados sin sorpresas."
+          eyebrow={dict.home.process.eyebrow}
+          title={dict.home.process.title}
+          description={dict.home.process.description}
         />
       </RevealOnScroll>
 
       <div className="mt-14 grid gap-10 md:mt-16 md:grid-cols-4 md:gap-6">
-        {processSteps.map((step) => (
+        {getProcessSteps(lang).map((step) => (
           <RevealOnScroll key={step.number}>
             <div className="border-t border-black/10 pt-6">
               <span className="font-mono text-xs text-neutral-500">{step.number}</span>

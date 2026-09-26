@@ -1,10 +1,14 @@
 import Link from "next/link";
 import type { Service } from "@/lib/data/services";
+import { getDictionary } from "@/lib/i18n/dictionaries";
+import { withLocale, type Locale } from "@/lib/i18n/config";
 
-export function ServiceCard({ service }: { service: Service }) {
+export function ServiceCard({ service, lang }: { service: Service; lang: Locale }) {
+  const dict = getDictionary(lang);
+
   return (
     <Link
-      href={`/servicios/${service.slug}`}
+      href={withLocale(lang, `/servicios/${service.slug}`)}
       className="group flex flex-col justify-between border-t border-black/10 py-8 transition-colors first:border-t-0 md:border-t md:py-10"
     >
       <div>
@@ -14,7 +18,7 @@ export function ServiceCard({ service }: { service: Service }) {
         </p>
       </div>
       <span className="mt-6 inline-flex items-center gap-2 text-sm font-medium">
-        Ver servicio
+        {dict.serviceDetail.viewService}
         <span className="inline-block transition-transform duration-300 group-hover:translate-x-1" aria-hidden>
           →
         </span>

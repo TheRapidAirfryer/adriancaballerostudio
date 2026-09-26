@@ -2,8 +2,10 @@
 
 import { useActionState, useEffect } from "react";
 import { useFormStatus } from "react-dom";
-import { submitContactForm, type ContactFormState } from "@/app/contacto/actions";
+import { submitContactForm, type ContactFormState } from "@/app/[lang]/contacto/actions";
 import { cn } from "@/lib/utils";
+import { getDictionary, type Dictionary } from "@/lib/i18n/dictionaries";
+import type { Locale } from "@/lib/i18n/config";
 
 declare global {
   interface Window {
@@ -11,24 +13,12 @@ declare global {
   }
 }
 
-const SERVICE_OPTIONS = [
-  { value: "video", label: "Video" },
-  { value: "fotografia", label: "Fotografía" },
-  { value: "dron", label: "Dron" },
-  { value: "pagina-web", label: "Página web" },
-  { value: "aplicacion", label: "Aplicación" },
-  { value: "sistema-empresarial", label: "Sistema empresarial" },
-  { value: "meta-ads", label: "Meta Ads" },
-  { value: "redes-sociales", label: "Redes sociales" },
-  { value: "otro", label: "Otro" },
-];
-
 const initialState: ContactFormState = { status: "idle" };
 
 const inputClasses =
   "w-full border-b border-black/20 bg-transparent py-3 text-base outline-none transition-colors focus:border-black placeholder:text-neutral-500";
 
-function SubmitButton() {
+function SubmitButton({ dict }: { dict: Dictionary["contactForm"] }) {
   const { pending } = useFormStatus();
   return (
     <button
@@ -36,13 +26,27 @@ function SubmitButton() {
       disabled={pending}
       className="mt-4 inline-flex w-full cursor-pointer items-center justify-center rounded-full bg-black px-6 py-4 text-sm font-medium text-white transition-colors hover:bg-neutral-800 disabled:cursor-not-allowed disabled:opacity-50 sm:w-auto"
     >
-      {pending ? "Enviando..." : "Enviar"}
+      {pending ? dict.submitting : dict.submit}
     </button>
   );
 }
 
-export function ContactForm() {
-  const [state, formAction] = useActionState(submitContactForm, initialState);
+export function ContactForm({ lang }: { lang: Locale }) {
+  const dict = getDictionary(lang).contactForm;
+  const boundAction = submitContactForm.bind(null, lang);
+  const [state, formAction] = useActionState(boundAction, initialState);
+
+  const SERVICE_OPTIONS = [
+    { value: "video", label: dict.serviceOptions.video },
+    { value: "fotografia", label: dict.serviceOptions.fotografia },
+    { value: "dron", label: dict.serviceOptions.dron },
+    { value: "pagina-web", label: dict.serviceOptions.paginaWeb },
+    { value: "aplicacion", label: dict.serviceOptions.aplicacion },
+    { value: "sistema-empresarial", label: dict.serviceOptions.sistemaEmpresarial },
+    { value: "meta-ads", label: dict.serviceOptions.metaAds },
+    { value: "redes-sociales", label: dict.serviceOptions.redesSociales },
+    { value: "otro", label: dict.serviceOptions.otro },
+  ];
 
   useEffect(() => {
     if (state.status === "success" && typeof window.fbq === "function") {
@@ -54,7 +58,7 @@ export function ContactForm() {
     <form action={formAction} noValidate className="flex flex-col gap-6">
       {/* Honeypot anti-spam: oculto para personas, visible para bots. */}
       <div className="hidden" aria-hidden="true">
-        <label htmlFor="company_website">No completar este campo</label>
+        <label htmlFor="company_website">{dict.honeypotLabel}</label>
         <input
           type="text"
           id="company_website"
@@ -67,7 +71,7 @@ export function ContactForm() {
       <div className="grid gap-6 sm:grid-cols-2">
         <div>
           <label htmlFor="name" className="text-sm text-neutral-500">
-            Nombre
+            {dict.name}
           </label>
           <input id="name" name="name" type="text" required className={inputClasses} />
           {state.fieldErrors?.name ? (
@@ -76,13 +80,13 @@ export function ContactForm() {
         </div>
         <div>
           <label htmlFor="company" className="text-sm text-neutral-500">
-            Empresa
+            {dict.company}
           </label>
           <input id="company" name="company" type="text" className={inputClasses} />
         </div>
         <div>
           <label htmlFor="email" className="text-sm text-neutral-500">
-            Correo
+            {dict.email}
           </label>
           <input id="email" name="email" type="email" required className={inputClasses} />
           {state.fieldErrors?.email ? (
@@ -91,17 +95,17 @@ export function ContactForm() {
         </div>
         <div>
           <label htmlFor="phone" className="text-sm text-neutral-500">
-            WhatsApp / Teléfono
+            {dict.phone}
           </label>
           <input id="phone" name="phone" type="tel" className={inputClasses} />
         </div>
         <div>
           <label htmlFor="service" className="text-sm text-neutral-500">
-            Servicio de interés
+            {dict.service}
           </label>
           <select id="service" name="service" required defaultValue="" className={cn(inputClasses, "appearance-none")}>
             <option value="" disabled>
-              Selecciona una opción
+              {dict.servicePlaceholder}
             </option>
             {SERVICE_OPTIONS.map((option) => (
               <option key={option.value} value={option.value}>
@@ -115,15 +119,15 @@ export function ContactForm() {
         </div>
         <div>
           <label htmlFor="budget" className="text-sm text-neutral-500">
-            Presupuesto aproximado
+            {dict.budget}
           </label>
-          <input id="budget" name="budget" type="text" placeholder="Opcional" className={inputClasses} />
+          <input id="budget" name="budget" type="text" placeholder={dict.budgetPlaceholder} className={inputClasses} />
         </div>
       </div>
 
       <div>
         <label htmlFor="message" className="text-sm text-neutral-500">
-          Cuéntanos sobre tu proyecto
+          {dict.message}
         </label>
         <textarea
           id="message"
@@ -137,7 +141,7 @@ export function ContactForm() {
         ) : null}
       </div>
 
-      <SubmitButton />
+      <SubmitButton dict={dict} />
 
       <div role="status" aria-live="polite">
         {state.status === "success" ? (

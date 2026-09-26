@@ -1,7 +1,7 @@
 import { notFound } from "next/navigation";
 import Link from "next/link";
 // getRelatedProjects se deja sin usar mientras la sección "Más proyectos" está comentada.
-import { getProjectBySlug, mediaRatio, projects, PROJECT_CATEGORY_LABELS } from "@/lib/data/projects";
+import { getProjectBySlug, mediaRatio, projects, getProjectCategoryLabels } from "@/lib/data/projects";
 import { getServiceBySlug } from "@/lib/data/services";
 import { Breadcrumbs } from "@/components/ui/Breadcrumbs";
 import { PlaceholderMedia } from "@/components/ui/PlaceholderMedia";
@@ -10,9 +10,11 @@ import { SectionHeading } from "@/components/ui/SectionHeading";
 // import { ProjectCard } from "@/components/portfolio/ProjectCard"; // usado solo por la sección "Más proyectos"
 import { CTA } from "@/components/ui/CTA";
 import { buildMetadata } from "@/lib/metadata";
+import { getDictionary } from "@/lib/i18n/dictionaries";
+import { isLocale, withLocale } from "@/lib/i18n/config";
 
 interface Props {
-  params: Promise<{ slug: string }>;
+  params: Promise<{ lang: string; slug: string }>;
 }
 
 export function generateStaticParams() {
@@ -20,26 +22,31 @@ export function generateStaticParams() {
 }
 
 export async function generateMetadata({ params }: Props) {
-  const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const { lang, slug } = await params;
+  if (!isLocale(lang)) return {};
+  const project = getProjectBySlug(slug, lang);
   if (!project) return {};
 
   return buildMetadata({
     title: project.seoTitle,
     description: project.seoDescription,
     path: `/proyectos/${project.slug}`,
+    locale: lang,
   });
 }
 
 export default async function ProjectPage({ params }: Props) {
-  const { slug } = await params;
-  const project = getProjectBySlug(slug);
+  const { lang, slug } = await params;
+  if (!isLocale(lang)) notFound();
+  const dict = getDictionary(lang);
+  const project = getProjectBySlug(slug, lang);
   if (!project) notFound();
+  const categoryLabels = getProjectCategoryLabels(lang);
 
   // Sección "Más proyectos" desactivada temporalmente — ver más abajo.
   // const relatedProjects = getRelatedProjects(project);
   const usedServices = project.services
-    .map((s) => getServiceBySlug(s))
+    .map((s) => getServiceBySlug(s, lang))
     .filter((s): s is NonNullable<typeof s> => Boolean(s));
 
   return (
@@ -47,14 +54,15 @@ export default async function ProjectPage({ params }: Props) {
       <div className="mx-auto max-w-[1400px] px-6 pt-10 md:px-10">
         <Breadcrumbs
           items={[
-            { label: "Portafolio", href: "/portafolio" },
+            { label: dict.projectDetail.breadcrumbPortfolio, href: "/portafolio" },
             { label: project.title, href: `/proyectos/${project.slug}` },
           ]}
+          lang={lang}
         />
 
         {project.isPlaceholder ? (
           <p className="mb-4 inline-block border border-black/15 px-3 py-1 font-mono text-[10px] uppercase tracking-wide text-neutral-500">
-            Caso de ejemplo — pendiente de reemplazar con proyecto real
+            {dict.projectDetail.placeholderTag}
           </p>
         ) : null}
 
@@ -67,21 +75,21 @@ export default async function ProjectPage({ params }: Props) {
 
         <dl className="mt-10 grid grid-cols-2 gap-6 border-y border-black/10 py-6 md:grid-cols-4">
           <div>
-            <dt className="font-mono text-[11px] uppercase tracking-wide text-neutral-500">Cliente</dt>
+            <dt className="font-mono text-[11px] uppercase tracking-wide text-neutral-500">{dict.projectDetail.client}</dt>
             <dd className="mt-1 text-sm">{project.client}</dd>
           </div>
           <div>
-            <dt className="font-mono text-[11px] uppercase tracking-wide text-neutral-500">Industria</dt>
+            <dt className="font-mono text-[11px] uppercase tracking-wide text-neutral-500">{dict.projectDetail.industry}</dt>
             <dd className="mt-1 text-sm">{project.industry}</dd>
           </div>
           <div>
-            <dt className="font-mono text-[11px] uppercase tracking-wide text-neutral-500">Año</dt>
+            <dt className="font-mono text-[11px] uppercase tracking-wide text-neutral-500">{dict.projectDetail.year}</dt>
             <dd className="mt-1 text-sm">{project.year}</dd>
           </div>
           <div>
-            <dt className="font-mono text-[11px] uppercase tracking-wide text-neutral-500">Categoría</dt>
+            <dt className="font-mono text-[11px] uppercase tracking-wide text-neutral-500">{dict.projectDetail.category}</dt>
             <dd className="mt-1 text-sm">
-              {project.categories.map((c) => PROJECT_CATEGORY_LABELS[c]).join(", ")}
+              {project.categories.map((c) => categoryLabels[c]).join(", ")}
             </dd>
           </div>
         </dl>
@@ -100,21 +108,21 @@ export default async function ProjectPage({ params }: Props) {
       <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-10 md:py-24">
         <div className="grid gap-12 md:grid-cols-3">
           <div>
-            <h2 className="text-lg font-medium tracking-tight">Objetivo</h2>
+            <h2 className="text-lg font-medium tracking-tight">{dict.projectDetail.objective}</h2>
             <p className="mt-3 text-sm leading-relaxed text-neutral-600">{project.objective}</p>
           </div>
           <div>
-            <h2 className="text-lg font-medium tracking-tight">El reto</h2>
+            <h2 className="text-lg font-medium tracking-tight">{dict.projectDetail.challenge}</h2>
             <p className="mt-3 text-sm leading-relaxed text-neutral-600">{project.challenge}</p>
           </div>
           <div>
-            <h2 className="text-lg font-medium tracking-tight">La solución</h2>
+            <h2 className="text-lg font-medium tracking-tight">{dict.projectDetail.solution}</h2>
             <p className="mt-3 text-sm leading-relaxed text-neutral-600">{project.solution}</p>
           </div>
         </div>
 
         <div className="mt-14 md:mt-20">
-          <SectionHeading eyebrow="Proceso" title="Cómo lo construimos." className="max-w-2xl" />
+          <SectionHeading eyebrow={dict.projectDetail.processEyebrow} title={dict.projectDetail.processTitle} className="max-w-2xl" />
           <ol className="mt-8 flex flex-col gap-4">
             {project.processNotes.map((note, index) => (
               <li key={note} className="flex gap-4 border-t border-black/10 pt-4 text-sm text-neutral-600 md:text-base">
@@ -127,27 +135,27 @@ export default async function ProjectPage({ params }: Props) {
 
         <div className="mt-14 md:mt-20">
           <SectionHeading
-            eyebrow="Contenido"
-            title={project.artGallery && project.artGallery.length > 0 ? "Videos." : "Galería del proyecto."}
+            eyebrow={dict.projectDetail.contentEyebrow}
+            title={project.artGallery && project.artGallery.length > 0 ? dict.projectDetail.videosTitle : dict.projectDetail.galleryTitle}
             className="max-w-2xl"
           />
           <div className="mt-8">
-            <ImageGallery items={project.gallery} />
+            <ImageGallery items={project.gallery} lang={lang} />
           </div>
         </div>
 
         {project.artGallery && project.artGallery.length > 0 ? (
           <div className="mt-14 md:mt-20">
-            <SectionHeading eyebrow="Diseño" title="Artes." className="max-w-2xl" />
+            <SectionHeading eyebrow={dict.projectDetail.designEyebrow} title={dict.projectDetail.artTitle} className="max-w-2xl" />
             <div className="mt-8">
-              <ImageGallery items={project.artGallery} />
+              <ImageGallery items={project.artGallery} lang={lang} />
             </div>
           </div>
         ) : null}
 
         <div className="mt-14 grid gap-12 border-t border-black/10 pt-12 md:mt-20 md:grid-cols-2">
           <div>
-            <h2 className="text-lg font-medium tracking-tight">Resultado</h2>
+            <h2 className="text-lg font-medium tracking-tight">{dict.projectDetail.result}</h2>
             <p className="mt-3 text-sm leading-relaxed text-neutral-600">{project.results}</p>
             <dl className="mt-6 grid grid-cols-2 gap-6">
               {project.metrics.map((metric) => (
@@ -159,11 +167,11 @@ export default async function ProjectPage({ params }: Props) {
             </dl>
           </div>
           <div>
-            <h2 className="text-lg font-medium tracking-tight">Servicios utilizados</h2>
+            <h2 className="text-lg font-medium tracking-tight">{dict.projectDetail.usedServices}</h2>
             <ul className="mt-3 flex flex-col gap-2">
               {usedServices.map((service) => (
                 <li key={service.slug}>
-                  <Link href={`/servicios/${service.slug}`} className="hover-underline text-sm font-medium">
+                  <Link href={withLocale(lang, `/servicios/${service.slug}`)} className="hover-underline text-sm font-medium">
                     {service.navTitle}
                   </Link>
                 </li>
@@ -190,8 +198,9 @@ export default async function ProjectPage({ params }: Props) {
       */}
 
       <CTA
-        heading="¿Tienes un proyecto parecido?"
-        description="Cuéntanos qué necesitas y evaluamos cómo abordarlo."
+        lang={lang}
+        heading={dict.projectDetail.ctaHeading}
+        description={dict.projectDetail.ctaDescription}
       />
     </>
   );

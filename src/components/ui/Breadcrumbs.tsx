@@ -1,14 +1,17 @@
 import Link from "next/link";
 import { siteConfig } from "@/lib/site-config";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { getDictionary } from "@/lib/i18n/dictionaries";
+import { withLocale, type Locale } from "@/lib/i18n/config";
 
 export interface Crumb {
   label: string;
   href: string;
 }
 
-export function Breadcrumbs({ items }: { items: Crumb[] }) {
-  const withHome: Crumb[] = [{ label: "Inicio", href: "/" }, ...items];
+export function Breadcrumbs({ items, lang }: { items: Crumb[]; lang: Locale }) {
+  const dict = getDictionary(lang);
+  const withHome: Crumb[] = [{ label: dict.breadcrumbs.home, href: "/" }, ...items];
 
   const jsonLd = {
     "@context": "https://schema.org",
@@ -17,12 +20,12 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
       "@type": "ListItem",
       position: index + 1,
       name: item.label,
-      item: `${siteConfig.url}${item.href}`,
+      item: `${siteConfig.url}${withLocale(lang, item.href)}`,
     })),
   };
 
   return (
-    <nav aria-label="Breadcrumb" className="mb-8">
+    <nav aria-label={dict.breadcrumbs.ariaLabel} className="mb-8">
       <JsonLd data={jsonLd} />
       <ol className="flex flex-wrap items-center gap-2 text-xs text-neutral-500">
         {withHome.map((item, index) => (
@@ -33,7 +36,7 @@ export function Breadcrumbs({ items }: { items: Crumb[] }) {
                 {item.label}
               </span>
             ) : (
-              <Link href={item.href} className="hover-underline">
+              <Link href={withLocale(lang, item.href)} className="hover-underline">
                 {item.label}
               </Link>
             )}

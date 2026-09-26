@@ -9,15 +9,9 @@ export const siteConfig = {
   name: "Adrian Caballero Studio",
   shortName: "ACS",
   legalName: "Inversiones Cabsan S. de R. L.",
-  tagline: "Creatividad, tecnología y estrategia para marcas que quieren avanzar.",
-  description:
-    "Estudio creativo y tecnológico especializado en contenido audiovisual, diseño, publicidad y desarrollo de soluciones digitales para marcas que buscan fortalecer su imagen, comunicar con mayor impacto, vender más y optimizar su operación.",
   url: process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.adriancaballero.studio",
-  locale: "es",
   founder: {
     name: "Adrián Caballero",
-    role: "Fundador y Director del Studio",
-    bio: "Fundador y Director de Adrian Caballero Studio. Su trabajo integra contenido audiovisual, marketing, diseño y tecnología para crear soluciones que ayuden a las marcas a comunicar mejor, crecer y diferenciarse.",
     /** Ruta de la foto en /public, ej. "/team/adrian-caballero.jpg". Undefined muestra el placeholder. */
     photo: "/team/adriancaballero.png" as string | undefined,
   },
@@ -34,7 +28,6 @@ export const siteConfig = {
     country: "Honduras",
     postalCode: "21101",
   },
-  hours: "Lun–Sáb 8:00 AM – 5:00 PM",
   social: {
     instagram: "https://www.instagram.com/adriancaballero.studio/",
     facebook: "https://www.facebook.com/profile.php?id=61594193676032",
@@ -47,23 +40,28 @@ export const siteConfig = {
   },
 } as const;
 
+/**
+ * Rutas internas (sin prefijo de idioma) para nav/footer. Las etiquetas
+ * visibles viven en dict.links (src/lib/i18n/dictionaries.ts), ya que los
+ * links en sí no cambian entre "es" y "en".
+ */
 export const NAV_LINKS = [
-  { href: "/portafolio", label: "Trabajo" },
-  { href: "/servicios", label: "Servicios" },
-  { href: "/nosotros", label: "Studio" },
-  // { href: "/blog", label: "Blog" }, // Blog desactivado temporalmente — ver src/app/blog/page.tsx
-  { href: "/contacto", label: "Contacto" },
+  { href: "/portafolio", labelKey: "work" },
+  { href: "/servicios", labelKey: "services" },
+  { href: "/nosotros", labelKey: "studio" },
+  // { href: "/blog", labelKey: "blog" }, // Blog desactivado temporalmente — ver src/app/[lang]/blog/page.tsx
+  { href: "/contacto", labelKey: "contact" },
 ] as const;
 
 export const FOOTER_LINKS = {
   studio: [
-    { href: "/nosotros", label: "Studio" },
-    { href: "/portafolio", label: "Portafolio" },
-    // { href: "/blog", label: "Blog" }, // Blog desactivado temporalmente — ver src/app/blog/page.tsx
-    { href: "/contacto", label: "Contacto" },
+    { href: "/nosotros", labelKey: "studio" },
+    { href: "/portafolio", labelKey: "portfolio" },
+    // { href: "/blog", labelKey: "blog" }, // Blog desactivado temporalmente — ver src/app/[lang]/blog/page.tsx
+    { href: "/contacto", labelKey: "contact" },
   ],
   legal: [
-    { href: "/politica-de-privacidad", label: "Privacidad" },
-    { href: "/terminos", label: "Términos" },
+    { href: "/politica-de-privacidad", labelKey: "privacy" },
+    { href: "/terminos", labelKey: "terms" },
   ],
 } as const;
