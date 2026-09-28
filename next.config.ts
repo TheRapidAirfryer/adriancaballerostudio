@@ -8,6 +8,16 @@ const securityHeaders = [
 ];
 
 const nextConfig: NextConfig = {
+  // Calendarios de publicaciones para clientes: cada mes es un HTML estático en
+  // public/calendarios/<cliente>/<mes>/index.html, servido en /calendarios/<cliente>/<mes>.
+  async rewrites() {
+    return [
+      {
+        source: "/calendarios/:cliente/:mes",
+        destination: "/calendarios/:cliente/:mes/index.html",
+      },
+    ];
+  },
   async headers() {
     return [
       {
