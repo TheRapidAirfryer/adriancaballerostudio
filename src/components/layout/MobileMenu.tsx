@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { usePathname } from "next/navigation";
-import { NAV_LINKS } from "@/lib/site-config";
+import { NAV_LINKS, siteConfig } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 import { getDictionary } from "@/lib/i18n/dictionaries";
 import { locales, withLocale, type Locale } from "@/lib/i18n/config";
@@ -72,13 +72,15 @@ export function MobileMenu({ lang }: { lang: Locale }) {
           </span>
         ))}
       </div>
-      <Link
-        href={withLocale(lang, "/contacto")}
+      <a
+        href={siteConfig.contact.calendlyLink}
+        target="_blank"
+        rel="noopener noreferrer"
         onClick={() => setOpen(false)}
         className="inline-flex w-full items-center justify-center rounded-full bg-black px-6 py-4 text-base font-medium text-white"
       >
         {dict.cta.talkToUs}
-      </Link>
+      </a>
     </div>
   );
 

@@ -20,6 +20,7 @@ export const siteConfig = {
     phone: "+504 8879-5325",
     whatsapp: "+504 8879-5325",
     whatsappLink: "https://wa.me/50488795325",
+    calendlyLink: "https://calendly.com/acaball2001/30min",
   },
   address: {
     street: "15 y 16 calle",
