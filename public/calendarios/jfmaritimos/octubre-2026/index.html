@@ -91,6 +91,8 @@ h2.sec{font-style:italic; font-weight:800; font-size:clamp(18px,4.5vw,24px); mar
 .row .fmt{border-right:1px solid var(--strong-line); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:36px; color:#000; overflow:hidden;}
 .media + .btn{margin-top:12px;}
 #m-media{text-align:center;}
+.media iframe{width:100%; height:100%; border:0; display:block; background:#000;}
+.alt-link{display:inline-block; margin-top:8px; font-size:12px; font-weight:700; color:var(--muted);}
 .row .fmt, .media.filled{position:relative;}
 .proceso{position:absolute; left:0; right:0; bottom:0; background:rgba(0,0,0,.78); color:#fff; font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.02em; line-height:1.2; padding:3px 2px; text-align:center;}
 .media .proceso{left:50%; right:auto; bottom:12px; transform:translateX(-50%); border-radius:999px; font-size:13px; padding:8px 16px; white-space:nowrap;}
@@ -460,8 +462,11 @@ function fillModal(i){
     else mMedia.appendChild(el("div","media","Arte en preparación"));
   } else {
     if (/^https:\/\//i.test(p.video || "")){
-      if (p.img){ const box = el("div","media filled vertical"); const im = el("img"); im.src = p.img; im.alt = "Vista previa del vídeo: " + p.ti; box.appendChild(im); mMedia.appendChild(box); }
-      const a = el("a","btn","▶  Ver vídeo"); a.href = p.video; a.target = "_blank"; a.rel = "noopener noreferrer"; mMedia.appendChild(a);
+      const id = (p.video.match(/drive\.google\.com\/file\/d\/([\w-]+)/) || [])[1];
+      if (id){ const box = el("div","media filled vertical"); const fr = el("iframe"); fr.src = "https://drive.google.com/file/d/" + id + "/preview";
+        fr.title = "Vídeo: " + p.ti; fr.allow = "autoplay; fullscreen"; fr.allowFullscreen = true; box.appendChild(fr); mMedia.appendChild(box);
+        const a = el("a","alt-link","¿No carga? Ábrelo en Google Drive"); a.href = p.video; a.target = "_blank"; a.rel = "noopener noreferrer"; mMedia.appendChild(a); }
+      else { const a = el("a","btn","▶  Ver vídeo"); a.href = p.video; a.target = "_blank"; a.rel = "noopener noreferrer"; mMedia.appendChild(a); }
     } else if (p.img){ const box = el("div","media filled vertical"); const im = el("img"); im.src = p.img; im.alt = "Vista previa del vídeo: " + p.ti;
       box.append(im, el("span","proceso","Vídeo en proceso")); mMedia.appendChild(box); }
     else mMedia.appendChild(el("div","media video vertical","Vídeo en preparación"));
@@ -475,6 +480,7 @@ function openModal(i, from){
   document.body.style.overflow = "hidden"; mClose.focus();
 }
 function closeModal(){
+  mMedia.replaceChildren();
   overlay.classList.remove("open"); overlay.setAttribute("aria-hidden","true");
   document.body.style.overflow = ""; if (opener && opener.focus) opener.focus();
 }
