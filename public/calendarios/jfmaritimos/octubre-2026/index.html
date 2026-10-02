@@ -94,7 +94,9 @@ h2.sec{font-style:italic; font-weight:800; font-size:clamp(18px,4.5vw,24px); mar
 .media video, .media iframe{width:100%; height:100%; border:0; display:block; background:#000; object-fit:contain;}
 .alt-link{display:inline-block; margin-top:8px; font-size:12px; font-weight:700; color:var(--muted);}
 .row .fmt, .media.filled{position:relative;}
-.row .fmt .cover{position:relative; display:block; width:100%; aspect-ratio:4/5;}
+.row .fmt.con-portada{background:#000;}
+.row .fmt.con-portada::before{content:""; position:absolute; inset:-12px; background:var(--cover) center/cover no-repeat; filter:blur(10px) brightness(.85);}
+.row .fmt .cover{position:relative; z-index:1; display:block; width:100%; aspect-ratio:4/5;}
 .row .fmt .cover img{width:100%; height:100%; object-fit:cover; display:block;}
 .proceso{position:absolute; left:0; right:0; bottom:0; background:rgba(0,0,0,.78); color:#fff; font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.02em; line-height:1.2; padding:3px 2px; text-align:center;}
 .media .proceso{left:50%; right:auto; bottom:12px; transform:translateX(-50%); border-radius:999px; font-size:13px; padding:8px 16px; white-space:nowrap;}
@@ -427,7 +429,7 @@ function renderRows(b){
     r.setAttribute("aria-label", `${WD_LARGO[wdOf(p.d)]} ${p.d} de octubre: ${p.ti}. Ver detalle`);
     const date = el("div","date"); date.append(el("span","wd",WD[wdOf(p.d)]), el("span","dn",String(p.d).padStart(2,"0")));
     const fmt = el("div","fmt");
-    if (p.img){ const im = el("img"); im.src = p.img; im.alt = ""; const cv = el("span","cover"); cv.appendChild(im); fmt.appendChild(cv);
+    if (p.img){ const im = el("img"); im.src = p.img; im.alt = ""; const cv = el("span","cover"); cv.appendChild(im); fmt.style.setProperty("--cover", "url(\"" + p.img + "\")"); fmt.classList.add("con-portada"); fmt.appendChild(cv);
       if (p.f === "V") cv.appendChild(el("span","proceso", /^https:\/\//i.test(p.video || "") ? "▶ Vídeo" : "En proceso")); }
     else if (p.f === "V"){ fmt.classList.add(CLS[p.t]); fmt.textContent = "V"; }
     const txt = el("div","txt");
