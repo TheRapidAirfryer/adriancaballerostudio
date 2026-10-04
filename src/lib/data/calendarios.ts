@@ -29,6 +29,7 @@ export const calendarios: ClienteCalendario[] = [
   {
     slug: "zltlogistics",
     name: "ZLT Logistics",
+    logo: "/clients/zltlogo.png",
     meses: [{ slug: "octubre-2026", label: "Octubre 2026" }],
   },
   {
