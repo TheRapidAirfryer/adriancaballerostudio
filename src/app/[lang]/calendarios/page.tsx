@@ -44,6 +44,7 @@ export async function generateMetadata({ params }: Props) {
     // Al agregarla a la pantalla de inicio del celular, abre esta página y no el inicio.
     manifest: "/calendarios/app.webmanifest",
     appleWebApp: { capable: true, title: t.title, statusBarStyle: "default" },
+    icons: { icon: "/calendarios/icon-192.png", apple: "/calendarios/icon-180.png" },
   };
 }
 
