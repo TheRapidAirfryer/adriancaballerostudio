@@ -25,6 +25,7 @@ const es = {
     portfolio: "Portafolio",
     privacy: "Privacidad",
     terms: "Términos",
+    calendars: "Calendarios",
   },
   mobileMenu: {
     navLabel: "Navegación principal móvil",
@@ -371,6 +372,7 @@ const enOverrides = {
     portfolio: "Portfolio",
     privacy: "Privacy",
     terms: "Terms",
+    calendars: "Calendars",
   },
   mobileMenu: {
     navLabel: "Mobile main navigation",
