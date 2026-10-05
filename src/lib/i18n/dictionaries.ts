@@ -348,9 +348,9 @@ function deepMerge<T>(base: T, overrides: unknown): T {
 
 const enOverrides = {
   site: {
-    tagline: "Creativity, technology and strategy for brands that want to move forward.",
+    tagline: "Creativity, technology, and strategy for brands that want to move forward.",
     description:
-      "A creative and technology studio specialized in audiovisual content, design, advertising and digital solutions for brands that want to strengthen their image, communicate with more impact, sell more and optimize their operations.",
+      "A creative technology studio specialized in audiovisual content, design, advertising, and digital solutions for brands that want a stronger image, bigger-impact communication, more sales, and a smoother-running operation.",
     founderRole: "Founder and Director of the Studio",
     founderBio:
       "Founder and Director of Adrian Caballero Studio. His work brings together audiovisual content, marketing, design and technology to build solutions that help brands communicate better, grow and stand out.",
@@ -395,11 +395,11 @@ const enOverrides = {
   home: {
     metaTitle: "Adrian Caballero Studio — Content, design and technology",
     hero: {
-      line1: "We make your brand",
-      line2: "look good, connect,",
-      line3: "and move forward.",
+      line1: "We help your brand",
+      line2: "look sharp, connect,",
+      line3: "and grow.",
       description:
-        "We're a creative and technology studio. We produce video, photography and campaigns, and we build the sites, apps and systems that support them.",
+        "We're a creative technology studio. We produce video, photography, and campaigns — and build the sites, apps, and systems that bring them to life.",
       ctaPrimary: "Tell us about your project",
       ctaSecondary: "See our work",
     },
@@ -407,28 +407,28 @@ const enOverrides = {
       eyebrow: "What we do",
       title: "Three disciplines, one way of working.",
       description:
-        "Each service stands on its own, but they work best together: content fuels strategy, and technology holds everything else up.",
+        "Every service stands on its own, but they're built to work together — content fuels the strategy, and technology keeps it all running.",
       viewAll: "View all services",
     },
     featuredProjects: {
       eyebrow: "Work",
       title: "Recent projects.",
-      description: "A sample of how we bring content, design and technology together on real projects.",
+      description: "A look at how we bring content, design, and technology together on real projects.",
       viewPortfolio: "View full portfolio",
     },
     process: {
       eyebrow: "How we work",
       title: "A clear process, from start to finish.",
-      description: "We keep you posted at every stage, with clear progress, shared decisions and no surprises at the end.",
+      description: "We keep you in the loop at every stage — clear updates, shared decisions, and no surprises at the end.",
     },
     metrics: {
-      trustedBrands: "Brands that have trusted the studio",
+      trustedBrands: "Brands that trust the studio",
     },
     about: {
       eyebrow: "The Studio",
-      title: "A team that understands both creativity and technology, in the same place.",
+      title: "A team that gets both creativity and technology, under one roof.",
       description:
-        "We don't work in isolated projects. Every piece of content, every campaign and every line of code answers to the same goal: making your brand work better, from start to finish.",
+        "We don't think in one-off projects. Every piece of content, every campaign, and every line of code serves the same goal: making your brand work better, end to end.",
       cta: "Meet the studio",
     },
     latestArticles: {
@@ -437,8 +437,8 @@ const enOverrides = {
       viewAll: "View all articles",
     },
     finalCta: {
-      heading: "Shall we talk about your project?",
-      description: "Tell us what your brand needs. We'll respond with something concrete, not a generic form.",
+      heading: "Ready to talk about your project?",
+      description: "Tell us what your brand needs, and we'll come back with a real proposal — not a canned response.",
       secondaryLabel: "See our work",
     },
   },
@@ -448,11 +448,11 @@ const enOverrides = {
       "Content, marketing and technology: audiovisual production, photography, drone, web development, apps, business systems, Meta Ads and social media.",
     breadcrumb: "Services",
     eyebrow: "Services",
-    title: "Content, marketing and technology, under one standard.",
+    title: "Content, marketing, and technology, working from the same playbook.",
     description:
-      "We don't sell one-off services. Each discipline is designed to connect with the others and support a brand's real growth.",
+      "We don't sell one-off services. Every discipline is built to connect with the others and fuel real growth for your brand.",
     ctaHeading: "Not sure where to start?",
-    ctaDescription: "Tell us what your brand needs and we'll help you figure out the right service.",
+    ctaDescription: "Tell us what your brand needs and we'll help you find the right service.",
   },
   serviceDetail: {
     breadcrumbServices: "Services",
@@ -468,9 +468,9 @@ const enOverrides = {
     examplesTitle: "Related projects.",
     viewFullPortfolio: "View full portfolio →",
     faqEyebrow: "FAQ",
-    faqTitle: "What people usually ask us.",
+    faqTitle: "Questions we hear a lot.",
     relatedEyebrow: "Related services",
-    relatedTitle: "This often goes hand in hand with these.",
+    relatedTitle: "Often paired with this one.",
     viewService: "View service",
   },
   portfolioPage: {
@@ -480,9 +480,9 @@ const enOverrides = {
     eyebrow: "Portfolio",
     title: "Real projects. Real results.",
     description:
-      "A selection of projects where we combine creativity, technology and strategy to strengthen brands, improve their communication and drive results.",
+      "A selection of projects where we combine creativity, technology, and strategy to strengthen brands, sharpen their communication, and drive results.",
     ctaHeading: "Have a similar project in mind?",
-    ctaDescription: "Tell us what you need and we'll see if it fits what we do.",
+    ctaDescription: "Tell us what you need and we'll see if it's a fit.",
     filterAll: "All",
     filterAriaLabel: "Filter projects by category",
     emptyCategory: "No projects published in this category yet.",
@@ -512,35 +512,35 @@ const enOverrides = {
   aboutPage: {
     metaTitle: "About",
     metaDescription:
-      "Adrian Caballero Studio is a creative and technology studio that brings content, design and development together under one standard.",
+      "Adrian Caballero Studio is a creative technology studio that brings content, design, and development together under one roof.",
     breadcrumb: "Studio",
-    heroTitle: "A studio that combines real creative judgment with real technical capability.",
+    heroTitle: "A studio that pairs sharp creative judgment with real technical chops.",
     heroDescription:
-      "Adrian Caballero Studio was born to solve a specific problem: most brands hire content production on one side and technology development on the other, and neither ever really talks to the other. We put them to work together.",
+      "Adrian Caballero Studio was built to solve a specific problem: most brands hire content production on one side and tech development on the other, and the two rarely talk to each other. We make them work together.",
     believeEyebrow: "What we believe",
     believeTitle: "What sets us apart isn't a list of services.",
-    believeDescription: "It's the way we connect them to each other.",
+    believeDescription: "It's how we connect them.",
     beliefs: [
       {
         title: "Content without strategy gets forgotten",
         description:
-          "Producing for the sake of producing doesn't move a brand. Every piece we make answers to a defined goal before we ever turn on a camera or open a code editor.",
+          "Producing for the sake of producing doesn't move a brand. Everything we make starts with a clear goal, before we ever pick up a camera or open a code editor.",
       },
       {
-        title: "Technology should solve, not just exist",
+        title: "Technology should solve problems, not just exist",
         description:
-          "A site, an app or a system isn't worth its technology — it's worth the real problem it solves for the business and for the person using it.",
+          "A site, an app, or a system isn't worth its tech stack — it's worth the real problem it solves for the business and the people using it.",
       },
       {
         title: "Creativity and technology work better together",
         description:
-          "Separating content from the platform that supports it is why so many digital strategies feel disconnected from each other.",
+          "Separating content from the platform that powers it is why so many digital strategies end up feeling disjointed.",
       },
     ],
     processEyebrow: "How we work",
-    processTitle: "An organized process, no generic formulas.",
+    processTitle: "An organized process, no cookie-cutter formulas.",
     ctaHeading: "Want to know if we're a fit for your project?",
-    ctaDescription: "Tell us what you're thinking and let's talk, no strings attached.",
+    ctaDescription: "Tell us what you're thinking — no strings attached.",
   },
   contactPage: {
     metaTitle: "Contact",
@@ -549,7 +549,7 @@ const enOverrides = {
     breadcrumb: "Contact",
     eyebrow: "Contact",
     title: "Tell us about your project.",
-    description: "The more context you give us, the faster we can respond with something concrete instead of generic questions.",
+    description: "The more context you give us, the faster we can get back to you with something concrete instead of generic follow-up questions.",
     emailLabel: "Email",
     whatsappLabel: "WhatsApp",
     locationLabel: "Location",
@@ -561,21 +561,21 @@ const enOverrides = {
     company: "Company",
     email: "Email",
     phone: "WhatsApp / Phone",
-    service: "Service you're interested in",
+    service: "Service of interest",
     servicePlaceholder: "Select an option",
-    budget: "Approximate budget",
+    budget: "Estimated budget",
     budgetPlaceholder: "Optional",
     message: "Tell us about your project",
     submitting: "Sending...",
     submit: "Send",
     errors: {
-      name: "Tell us your name.",
-      email: "Enter a valid email.",
-      service: "Select the service you're interested in.",
+      name: "Please enter your name.",
+      email: "Please enter a valid email.",
+      service: "Please select a service.",
       message: "Tell us a bit more about your project.",
     },
     fieldErrors: "Check the highlighted fields.",
-    successMessage: "Thank you. We received your message and will get back to you soon.",
+    successMessage: "Thanks — we got your message and will be in touch soon.",
     errorMessage: "We couldn't send your message right now. Message us on WhatsApp while we sort it out.",
     serviceOptions: {
       video: "Video",

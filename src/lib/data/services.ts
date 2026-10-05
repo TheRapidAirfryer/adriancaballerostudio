@@ -532,7 +532,7 @@ export const servicesEn: Service[] = [
     summary: "Video with script, pacing and art direction, built for the algorithm and for the brand.",
     intro: [
       "Most content published on social media is forgotten in three seconds. The problem is almost never the platform: it's that the video was shot without a clear idea behind it.",
-      "We produce short- and mid-length video for Instagram, TikTok and YouTube with a real pre-production, filming and editing process. This isn't generic content to fill a calendar — every piece answers to a specific brand objective.",
+      "We produce short- and mid-length video for Instagram, TikTok and YouTube with a real pre-production, filming and editing process. This isn't generic content to fill a calendar — every piece ties back to a specific brand objective.",
     ],
     whatWeDo: [
       { title: "Script and structure", description: "We define the hook, the core message and the close before turning on the camera." },
@@ -740,7 +740,7 @@ export const servicesEn: Service[] = [
     ],
     forWho: [
       "Companies that need a new website or a full redesign.",
-      "Brands whose current site is slow, outdated or doesn't generate clients.",
+      "Brands whose current site is slow, outdated, or just isn't bringing in clients.",
       "Businesses that want a multi-page site with portfolio, blog and real SEO.",
       "Teams that need a site they can keep updating without depending on a developer for every change.",
     ],
@@ -785,8 +785,8 @@ export const servicesEn: Service[] = [
     whatWeDo: [
       { title: "Product definition", description: "We clarify the problem to solve, the target user and the real scope of the MVP." },
       { title: "UX/UI design", description: "User flows and interface design built for real use, not just to look good in a presentation." },
-      { title: "Development", description: "Building the app with technology suited to the project and its scale." },
-      { title: "Launch and support", description: "Publishing to stores or web deployment, with support after launch." },
+      { title: "Development", description: "We build the app with technology suited to the project and its scale." },
+      { title: "Launch and support", description: "We publish to app stores or deploy to the web, with support after launch." },
     ],
     forWho: [
       "Entrepreneurs with an app idea who need a first functional product.",
@@ -934,7 +934,7 @@ export const servicesEn: Service[] = [
       { title: "Content strategy", description: "We define content pillars, brand tone and objectives per platform." },
       { title: "Editorial calendar", description: "Monthly post planning aligned with key dates and moments for the business." },
       { title: "Content production", description: "We coordinate the audiovisual and graphic production each post needs." },
-      { title: "Community management", description: "Response and follow-up on interactions according to the brand's guidelines." },
+      { title: "Community management", description: "We respond to and follow up on interactions, in line with the brand's voice and guidelines." },
     ],
     forWho: [
       "Brands posting without a strategy and not seeing real growth.",
