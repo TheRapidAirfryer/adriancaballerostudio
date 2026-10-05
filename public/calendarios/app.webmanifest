@@ -1,0 +1,15 @@
+{
+  "id": "/es/calendarios",
+  "name": "Calendarios · Adrián Caballero Studio",
+  "short_name": "Calendarios",
+  "description": "Calendarios de publicaciones de los clientes de Adrián Caballero Studio.",
+  "start_url": "/es/calendarios",
+  "scope": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    { "src": "/icon.png", "sizes": "1080x1080", "type": "image/png", "purpose": "any" },
+    { "src": "/apple-icon", "sizes": "180x180", "type": "image/png" }
+  ]
+}
