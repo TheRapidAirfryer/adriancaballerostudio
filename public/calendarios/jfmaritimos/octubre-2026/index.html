@@ -153,6 +153,7 @@ footer.foot img{height:22px; width:auto; filter:var(--logo-filter);}
     <h1 class="h-title">Calendario Estratégico de Publicaciones</h1>
     <p class="h-month">OCTUBRE 2026</p>
     <p class="h-sub">Publicaciones: lunes, miércoles, viernes y sábado</p>
+  <button type="button" id="ac-compartir" class="ac-compartir" data-url="https://adriancaballero.studio/calendarios/jfmaritimos/octubre-2026"><svg viewBox="0 0 24 24" aria-hidden="true"><path d="M10 14a5 5 0 0 0 7.07 0l3-3a5 5 0 0 0-7.07-7.07l-1.5 1.5M14 10a5 5 0 0 0-7.07 0l-3 3a5 5 0 0 0 7.07 7.07l1.5-1.5" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round"/></svg><span>Compartir calendario</span></button>
   </header>
 
   <section aria-label="Calendario de octubre 2026">
@@ -528,5 +529,7 @@ document.addEventListener("keydown", e => {
 })();
 </script>
 <style id="ac-volver-css">#ac-volver{display:none}@media (display-mode: standalone){#ac-volver{display:inline-block;position:fixed;left:12px;top:calc(env(safe-area-inset-top,0px) + 10px);z-index:9999;background:#000;color:#fff;font:600 13px/1 Montserrat,system-ui,sans-serif;padding:9px 13px;border-radius:999px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)}}</style><a id="ac-volver" href="/es/calendarios">&larr; Calendarios</a>
+<style id="ac-compartir-css">.ac-compartir{display:inline-flex;align-items:center;gap:8px;margin:14px auto 0;background:#000;color:#fff;border:0;border-radius:999px;padding:10px 18px;font:700 13px/1 Montserrat,system-ui,sans-serif;cursor:pointer}.ac-compartir svg{width:16px;height:16px}.ac-compartir.ok{background:#1f7a3a}</style>
+<script id="ac-compartir-js">(function(){var b=document.getElementById("ac-compartir");if(!b)return;var t=b.querySelector("span"),u=b.dataset.url;function aviso(x){t.textContent=x;b.classList.add("ok");setTimeout(function(){t.textContent="Compartir calendario";b.classList.remove("ok")},2200)}function copiar(){if(navigator.clipboard&&window.isSecureContext){navigator.clipboard.writeText(u).then(function(){aviso("Enlace copiado")},viejo)}else viejo()}function viejo(){var a=document.createElement("textarea");a.value=u;a.setAttribute("readonly","");a.style.position="fixed";a.style.opacity="0";document.body.appendChild(a);a.select();var ok=false;try{ok=document.execCommand("copy")}catch(e){}a.remove();if(ok)aviso("Enlace copiado");else window.prompt("Copia este enlace:",u)}b.addEventListener("click",function(){var movil=window.matchMedia("(pointer: coarse)").matches;if(movil&&navigator.share){navigator.share({title:document.title,url:u}).catch(function(e){if(e&&e.name!=="AbortError")copiar()})}else copiar()})})();</script>
 </body>
 </html>
