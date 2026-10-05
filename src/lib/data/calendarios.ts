@@ -42,6 +42,6 @@ export const calendarios: ClienteCalendario[] = [
     slug: "bodegamarisol",
     name: "Bodega Marisol",
     logo: "/clients/marisollogo.png",
-    meses: [],
+    meses: [{ slug: "octubre-2026", label: "Octubre 2026" }],
   },
 ];

@@ -1,0 +1,500 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="color-scheme" content="light only">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Calendario Estratégico de Publicaciones — Octubre 2026</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,500;0,700;0,800;1,700;1,800&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#ffffff; --fg:#000000; --muted:#6f6f6f; --line:#8a8a8a; --strong-line:#000000;
+  --cell:#fbfbfb; --out:#bdbdbd; --panel:#ffffff; --pill:#000000; --pill-fg:#ffffff;
+  --promo:#ffc7c7; --ent:#fde3a7; --edu:#d1ffd1; --ph:#f2f2f2; --overlay:rgba(0,0,0,.55);
+  --logo-filter:none;
+  color-scheme:light;
+  box-sizing:border-box;
+  padding-top:env(safe-area-inset-top,0px);
+  padding-bottom:env(safe-area-inset-bottom,0px);
+}
+html{scroll-padding-top:env(safe-area-inset-top,0px);}
+*,*::before,*::after{box-sizing:inherit;}
+body{
+  margin:0; background:var(--bg); color:var(--fg);
+  font-family:'Montserrat',system-ui,-apple-system,'Segoe UI',Roboto,Helvetica,Arial,sans-serif;
+  font-size:15px; line-height:1.45; -webkit-text-size-adjust:100%;
+}
+.wrap{max-width:940px; margin:0 auto; padding:26px 16px 28px;}
+button{font:inherit; color:inherit; cursor:pointer;}
+:focus-visible{outline:3px solid #2f7cf6; outline-offset:2px;}
+
+/* Encabezado */
+header.top{text-align:center; margin-bottom:18px;}
+.h-icon{display:inline-block; margin:0 auto 10px; line-height:0;}
+.h-icon svg{height:34px; width:auto; fill:#000;}
+.h-title{font-style:italic; font-weight:800; font-size:clamp(21px,5.4vw,38px); line-height:1.1; margin:0;}
+.h-month{font-weight:800; font-size:clamp(22px,5.6vw,38px); letter-spacing:.01em; margin:6px 0 0;}
+.h-sub{font-weight:500; font-size:clamp(13px,3.2vw,17px); margin:6px 0 0; color:var(--muted);}
+
+/* Calendario */
+.weekdays,.grid{display:grid; grid-template-columns:repeat(7,minmax(0,1fr)); gap:6px;}
+.weekdays{margin-bottom:8px;}
+.pill{
+  background:var(--pill); color:var(--pill-fg); border-radius:9px; text-align:center;
+  font-style:italic; font-weight:800; font-size:11px; padding:6px 2px; letter-spacing:.02em;
+}
+.pill .lg{display:none;}
+@media (min-width:640px){ .pill{font-size:12.5px; padding:7px 2px;} .pill .lg{display:inline;} .pill .sm{display:none;} }
+.cell{
+  position:relative; aspect-ratio:1/1.05; border-radius:9px; border:1.5px solid var(--line);
+  background:var(--cell); padding:0; display:block; width:100%; text-align:center;
+}
+@media (min-width:640px){ .cell{aspect-ratio:1/.72;} }
+.cell.out{background:var(--out);}
+.cell .n{position:absolute; top:4px; right:6px; font-style:italic; font-weight:800; font-size:10.5px; color:var(--muted);}
+.cell .l{position:absolute; inset:0; display:flex; align-items:center; justify-content:center; padding-top:13px; font-weight:800; font-size:clamp(19px,5.4vw,30px); color:#000;}
+@media (min-width:640px){ .cell .l{padding-top:6px;} }
+.cell.piece{cursor:pointer; transition:transform .12s ease, box-shadow .12s ease; color:#000;}
+.cell.piece .n{color:#555;}
+.cell.piece:hover{transform:translateY(-2px); box-shadow:0 4px 14px rgba(0,0,0,.18);}
+.t-promo{background:var(--promo);} .t-ent{background:var(--ent);} .t-edu{background:var(--edu);}
+.hint{text-align:center; color:var(--muted); font-size:12.5px; margin:12px 0 0;}
+
+/* Tablas de resumen */
+.summary{display:grid; gap:18px; margin-top:26px; justify-items:center;}
+table.mini{border-collapse:collapse; width:min(100%,360px); font-style:italic; font-weight:700; font-size:13.5px;}
+table.mini th{background:var(--pill); color:var(--pill-fg); padding:7px 10px; font-weight:800;}
+table.mini td{border:1px solid var(--strong-line); padding:7px 10px; text-align:center; color:var(--fg);}
+table.mini td.c-promo{background:var(--promo); color:#000;} table.mini td.c-ent{background:var(--ent); color:#000;} table.mini td.c-edu{background:var(--edu); color:#000;}
+.defs{max-width:820px; margin:22px auto 0; font-size:13.5px;}
+.defs p{margin:0 0 10px;} .defs b{font-weight:800; font-size:14.5px;}
+
+/* Detalle */
+h2.sec{font-style:italic; font-weight:800; font-size:clamp(18px,4.5vw,24px); margin:34px 0 12px; text-align:center;}
+.tabs{display:flex; gap:8px; justify-content:center; margin-bottom:16px; flex-wrap:wrap;}
+.tab{
+  border:1.5px solid var(--strong-line); background:transparent; border-radius:999px;
+  padding:9px 16px; font-weight:700; font-size:13.5px; min-height:44px;
+}
+.tab[aria-selected="true"]{background:var(--pill); color:var(--pill-fg);}
+.rows{display:grid; gap:12px;}
+.row{
+  display:grid; grid-template-columns:64px 72px 1fr; align-items:stretch; width:100%; text-align:left;
+  border:1px solid var(--strong-line); background:var(--panel); padding:0; border-radius:4px; overflow:hidden; min-height:88px;
+}
+.row:hover{box-shadow:0 4px 14px rgba(0,0,0,.16);}
+.row .date{display:flex; flex-direction:column; align-items:center; justify-content:center; border-right:1px solid var(--strong-line); padding:8px 4px;}
+.row .date .wd{font-style:italic; font-weight:800; font-size:11.5px;}
+.row .date .dn{font-weight:800; font-size:28px; line-height:1.05;}
+.row .fmt{border-right:1px solid var(--strong-line); display:flex; align-items:center; justify-content:center; font-weight:800; font-size:36px; color:#000; overflow:hidden;}
+.media + .btn{margin-top:12px;}
+#m-media{text-align:center;}
+.media video, .media iframe{width:100%; height:100%; border:0; display:block; background:#000; object-fit:contain;}
+.alt-link{display:inline-block; margin-top:8px; font-size:12px; font-weight:700; color:var(--muted);}
+.row .fmt, .media.filled{position:relative;}
+.row .fmt.con-portada{background:#000;}
+.row .fmt.con-portada::before{content:""; position:absolute; inset:-12px; background:var(--cover) center/cover no-repeat; filter:blur(10px) brightness(.85);}
+.row .fmt .cover{position:relative; z-index:1; display:block; width:100%; aspect-ratio:4/5;}
+.row .fmt .cover img{width:100%; height:100%; object-fit:cover; display:block;}
+.proceso{position:absolute; left:0; right:0; bottom:0; background:rgba(0,0,0,.78); color:#fff; font-size:9px; font-weight:800; text-transform:uppercase; letter-spacing:.02em; line-height:1.2; padding:3px 2px; text-align:center;}
+.media .proceso{left:50%; right:auto; bottom:12px; transform:translateX(-50%); border-radius:999px; font-size:13px; padding:8px 16px; white-space:nowrap;}
+.sheet .media.vertical{aspect-ratio:9/16; width:auto; height:min(54dvh, 560px); max-height:none; margin:0 auto;}
+.sheet .media.vertical img{object-fit:cover;}
+.row .fmt img{width:100%; height:100%; object-fit:cover; display:block;}
+.row .txt{padding:10px 14px; display:flex; flex-direction:column; justify-content:center; gap:3px;}
+.badge{align-self:flex-start; font-size:11px; font-weight:800; padding:2px 9px; border-radius:999px; color:#000;}
+.row .ti{font-weight:800; font-size:15px;}
+.row .de{font-weight:500; font-size:13px; color:var(--muted);}
+@media (min-width:700px){
+  .row{grid-template-columns:84px 92px 170px 1fr; min-height:96px;}
+  .row .txt{display:contents;}
+  .row .badge{align-self:center; justify-self:center; font-size:13px; padding:4px 12px; margin:0 10px;}
+  .row .ti{align-self:center; padding:10px 14px; border-left:1px solid var(--strong-line); border-right:1px solid var(--strong-line); height:100%; display:flex; align-items:center;}
+  .row .de{align-self:center; padding:10px 16px; color:var(--fg); font-weight:700; font-size:14px;}
+  .row{grid-template-columns:84px 92px 130px 200px 1fr;}
+}
+
+footer.foot{display:flex; align-items:center; justify-content:space-between; gap:12px; margin-top:38px; padding-top:14px; border-top:1px solid var(--line); color:var(--muted); font-weight:700; font-size:12px; flex-wrap:wrap;}
+footer.foot img{height:22px; width:auto; filter:var(--logo-filter);}
+
+/* Ventana de detalle */
+.overlay{position:fixed; inset:0; background:var(--overlay); display:none; align-items:flex-end; justify-content:center; z-index:50;}
+.overlay.open{display:flex;}
+.sheet{
+  background:var(--panel); color:var(--fg); width:100%; max-width:520px; max-height:92dvh; overflow:auto;
+  border-radius:20px 20px 0 0; padding:18px 18px calc(18px + env(safe-area-inset-bottom,0px));
+  box-shadow:0 -8px 40px rgba(0,0,0,.35);
+}
+@media (min-width:700px){ .overlay{align-items:center; padding:24px;} .sheet{border-radius:20px; padding-bottom:18px;} }
+.sheet-top{display:flex; align-items:center; justify-content:space-between; gap:10px; margin-bottom:12px;}
+.sheet-date{font-style:italic; font-weight:800; font-size:14px;}
+.icon-btn{border:1.5px solid var(--strong-line); background:transparent; border-radius:999px; width:44px; height:44px; font-size:20px; line-height:1; display:inline-flex; align-items:center; justify-content:center;}
+.icon-btn[disabled]{opacity:.35; cursor:default;}
+.sheet h3{margin:8px 0 6px; font-weight:800; font-size:21px; line-height:1.2;}
+.sheet .desc{margin:0 0 14px; color:var(--muted); font-weight:500;}
+.media{width:100%; aspect-ratio:1/1; max-height:52dvh; border-radius:12px; overflow:hidden; background:var(--ph); border:1.5px dashed var(--line); display:flex; align-items:center; justify-content:center; text-align:center; padding:16px; color:var(--muted); font-weight:700; font-size:14px;}
+.media.filled{border:0; padding:0;}
+.media img{width:100%; height:100%; object-fit:contain; display:block;}
+.media.video{aspect-ratio:16/9;}
+.btn{display:inline-flex; align-items:center; justify-content:center; gap:8px; background:var(--pill); color:var(--pill-fg); text-decoration:none; font-weight:800; padding:14px 22px; border-radius:999px; min-height:48px;}
+.nav{display:flex; justify-content:space-between; align-items:center; gap:10px; margin-top:16px;}
+.nav .pos{font-size:12px; font-weight:700; color:var(--muted);}
+</style>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <a class="h-icon" href="https://adriancaballero.studio" target="_blank" rel="noopener" aria-label="Adrián Caballero Studio"><svg viewBox="24.2 28.1 97.3 72.9" aria-hidden="true"><polygon points="52.4 28.1 96.4 101 121.5 101 77.2 28.1 52.4 28.1"/><polygon points="36.4 80.6 77 80.6 66.6 101 24.2 101 36.4 80.6"/></svg></a>
+    <h1 class="h-title">Calendario Estratégico de Publicaciones</h1>
+    <p class="h-month">OCTUBRE 2026</p>
+    <p class="h-sub">Publicaciones: lunes, miércoles, viernes y sábado</p>
+  </header>
+
+  <section aria-label="Calendario de octubre 2026">
+    <div class="weekdays" id="weekdays"></div>
+    <div class="grid" id="grid"></div>
+    <p class="hint">Toca un día de color para ver el detalle de esa publicación.</p>
+  </section>
+
+  <section class="summary" aria-label="Resumen">
+    <table class="mini">
+      <thead><tr><th>Tipo de contenido</th><th>Porcentaje</th></tr></thead>
+      <tbody>
+        <tr><td class="c-promo">Promocional</td><td>75%</td></tr>
+        <tr><td class="c-ent">Entertain</td><td>12,5%</td></tr>
+        <tr><td class="c-edu">Educativo</td><td>12,5%</td></tr>
+      </tbody>
+    </table>
+    <div class="defs">
+      <p><b>Contenido Promocional</b> Contenido enfocado en impulsar la venta de productos y servicios, como abarrotes y productos de la canasta básica para el hogar y para surtir pulperías y tiendas.</p>
+      <p><b>Contenido Entertain</b> Contenido más dinámico o interactivo que busca generar cercanía, comentarios, alcance y conexión con la audiencia.</p>
+      <p><b>Contenido Educativo</b> Contenido informativo y de valor que busca enseñar, resolver dudas, compartir consejos y ayudar a la audiencia a conocer mejor los productos, servicios o temas relacionados con la marca.</p>
+    </div>
+    <table class="mini">
+      <thead><tr><th>Formato de contenido</th><th>Cantidad</th></tr></thead>
+      <tbody>
+        <tr><td>Vídeos</td><td id="cnt-v">0</td></tr>
+        <tr><td>Post</td><td id="cnt-p">0</td></tr>
+      </tbody>
+    </table>
+    <div class="defs">
+      <p><b>P = Post</b> Publicación estática o carrusel de imágenes. Se utiliza para comunicar información de forma visual y directa, como productos, precios de mayoreo, promociones o mensajes institucionales.</p>
+      <p><b>V = Vídeo</b> Contenido en formato de video o reel. Se utiliza para mostrar la bodega, los productos, la preparación de pedidos, contenido educativo o entretenimiento.</p>
+    </div>
+  </section>
+
+  <h2 class="sec">Detalle de publicaciones</h2>
+  <div class="tabs" role="tablist" aria-label="Bloques del mes">
+    <button class="tab" role="tab" id="tab1" aria-selected="true" data-b="1">Bloque 1 · 1–16 oct</button>
+    <button class="tab" role="tab" id="tab2" aria-selected="false" data-b="2">Bloque 2 · 17–31 oct</button>
+  </div>
+  <div class="rows" id="rows" role="tabpanel" aria-labelledby="tab1"></div>
+
+  <footer class="foot">
+    <span>Calendario Estratégico de Publicaciones | Octubre 2026</span>
+    <a href="https://adriancaballero.studio" target="_blank" rel="noopener" style="display:inline-flex"><img src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz4KPHN2ZyBpZD0iTGF5ZXJfMSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB2ZXJzaW9uPSIxLjEiIHZpZXdCb3g9IjI0LjIgMjYuOCA1MDYuNyA3NC4yIiB4bWxuczpjMnBhPSJodHRwOi8vYzJwYS5vcmcvbWFuaWZlc3QiPjxtZXRhZGF0YT48YzJwYTptYW5pZmVzdD5BQUFXZ21wMWJXSUFBQUFlYW5WdFpHTXljR0VBRVFBUWdBQUFxZ0E0bTNFRFl6SndZUUFBQUJaY2FuVnRZZ0FBQUVkcWRXMWtZekp0WVFBUkFCQ0FBQUNxQURpYmNRTjFjbTQ2WXpKd1lUb3pZVEJpWW1abE15MWhZV0UzTFRRd01qSXRZVGsxWkMwd05HSmlNVGt3TmpFeE1Ea0FBQUFEbDJwMWJXSUFBQUFwYW5WdFpHTXlZWE1BRVFBUWdBQUFxZ0E0bTNFRFl6SndZUzVoYzNObGNuUnBiMjV6QUFBQUFMeHFkVzFpQUFBQVJHcDFiV1JqWW05eUFCRUFFSUFBQUtvQU9KdHhFMk15Y0dFdWFXNW5jbVZrYVdWdWRDNTJNd0FBQUFBWVl6SnphTjJCZXBVbWx5NkcxazR1RGRUTnVnZ0FBQUJ3WTJKdmNxTnBaR002Wm05eWJXRjBiV2x0WVdkbEwzTjJaeXQ0Yld4cWFXNXpkR0Z1WTJWSlJIZ3NlRzF3T21scFpEbzJPV1poTmpJME9TMWlZalprTFRSbE1ETXRZamN4WWkwME1UZzVaR0UxTmpZeE5UTnNjbVZzWVhScGIyNXphR2x3YUhCaGNtVnVkRTltQUFBQjRtcDFiV0lBQUFCQmFuVnRaR05pYjNJQUVRQVFnQUFBcWdBNG0zRVRZekp3WVM1aFkzUnBiMjV6TG5ZeUFBQUFBQmhqTW5ObzJ6MmJnbHoyeElvZ1dPQ1V6eVI4OGdBQUFabGpZbTl5b21kaFkzUnBiMjV6Z3FKbVlXTjBhVzl1YTJNeWNHRXViM0JsYm1Wa2FuQmhjbUZ0WlhSbGNuT2hhMmx1WjNKbFpHbGxiblJ6Z2FKamRYSnNlQzF6Wld4bUkycDFiV0ptUFdNeWNHRXVZWE56WlhKMGFXOXVjeTlqTW5CaExtbHVaM0psWkdsbGJuUXVkak5rYUdGemFGZ2dTOUgxUlNNendIRUdaMHZuY3lZeFlVS2Q4SGJsSk14V3dwdzVreDhQdmtta1ptRmpkR2x2Ym5nZFkyOXRMbUZ1ZEdoeWIzQnBZeTVqYkdGMVpHVXVjSEp2ZG1sa1pXUnFjR0Z5WVcxbGRHVnljNkY0SDJOdmJTNWhiblJvY205d2FXTXViM0pwWjJsdUxXTnZibVpwWkdWdVkyVm5kVzVyYm05M2JtdGtaWE5qY21sd2RHbHZibmhtUTJ4aGRXUmxJSEJ5YjNacFpHVmtJSFJvYVhNZ1ptbHNaU0JoZENCMGFHVWdjbVZ4ZFdWemRDQnZaaUJoSUhWelpYSWdZVzVrSUcxaGVTQm9ZWFpsSUdOeVpXRjBaV1FnYjNJZ2JXOWthV1pwWldRZ2RHaGxJR1pwYkdVZ1kyOXVkR1Z1ZEhNdWJYTnZablIzWVhKbFFXZGxiblNoWkc1aGJXVm1RMnhoZFdSbGNtRnNiRUZqZEdsdmJuTkpibU5zZFdSbFpQVUFBQURJYW5WdFlnQUFBRUJxZFcxa1kySnZjZ0FSQUJDQUFBQ3FBRGliY1JOak1uQmhMbWhoYzJndVpHRjBZUUFBQUFBWVl6SnphSG5vVUFwZXUyMkFYN0FFajg3NS9Bd0FBQUNBWTJKdmNxVmpZV3huWm5Ob1lUSTFObU53WVdSTkFBQUFBQUFBQUFBQUFBQUFBR1JvWVhOb1dDQTFrRzhBM2ViWHU3QXhLaGR5d0luR3JlS2MzYlFQbGlEcXNZKzFmU1U0TkdSdVlXMWxibXAxYldKbUlHMWhibWxtWlhOMGFtVjRZMngxYzJsdmJuT0JvbVZ6ZEdGeWRCakJabXhsYm1kMGFCa2VCQUFBQWo1cWRXMWlBQUFBSjJwMWJXUmpNbU5zQUJFQUVJQUFBS29BT0p0eEEyTXljR0V1WTJ4aGFXMHVkaklBQUFBQ0QyTmliM0tsWTJGc1oyWnphR0V5TlRacGMybG5ibUYwZFhKbGVFMXpaV3htSTJwMWJXSm1QUzlqTW5CaEwzVnlianBqTW5CaE9qTmhNR0ppWm1VekxXRmhZVGN0TkRBeU1pMWhPVFZrTFRBMFltSXhPVEEyTVRFd09TOWpNbkJoTG5OcFoyNWhkSFZ5WldwcGJuTjBZVzVqWlVsRWVDeDRiWEE2YVdsa09qVmpZbU5tWTJJNUxUSXlZak10TkdWaVpTMWlOVGRqTFRsbU5HRXpPV1JpWWpCaVpuSmpjbVZoZEdWa1gyRnpjMlZ5ZEdsdmJuT0RvbU4xY214NExYTmxiR1lqYW5WdFltWTlZekp3WVM1aGMzTmxjblJwYjI1ekwyTXljR0V1YVc1bmNtVmthV1Z1ZEM1Mk0yUm9ZWE5vV0NCTDBmVkZJelBBY1FablMrZHpKakZoUXAzd2R1VWt6RmJDbkRtVEh3KytTYUpqZFhKc2VDcHpaV3htSTJwMWJXSm1QV015Y0dFdVlYTnpaWEowYVc5dWN5OWpNbkJoTG1GamRHbHZibk11ZGpKa2FHRnphRmdnOS9DcmRMbHFWK0QxMkk4ZmdBaFRLQ1JTWjk0bkJYWkFkMVp5a3gxOXFyV2lZM1Z5YkhncGMyVnNaaU5xZFcxaVpqMWpNbkJoTG1GemMyVnlkR2x2Ym5Ndll6SndZUzVvWVhOb0xtUmhkR0ZrYUdGemFGZ2d0L25kNVozTnRlMTZLSTQ4bDJQZ0xFc0pvRkRjSTljWjNRK0ZZM2hXOExsMFkyeGhhVzFmWjJWdVpYSmhkRzl5WDJsdVptK2paRzVoYldWdlFXNTBhSEp2Y0dsaklFWnBiR1Z6WjNabGNuTnBiMjVsTVM0d0xqQnJjM0JsWTFabGNuTnBiMjVsTWk0MExqQUFBQkE0YW5WdFlnQUFBQ2hxZFcxa1l6Smpjd0FSQUJDQUFBQ3FBRGliY1FOak1uQmhMbk5wWjI1aGRIVnlaUUFBQUJBSVkySnZjdEtFV1FJU29nRW1HQ0ZaQWdvd2dnSUdNSUlCamFBREFnRUNBaFJBNWFBSzdzSTUwTDY0Zy9vR1FnVTlaMVVUQURBS0JnZ3Foa2pPUFFRREF6QkpNUmN3RlFZRFZRUUtFdzVCYm5Sb2NtOXdhV01zSUZCQ1F6RXVNQ3dHQTFVRUF4TWxRVzUwYUhKdmNHbGpJRU52Ym5SbGJuUWdRM0psWkdWdWRHbGhiSE1nVW05dmRDQkRRVEFlRncweU5qQTRNRGN4T0RRek5UWmFGdzB5T0RBNE1EWXhPVFF6TlRaYU1FUXhGekFWQmdOVkJBb1REa0Z1ZEdoeWIzQnBZeXdnVUVKRE1Ta3dKd1lEVlFRREV5QkJiblJvY205d2FXTWdRMnhoZFdSbElFTnZiblJsYm5RZ1UybG5ibWx1WnpCWk1CTUdCeXFHU000OUFnRUdDQ3FHU000OUF3RUhBMElBQkpoNkNtdkxVQmdGRk5VMHZVS2xPVnRFNmRqZDE3TDVTdXdYMExlbUZpc0JNM2RrZC8zY3lqeEZBM1FvNVM0NmZYMC9paFkwVlo3bWZiOUtGNzAzdDVPaldEQldNQTRHQTFVZER3RUIvd1FFQXdJSGdEQVZCZ05WSFNVRURqQU1CZ29yQmdFRUFZUG9YZ0lCTUF3R0ExVWRFd0VCL3dRQ01BQXdId1lEVlIwakJCZ3dGb0FVemxIaUJJRk9aRnNqK09QRXo1bytuTUhYWE1Jd0NnWUlLb1pJemowRUF3TURad0F3WkFJd01YTWRGSjRCZXRMTFZZN09SdUU5bm9xYmJBWk9abi9hQXJYeVR3RkFaZktyUHp4RjJ2UG9KTmYxK1VDZGcxWEdBakJ3WDF6ZDlXR3FZa3FtTDVTRnF3MVF5U2pyMXpKZnBKTTkrMXJkRHdTUExNT1BPakt1aVhqb1UvcFVVZUc5UndtaFkzQmhaRmtObmdBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFBQUFQWllRQzVNcHY3d05sOTR3RGpMNENaNWw1Uk9tR0hQcHNUdmhnejNCQ2xEZkg1UzZFSkh6MEdlaUdLOHlqTTlGNzN5aFlBN0swMTVUTGl5ZE1YckV0d1NScG89PC9jMnBhOm1hbmlmZXN0PjwvbWV0YWRhdGE+CiAgPCEtLSBHZW5lcmF0b3I6IEFkb2JlIElsbHVzdHJhdG9yIDI5LjguMywgU1ZHIEV4cG9ydCBQbHVnLUluIC4gU1ZHIFZlcnNpb246IDIuMS4xIEJ1aWxkIDMpICAtLT4KICA8cG9seWdvbiBwb2ludHM9IjUyLjQgMjguMSA5Ni40IDEwMSAxMjEuNSAxMDEgNzcuMiAyOC4xIDUyLjQgMjguMSIvPgogIDxwb2x5Z29uIHBvaW50cz0iMzYuNCA4MC42IDc3IDgwLjYgNjYuNiAxMDEgMjQuMiAxMDEgMzYuNCA4MC42Ii8+CiAgPGc+CiAgICA8cGF0aCBkPSJNMTU5LjcsMzQuNWg2LjhsOS43LDI3aC02bC0yLTUuN2gtMTAuNGwtMiw1LjdoLTZsOS43LTI3Wk0xNjYuNyw1MWwtMy42LTEwLjQtMy42LDEwLjRoNy4xWiIvPgogICAgPHBhdGggZD0iTTE3OC44LDM0LjVoOS4zYzguNywwLDEzLjYsNC45LDEzLjYsMTMuNXMtNC44LDEzLjUtMTMuNCwxMy41aC05LjV2LTI3Wk0xODguMSw1Ni42YzUuMiwwLDcuNy0yLjgsNy43LTguNnMtMi41LTguNi03LjctOC42aC0zLjV2MTcuMmgzLjVaIi8+CiAgICA8cGF0aCBkPSJNMjA2LjIsMzQuNWgxMS44YzUuOSwwLDkuNywzLjIsOS43LDguMXMtMS45LDUuNy00LjcsNi41YzIuNy40LDQuMSwxLjksNC4zLDQuNmwuNyw3LjhoLTUuOWwtLjUtNi44Yy0uMi0yLjEtMS4xLTMtMy45LTNoLTUuN3Y5LjloLTUuOHYtMjdaTTIxNy40LDQ2LjhjMi44LDAsNC40LTEuNCw0LjQtMy43cy0xLjYtMy43LTQuNi0zLjdoLTUuMnY3LjRoNS40WiIvPgogICAgPHBhdGggZD0iTTIzMi43LDM0LjVoNS44djI3aC01Ljh2LTI3WiIvPgogICAgPHBhdGggZD0iTTI1MS40LDM0LjVoNi44bDkuNywyN2gtNmwtMi01LjdoLTEwLjRsLTIsNS43aC02bDkuNy0yN1pNMjU4LjQsNTFsLTMuNi0xMC40LTMuNiwxMC40aDcuMVpNMjU0LjUsMjYuOGg1LjVsLTMuNCw1LjZoLTQuM2wyLjItNS42WiIvPgogICAgPHBhdGggZD0iTTI3MC41LDM0LjVoNi40bDEwLjcsMTguNnYtMTguNmg1Ljh2MjdoLTYuNWwtMTAuNi0xOHYxOGgtNS44di0yN1oiLz4KICAgIDxwYXRoIGQ9Ik0zMDYuNSw0OGMwLTguNiw1LTE0LjEsMTIuOC0xNC4xczEwLjksMy42LDEyLDEwbC02LC4yYy0uNi0zLjQtMi43LTUuNC02LTUuNHMtNi44LDMuNi02LjgsOS4zLDIuNiw5LjIsNi44LDkuMiw1LjYtMi4yLDYuMS01LjhsNiwuMmMtMS4xLDYuNi01LjIsMTAuNC0xMi4yLDEwLjRzLTEyLjctNS4yLTEyLjctMTQuMVoiLz4KICAgIDxwYXRoIGQ9Ik0zNDIuMSwzNC41aDYuOGw5LjcsMjdoLTZsLTItNS43aC0xMC40bC0yLDUuN2gtNmw5LjctMjdaTTM0OS4xLDUxbC0zLjYtMTAuNC0zLjYsMTAuNGg3LjFaIi8+CiAgICA8cGF0aCBkPSJNMzYxLjIsMzQuNWgxMC41YzYuNywwLDEwLjMsMi4zLDEwLjMsNy4zcy0yLDUuNC01LjYsNS43YzQuNC4zLDYuNywyLjgsNi43LDYuNXMtMy42LDcuNC0xMC4yLDcuNGgtMTEuOHYtMjdaTTM3MS41LDQ1LjdjMi44LDAsNC43LTEuMSw0LjctMy4ycy0xLjctMy4yLTQuNy0zLjJoLTQuNnY2LjVoNC42Wk0zNzIuNyw1Ni44YzIuOCwwLDQuNi0xLjEsNC42LTMuNHMtMS45LTMuNS00LjYtMy41aC01Ljd2Ni45aDUuN1oiLz4KICAgIDxwYXRoIGQ9Ik0zOTQuNCwzNC41aDYuOGw5LjcsMjdoLTZsLTItNS43aC0xMC40bC0yLDUuN2gtNmw5LjctMjdaTTQwMS40LDUxbC0zLjYtMTAuNC0zLjYsMTAuNGg3LjFaIi8+CiAgICA8cGF0aCBkPSJNNDEzLjgsMzQuNWg1Ljh2MjIuMWgxMi40djQuOWgtMTguMnYtMjdaIi8+CiAgICA8cGF0aCBkPSJNNDM1LjMsMzQuNWg1Ljh2MjIuMWgxMi40djQuOWgtMTguMnYtMjdaIi8+CiAgICA8cGF0aCBkPSJNNDU2LjUsMzQuNWgxOC44djQuOWgtMTN2Ni4yaDEyLjV2NC44aC0xMi41djYuM2gxMy4zdjQuOWgtMTkuMXYtMjdaIi8+CiAgICA8cGF0aCBkPSJNNDgwLDM0LjVoMTEuOGM1LjksMCw5LjcsMy4yLDkuNyw4LjFzLTEuOSw1LjctNC43LDYuNWMyLjcuNCw0LjEsMS45LDQuMyw0LjZsLjcsNy44aC01LjlsLS41LTYuOGMtLjItMi4xLTEuMS0zLTMuOS0zaC01Ljd2OS45aC01Ljh2LTI3Wk00OTEuMiw0Ni44YzIuOCwwLDQuNC0xLjQsNC40LTMuN3MtMS42LTMuNy00LjYtMy43aC01LjJ2Ny40aDUuNFoiLz4KICAgIDxwYXRoIGQ9Ik01MDQuNyw0OGMwLTguNyw0LjktMTQuMSwxMy4xLTE0LjFzMTMuMSw1LjQsMTMuMSwxNC4xLTQuOSwxNC4xLTEzLjEsMTQuMS0xMy4xLTUuNC0xMy4xLTE0LjFaTTUyNSw0OGMwLTUuOS0yLjctOS4zLTcuMi05LjNzLTcuMiwzLjQtNy4yLDkuMywyLjcsOS4yLDcuMiw5LjIsNy4yLTMuMyw3LjItOS4yWiIvPgogIDwvZz4KICA8Zz4KICAgIDxwYXRoIGQ9Ik0xNTYsOTIuOGMtMS4yLDAtMi40LS4yLTMuNi0uNi0xLjEtLjQtMi0uOS0yLjctMS42bC43LTEuNGMuNi42LDEuNCwxLjEsMi40LDEuNXMyLjEuNiwzLjIuNiwxLjktLjEsMi42LS40Yy43LS4zLDEuMi0uNiwxLjUtMS4xcy41LS45LjUtMS41LS4yLTEuMi0uNi0xLjZjLS40LS40LS45LS43LTEuNS0uOS0uNi0uMi0xLjMtLjQtMi0uNi0uNy0uMi0xLjUtLjQtMi4yLS42LS43LS4yLTEuNC0uNS0yLS44LS42LS4zLTEuMS0uOC0xLjUtMS4zLS40LS42LS42LTEuMy0uNi0yLjJzLjItMS42LjctMi4zYy40LS43LDEuMS0xLjMsMi0xLjcuOS0uNCwyLjEtLjYsMy41LS42czEuOS4xLDIuOC40Yy45LjMsMS43LjYsMi40LDEuMWwtLjYsMS40Yy0uNy0uNS0xLjUtLjgtMi4zLTEuMS0uOC0uMi0xLjYtLjMtMi4zLS4zcy0xLjguMS0yLjUuNGMtLjcuMy0xLjEuNi0xLjUsMS4xcy0uNSwxLS41LDEuNS4yLDEuMi42LDEuNmMuNC40LjkuNywxLjUuOS42LjIsMS4zLjQsMiwuNi43LjIsMS41LjQsMi4yLjYuNy4yLDEuNC41LDIsLjguNi4zLDEuMS44LDEuNSwxLjNzLjYsMS4zLjYsMi4xLS4yLDEuNi0uNywyLjNjLS40LjctMS4xLDEuMy0yLjEsMS43LS45LjQtMi4xLjYtMy41LjZaIi8+CiAgICA8cGF0aCBkPSJNMTc5LjMsOTIuN3YtMTUuM2gtNS45di0xLjVoMTMuNnYxLjVoLTUuOXYxNS4zaC0xLjhaIi8+CiAgICA8cGF0aCBkPSJNMjA2LjQsOTIuOGMtMi4xLDAtMy44LS42LTUuMS0xLjgtMS4yLTEuMi0xLjgtMy4xLTEuOC01LjV2LTkuNmgxLjh2OS42YzAsMiwuNCwzLjQsMS4zLDQuNC45LjksMi4yLDEuNCwzLjgsMS40czIuOS0uNSwzLjgtMS40Yy45LS45LDEuMy0yLjQsMS4zLTQuNHYtOS42aDEuN3Y5LjZjMCwyLjQtLjYsNC4yLTEuOCw1LjUtMS4yLDEuMi0yLjksMS44LTUuMSwxLjhaIi8+CiAgICA8cGF0aCBkPSJNMjI4LjYsOTIuN3YtMTYuOGg2LjhjMS44LDAsMy40LjQsNC43LDEuMSwxLjQuNywyLjQsMS43LDMuMiwzLC44LDEuMywxLjEsMi43LDEuMSw0LjRzLS40LDMuMS0xLjEsNC40Yy0uOCwxLjMtMS44LDIuMy0zLjIsMy0xLjQuNy0yLjksMS4xLTQuNywxLjFoLTYuOFpNMjMwLjQsOTEuMWg1YzEuNSwwLDIuOC0uMywzLjktLjksMS4xLS42LDEuOS0xLjQsMi42LTIuNC42LTEsLjktMi4yLjktMy42cy0uMy0yLjYtLjktMy42Yy0uNi0xLTEuNS0xLjgtMi42LTIuNC0xLjEtLjYtMi40LS45LTMuOS0uOWgtNXYxMy43WiIvPgogICAgPHBhdGggZD0iTTI1OC4zLDkyLjd2LTE2LjhoMS44djE2LjhoLTEuOFoiLz4KICAgIDxwYXRoIGQ9Ik0yODIuOCw5Mi44Yy0xLjMsMC0yLjQtLjItMy41LS42LTEuMS0uNC0yLTEtMi44LTEuOHMtMS40LTEuNy0xLjgtMi43Yy0uNC0xLS43LTIuMi0uNy0zLjRzLjItMi40LjctMy40Yy40LTEsMS4xLTEuOSwxLjgtMi43LjgtLjgsMS43LTEuNCwyLjgtMS44LDEuMS0uNCwyLjItLjYsMy41LS42czIuNC4yLDMuNS42YzEuMS40LDIsMSwyLjgsMS44LjguOCwxLjQsMS43LDEuOCwyLjcuNCwxLC43LDIuMi43LDMuNHMtLjIsMi40LS43LDMuNGMtLjQsMS0xLjEsMS45LTEuOCwyLjdzLTEuNywxLjQtMi44LDEuOGMtMS4xLjQtMi4yLjYtMy41LjZaTTI4Mi44LDkxLjJjMSwwLDEuOS0uMiwyLjgtLjUuOS0uMywxLjYtLjgsMi4yLTEuNS42LS42LDEuMS0xLjQsMS41LTIuMi40LS44LjUtMS44LjUtMi44cy0uMi0xLjktLjUtMi44Yy0uNC0uOC0uOC0xLjYtMS41LTIuMi0uNi0uNi0xLjQtMS4xLTIuMi0xLjUtLjktLjMtMS44LS41LTIuOC0uNXMtMS45LjItMi44LjVjLS45LjMtMS42LjgtMi4zLDEuNXMtMS4xLDEuNC0xLjUsMi4yYy0uNC44LS41LDEuOC0uNSwyLjhzLjIsMS45LjUsMi44Yy40LjguOCwxLjYsMS41LDIuMnMxLjQsMS4xLDIuMywxLjVjLjkuMywxLjguNSwyLjguNVoiLz4KICA8L2c+Cjwvc3ZnPg==" alt="Adrián Caballero Studio"></a>
+  </footer>
+</div>
+
+<div class="overlay" id="overlay" aria-hidden="true">
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="m-title" id="sheet">
+    <div class="sheet-top">
+      <span class="sheet-date" id="m-date"></span>
+      <button class="icon-btn" id="m-close" aria-label="Cerrar">✕</button>
+    </div>
+    <span class="badge" id="m-badge"></span>
+    <h3 id="m-title"></h3>
+    <p class="desc" id="m-desc"></p>
+    <div id="m-media"></div>
+    <div class="nav">
+      <button class="icon-btn" id="m-prev" aria-label="Publicación anterior">‹</button>
+      <span class="pos" id="m-pos"></span>
+      <button class="icon-btn" id="m-next" aria-label="Publicación siguiente">›</button>
+    </div>
+  </div>
+</div>
+
+<script>
+/* ====== DATOS ======
+   img:   imagen del arte (para posts), vacío por ahora
+   video: enlace https del vídeo (Drive, YouTube, etc.), vacío por ahora */
+const PIEZAS = [
+ {
+  "d": 5,
+  "f": "V",
+  "t": "Educativo",
+  "ti": "¿Qué no puede faltar en tu pulpería?",
+  "de": "Vídeo explicando los productos básicos que nunca deben faltar en una pulpería o tienda.",
+  "img": "",
+  "video": ""
+ },
+ {
+  "d": 7,
+  "f": "P",
+  "t": "Promocional",
+  "ti": "Todo para tu canasta básica",
+  "de": "Post promocionando arroz, frijoles, azúcar, aceite y más productos de la canasta básica.",
+  "img": "",
+  "video": ""
+ },
+ {
+  "d": 9,
+  "f": "V",
+  "t": "Promocional",
+  "ti": "Conoce Bodega Marisol",
+  "de": "Vídeo mostrando la bodega y la variedad de productos disponibles.",
+  "img": "",
+  "video": ""
+ },
+ {
+  "d": 10,
+  "f": "P",
+  "t": "Promocional",
+  "ti": "Precios de mayoreo",
+  "de": "Post promocionando precios especiales por mayoreo para pulperías y tiendas.",
+  "img": "",
+  "video": ""
+ },
+ {
+  "d": 12,
+  "f": "V",
+  "t": "Promocional",
+  "ti": "Surte tu tienda en un solo lugar",
+  "de": "Vídeo mostrando cómo un cliente surte su tienda completa en Bodega Marisol.",
+  "img": "",
+  "video": ""
+ },
+ {
+  "d": 14,
+  "f": "P",
+  "t": "Promocional",
+  "ti": "Granos básicos",
+  "de": "Post promocionando frijoles, arroz y maíz por quintal y por libra.",
+  "img": "",
+  "video": ""
+ },
+ {
+  "d": 16,
+  "f": "V",
+  "t": "Entertain",
+  "ti": "Vídeo de comedia",
+  "de": "Vídeo enfocado en las tendencias de comedia y entretenimiento.",
+  "img": "",
+  "video": ""
+ },
+ {
+  "d": 17,
+  "f": "P",
+  "t": "Promocional",
+  "ti": "Aceites y mantecas",
+  "de": "Post promocionando aceites y mantecas en diferentes presentaciones.",
+  "img": "",
+  "video": ""
+ },
+ {
+  "d": 19,
+  "f": "V",
+  "t": "Promocional",
+  "ti": "Todo para la limpieza",
+  "de": "Vídeo mostrando detergentes, jabones y artículos de limpieza para el hogar y para reventa.",
+  "img": "",
+  "video": ""
+ },
+ {
+  "d": 21,
+  "f": "P",
+  "t": "Educativo",
+  "ti": "Ahorra comprando por mayor",
+  "de": "Post explicando cómo ahorrar en el gasto de la casa o de la tienda comprando por mayoreo.",
+  "img": "",
+  "video": ""
+ },
+ {
+  "d": 23,
+  "f": "V",
+  "t": "Promocional",
+  "ti": "Así preparamos tu pedido",
+  "de": "Vídeo mostrando cómo se prepara y se entrega un pedido de abarrotes.",
+  "img": "",
+  "video": ""
+ },
+ {
+  "d": 24,
+  "f": "P",
+  "t": "Promocional",
+  "ti": "Por caja y por fardo",
+  "de": "Post promocionando la venta por caja y por fardo de los productos más vendidos.",
+  "img": "",
+  "video": ""
+ },
+ {
+  "d": 26,
+  "f": "V",
+  "t": "Promocional",
+  "ti": "Lo nuevo en la bodega",
+  "de": "Vídeo mostrando productos y marcas nuevas disponibles en Bodega Marisol.",
+  "img": "",
+  "video": ""
+ },
+ {
+  "d": 28,
+  "f": "P",
+  "t": "Promocional",
+  "ti": "Todo para el desayuno",
+  "de": "Post promocionando café, azúcar, leche en polvo y productos para el desayuno.",
+  "img": "",
+  "video": ""
+ },
+ {
+  "d": 30,
+  "f": "V",
+  "t": "Entertain",
+  "ti": "Vídeo de comedia",
+  "de": "Vídeo enfocado en las tendencias de comedia y entretenimiento.",
+  "img": "",
+  "video": ""
+ },
+ {
+  "d": 31,
+  "f": "P",
+  "t": "Promocional",
+  "ti": "Surte tu tienda para noviembre",
+  "de": "Post promocionando el surtido de fin de mes para pulperías y tiendas.",
+  "img": "",
+  "video": ""
+ }
+];
+
+const YEAR = 2026, MONTH0 = 9, NDAYS = 31;
+const WD = ["LUN","MAR","MIE","JUE","VIE","SAB","DOM"];
+const WD_LARGO = ["lunes","martes","miércoles","jueves","viernes","sábado","domingo"];
+const WD_FULL = ["LUNES","MARTES","MIÉRCOLES","JUEVES","VIERNES","SÁBADO","DOMINGO"];
+const CLS = {Promocional:"t-promo", Entertain:"t-ent", Educativo:"t-edu"};
+const wdOf = d => (new Date(YEAR, MONTH0, d).getDay() + 6) % 7;
+const bloqueOf = d => d <= 16 ? 1 : 2;
+PIEZAS.sort((a,b) => a.d - b.d);
+
+function el(tag, cls, text){ const e = document.createElement(tag); if(cls) e.className = cls; if(text!==undefined) e.textContent = text; return e; }
+
+/* Encabezado de días */
+const wk = document.getElementById("weekdays");
+WD_FULL.forEach((n,i) => {
+  const p = el("div","pill"); const lg = el("span","lg",n); const sm = el("span","sm",WD[i]);
+  p.append(lg, sm); wk.appendChild(p);
+});
+
+/* Calendario */
+const grid = document.getElementById("grid");
+const offset = wdOf(1);
+const total = Math.ceil((offset + NDAYS) / 7) * 7;
+for (let i = 0; i < total; i++){
+  const d = i - offset + 1;
+  if (d < 1 || d > NDAYS){ grid.appendChild(el("div","cell out")); continue; }
+  const idx = PIEZAS.findIndex(p => p.d === d);
+  if (idx === -1){
+    const c = el("div","cell"); c.appendChild(el("span","n", String(d).padStart(2,"0"))); grid.appendChild(c); continue;
+  }
+  const p = PIEZAS[idx];
+  const b = el("button","cell piece " + CLS[p.t]);
+  b.type = "button";
+  b.setAttribute("aria-label", `${WD_LARGO[wdOf(d)]} ${d} de octubre, ${p.f==="V"?"vídeo":"post"}: ${p.ti}`);
+  b.appendChild(el("span","n", String(d).padStart(2,"0")));
+  b.appendChild(el("span","l", p.f));
+  b.addEventListener("click", () => openModal(idx, b));
+  grid.appendChild(b);
+}
+
+/* Conteos */
+document.getElementById("cnt-v").textContent = PIEZAS.filter(p => p.f==="V").length;
+document.getElementById("cnt-p").textContent = PIEZAS.filter(p => p.f==="P").length;
+
+/* Lista por bloque */
+const rows = document.getElementById("rows");
+function renderRows(b){
+  rows.replaceChildren();
+  PIEZAS.forEach((p, idx) => {
+    if (bloqueOf(p.d) !== b) return;
+    const r = el("button","row"); r.type = "button";
+    r.setAttribute("aria-label", `${WD_LARGO[wdOf(p.d)]} ${p.d} de octubre: ${p.ti}. Ver detalle`);
+    const date = el("div","date"); date.append(el("span","wd",WD[wdOf(p.d)]), el("span","dn",String(p.d).padStart(2,"0")));
+    const fmt = el("div","fmt");
+    if (p.img){ const im = el("img"); im.src = p.img; im.alt = ""; const cv = el("span","cover"); cv.appendChild(im); fmt.style.setProperty("--cover", "url(\"" + p.img + "\")"); fmt.classList.add("con-portada"); fmt.appendChild(cv);
+      if (p.f === "V") cv.appendChild(el("span","proceso", /^https:\/\//i.test(p.video || "") ? "▶ Vídeo" : "En proceso")); }
+    else if (p.f === "V"){ fmt.classList.add(CLS[p.t]); fmt.textContent = "V"; }
+    const txt = el("div","txt");
+    const bd = el("span","badge " + CLS[p.t], p.t);
+    txt.append(bd, el("span","ti",p.ti), el("span","de",p.de));
+    r.append(date, fmt, txt);
+    r.addEventListener("click", () => openModal(idx, r));
+    rows.appendChild(r);
+  });
+}
+document.querySelectorAll(".tab").forEach(t => t.addEventListener("click", () => {
+  document.querySelectorAll(".tab").forEach(x => x.setAttribute("aria-selected", String(x===t)));
+  rows.setAttribute("aria-labelledby", t.id);
+  renderRows(Number(t.dataset.b));
+}));
+renderRows(1);
+
+/* Ventana de detalle */
+const overlay = document.getElementById("overlay"), sheet = document.getElementById("sheet");
+const mDate = document.getElementById("m-date"), mBadge = document.getElementById("m-badge");
+const mTitle = document.getElementById("m-title"), mDesc = document.getElementById("m-desc");
+const mMedia = document.getElementById("m-media"), mPos = document.getElementById("m-pos");
+const mPrev = document.getElementById("m-prev"), mNext = document.getElementById("m-next"), mClose = document.getElementById("m-close");
+let cur = -1, opener = null;
+
+function fillModal(i){
+  cur = i; const p = PIEZAS[i]; const w = wdOf(p.d);
+  mDate.textContent = `${WD_LARGO[w]} ${p.d} de octubre`.toUpperCase() + " · " + (p.f==="V" ? "VÍDEO" : "POST");
+  mBadge.className = "badge " + CLS[p.t]; mBadge.textContent = p.t;
+  mTitle.textContent = p.ti; mDesc.textContent = p.de;
+  mMedia.replaceChildren();
+  if (p.f === "P"){
+    if (p.img){ const box = el("div","media filled"); const im = el("img"); im.src = p.img; im.alt = "Arte del post: " + p.ti; box.appendChild(im); mMedia.appendChild(box); }
+    else mMedia.appendChild(el("div","media","Arte en preparación"));
+  } else {
+    if (/^https:\/\//i.test(p.video || "")){
+      const box = el("div","media filled vertical"); const v = el("video"); v.src = p.video; v.controls = true; v.playsInline = true; v.preload = "metadata";
+      v.poster = p.video.replace(/\.mp4$/i, ".jpg"); v.setAttribute("aria-label", "Vídeo: " + p.ti); box.appendChild(v); mMedia.appendChild(box);
+      v.addEventListener("error", () => { const a = el("a","btn","▶  Ver vídeo"); a.href = p.video; a.target = "_blank"; a.rel = "noopener noreferrer"; box.replaceWith(a); });
+    } else if (p.img){ const box = el("div","media filled vertical"); const im = el("img"); im.src = p.img; im.alt = "Vista previa del vídeo: " + p.ti;
+      box.append(im, el("span","proceso","Vídeo en proceso")); mMedia.appendChild(box); }
+    else mMedia.appendChild(el("div","media video vertical","Vídeo en preparación"));
+  }
+  mPos.textContent = `${i+1} de ${PIEZAS.length}`;
+  mPrev.disabled = i === 0; mNext.disabled = i === PIEZAS.length - 1;
+}
+function openModal(i, from){
+  opener = from || document.activeElement; fillModal(i);
+  overlay.classList.add("open"); overlay.setAttribute("aria-hidden","false");
+  document.body.style.overflow = "hidden"; mClose.focus();
+}
+function closeModal(){
+  mMedia.replaceChildren();
+  overlay.classList.remove("open"); overlay.setAttribute("aria-hidden","true");
+  document.body.style.overflow = ""; if (opener && opener.focus) opener.focus();
+}
+mClose.addEventListener("click", closeModal);
+overlay.addEventListener("click", e => { if (e.target === overlay) closeModal(); });
+mPrev.addEventListener("click", () => { if (cur > 0) fillModal(cur - 1); });
+mNext.addEventListener("click", () => { if (cur < PIEZAS.length - 1) fillModal(cur + 1); });
+document.addEventListener("keydown", e => {
+  if (!overlay.classList.contains("open")) return;
+  if (e.key === "Escape") closeModal();
+  else if (e.key === "ArrowLeft" && cur > 0) fillModal(cur - 1);
+  else if (e.key === "ArrowRight" && cur < PIEZAS.length - 1) fillModal(cur + 1);
+  else if (e.key === "Tab"){
+    const f = [...sheet.querySelectorAll("button:not([disabled]), a[href]")];
+    if (!f.length) return;
+    const first = f[0], last = f[f.length-1];
+    if (e.shiftKey && document.activeElement === first){ e.preventDefault(); last.focus(); }
+    else if (!e.shiftKey && document.activeElement === last){ e.preventDefault(); first.focus(); }
+  }
+});
+</script>
+<style id="ac-volver-css">#ac-volver{display:none}@media (display-mode: standalone){#ac-volver{display:inline-block;position:fixed;left:12px;top:calc(env(safe-area-inset-top,0px) + 10px);z-index:9999;background:#000;color:#fff;font:600 13px/1 Montserrat,system-ui,sans-serif;padding:9px 13px;border-radius:999px;text-decoration:none;box-shadow:0 2px 8px rgba(0,0,0,.25)}}</style><a id="ac-volver" href="/es/calendarios">&larr; Calendarios</a>
+</body>
+</html>
