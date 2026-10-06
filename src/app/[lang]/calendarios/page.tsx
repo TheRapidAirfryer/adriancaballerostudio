@@ -33,13 +33,19 @@ export async function generateMetadata({ params }: Props) {
   if (!isLocale(lang)) return {};
   const t = copy[lang];
 
-  return buildMetadata({
-    title: t.title,
-    description: t.description,
-    path: "/calendarios",
-    locale: lang,
-    noIndex: true,
-  });
+  return {
+    ...buildMetadata({
+      title: t.title,
+      description: t.description,
+      path: "/calendarios",
+      locale: lang,
+      noIndex: true,
+    }),
+    // Al agregarla a la pantalla de inicio del celular, abre esta página y no el inicio.
+    manifest: "/calendarios/app.webmanifest",
+    appleWebApp: { capable: true, title: t.title, statusBarStyle: "default" },
+    icons: { icon: "/calendarios/icon-192.png", apple: "/calendarios/icon-180.png" },
+  };
 }
 
 export default async function CalendariosPage({ params }: Props) {

@@ -37,7 +37,7 @@ const processStepsEn = [
   {
     number: "03",
     title: "Produce",
-    description: "We execute with the right team and tools, with no shortcuts that show up later.",
+    description: "We execute with the right team and tools — no shortcuts that come back to bite you later.",
   },
   {
     number: "04",
