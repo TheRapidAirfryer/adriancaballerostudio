@@ -32,7 +32,7 @@ export const siteConfig = {
   social: {
     instagram: "https://www.instagram.com/adriancaballero.studio/",
     facebook: "https://www.facebook.com/profile.php?id=61594193676032",
-    tiktok: "https://www.tiktok.com/@cabsan28",
+    tiktok: "https://www.tiktok.com/@adriancaballero.studio",
   },
   analytics: {
     ga4Id: process.env.NEXT_PUBLIC_GA4_ID ?? "",
