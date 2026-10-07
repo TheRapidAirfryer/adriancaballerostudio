@@ -293,14 +293,14 @@ export const services: Service[] = [
       "Empresas que necesitan un sitio web nuevo o una renovación completa.",
       "Marcas cuyo sitio actual es lento, desactualizado o no genera clientes.",
       "Negocios que quieren un sitio multipágina con portafolio, blog y SEO real.",
-      "Equipos que necesitan un sitio que puedan seguir actualizando sin depender de un desarrollador para cada cambio.",
+      "Equipos que quieren un sitio que se mantenga al día, con soporte para hacer los cambios después del lanzamiento.",
     ],
     includes: [
       "Arquitectura del sitio y mapa de páginas.",
       "Diseño UI/UX a medida, responsive desde el primer boceto.",
       "Desarrollo con estándares modernos de rendimiento y accesibilidad.",
       "SEO técnico: metadata, sitemap, datos estructurados y velocidad.",
-      "Capacitación básica o estructura de contenido editable.",
+      "Soporte para actualizaciones y cambios después del lanzamiento.",
     ],
     process: [
       { title: "Descubrimiento", description: "Entendemos el negocio, la competencia y el objetivo real del sitio." },
@@ -311,7 +311,7 @@ export const services: Service[] = [
     ],
     faqs: [
       { question: "¿El sitio queda optimizado para Google desde el lanzamiento?", answer: "Sí. El SEO técnico (metadata, velocidad, estructura de datos) se construye desde la arquitectura, no se agrega después." },
-      { question: "¿Podré editar el contenido yo mismo?", answer: "Diseñamos la arquitectura de datos para que el contenido de portafolio y blog sea editable sin tocar código, o migrable a un CMS." },
+      { question: "¿Qué pasa si necesito cambiar algo después del lanzamiento?", answer: "Nosotros hacemos los cambios por ti — el soporte para actualizaciones está contemplado en el servicio, así que no necesitas saber de código ni contratar a alguien más." },
       { question: "¿Cuánto tiempo toma desarrollar un sitio multipágina?", answer: "Depende del número de páginas y funcionalidades. Lo definimos en la etapa de descubrimiento con un cronograma claro." },
       { question: "¿Incluye hosting y dominio?", answer: "La configuración de hosting y dominio se coordina según la plataforma que prefieras; te asesoramos en esa decisión." },
     ],
@@ -742,14 +742,14 @@ export const servicesEn: Service[] = [
       "Companies that need a new website or a full redesign.",
       "Brands whose current site is slow, outdated, or just isn't bringing in clients.",
       "Businesses that want a multi-page site with portfolio, blog and real SEO.",
-      "Teams that need a site they can keep updating without depending on a developer for every change.",
+      "Teams that want a site that stays current, with support for changes after launch.",
     ],
     includes: [
       "Site architecture and page map.",
       "Custom UI/UX design, responsive from the first sketch.",
       "Development with modern performance and accessibility standards.",
       "Technical SEO: metadata, sitemap, structured data and speed.",
-      "Basic training or editable content structure.",
+      "Support for updates and changes after launch.",
     ],
     process: [
       { title: "Discovery", description: "We understand the business, the competition and the site's real objective." },
@@ -760,7 +760,7 @@ export const servicesEn: Service[] = [
     ],
     faqs: [
       { question: "Is the site optimized for Google from launch?", answer: "Yes. Technical SEO (metadata, speed, data structure) is built into the architecture, not added afterward." },
-      { question: "Will I be able to edit the content myself?", answer: "We design the data architecture so portfolio and blog content is editable without touching code, or migratable to a CMS." },
+      { question: "What happens if I need to change something after launch?", answer: "We make the changes for you — support for updates is included in the service, so you don't need to know how to code or hire anyone else." },
       { question: "How long does it take to develop a multi-page site?", answer: "It depends on the number of pages and features. We define this in the discovery stage with a clear timeline." },
       { question: "Does it include hosting and domain?", answer: "Hosting and domain setup is coordinated based on your preferred platform; we advise you on that decision." },
     ],
