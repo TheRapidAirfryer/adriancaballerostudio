@@ -64,6 +64,5 @@ export const FOOTER_LINKS = {
   legal: [
     { href: "/politica-de-privacidad", labelKey: "privacy" },
     { href: "/terminos", labelKey: "terms" },
-    { href: "/calendarios", labelKey: "calendars" },
   ],
 } as const;
