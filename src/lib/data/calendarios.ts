@@ -24,7 +24,10 @@ export const calendarios: ClienteCalendario[] = [
     slug: "jfmaritimos",
     name: "JF Marítimos",
     logo: "/clients/jflogo.png",
-    meses: [{ slug: "octubre-2026", label: "Octubre 2026" }],
+    meses: [
+      { slug: "noviembre-2026", label: "Noviembre 2026" },
+      { slug: "octubre-2026", label: "Octubre 2026" },
+    ],
   },
   {
     slug: "zltlogistics",
