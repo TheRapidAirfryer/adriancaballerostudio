@@ -39,7 +39,10 @@ export const calendarios: ClienteCalendario[] = [
     slug: "trulynolen",
     name: "Truly Nolen",
     logo: "/clients/trulylogo.png",
-    meses: [{ slug: "octubre-2026", label: "Octubre 2026" }],
+    meses: [
+      { slug: "noviembre-2026", label: "Noviembre 2026" },
+      { slug: "octubre-2026", label: "Octubre 2026" },
+    ],
   },
   {
     slug: "bodegamarisol",
