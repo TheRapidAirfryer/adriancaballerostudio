@@ -50,4 +50,10 @@ export const calendarios: ClienteCalendario[] = [
     logo: "/clients/marisollogo.png",
     meses: [{ slug: "octubre-2026", label: "Octubre 2026" }],
   },
+  {
+    slug: "cafecostello",
+    name: "Café Costello",
+    logo: "/clients/costellologo.png",
+    meses: [{ slug: "noviembre-2026", label: "Noviembre 2026" }],
+  },
 ];
