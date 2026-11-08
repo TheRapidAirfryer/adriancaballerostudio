@@ -428,8 +428,8 @@ export const projects: Project[] = [
     title: "Sesión Fotográfica — Arnold y Katerine",
     client: "Arnold y Katerine",
     industry: "Evento personal",
-    categories: ["fotografia"],
-    services: ["fotografia"],
+    categories: ["fotografia", "dron"],
+    services: ["fotografia", "dron"],
     year: "2026",
     isPlaceholder: false,
     summary: "Sesión fotográfica de pedida de mano en la playa para Arnold y Katerine, documentando el momento de la propuesta al atardecer.",
@@ -439,11 +439,13 @@ export const projects: Project[] = [
     processNotes: [
       "Levantamiento previo de la locación y el montaje en la playa.",
       "Cobertura fotográfica del momento de la pedida de mano.",
-      "Selección y edición de las fotografías finales.",
+      "Tomas aéreas con dron de la locación y el momento de la propuesta.",
+      "Selección y edición de las fotografías finales y del video con tomas aéreas.",
     ],
-    results: "Cobertura fotográfica profesional con 70 imágenes editadas, entregadas a la pareja como recuerdo del momento.",
+    results: "Cobertura fotográfica profesional con 70 imágenes editadas, más un video de 1 minuto con tomas aéreas, entregados a la pareja como recuerdo del momento.",
     metrics: [
       { label: "Fotografías entregadas y editadas", value: "70 fotos", isPlaceholder: false },
+      { label: "Video con tomas aéreas", value: "1 minuto", isPlaceholder: false },
     ],
     featuredMedia: {
       type: "image",
@@ -811,8 +813,8 @@ export const projectsEn: Project[] = [
     title: "Photo Session — Arnold & Katerine",
     client: "Arnold and Katerine",
     industry: "Personal event",
-    categories: ["fotografia"],
-    services: ["fotografia"],
+    categories: ["fotografia", "dron"],
+    services: ["fotografia", "dron"],
     year: "2026",
     isPlaceholder: false,
     summary: "Beach proposal photo session for Arnold and Katerine, documenting the proposal moment at sunset.",
@@ -822,11 +824,13 @@ export const projectsEn: Project[] = [
     processNotes: [
       "Advance survey of the beach location and setup.",
       "Photo coverage of the proposal moment.",
-      "Selection and editing of the final photographs.",
+      "Aerial drone footage of the location and the proposal moment.",
+      "Selection and editing of the final photographs and the aerial-footage video.",
     ],
-    results: "Professional photo coverage with 70 edited images, delivered to the couple as a keepsake of the moment.",
+    results: "Professional photo coverage with 70 edited images, plus a 1-minute video with aerial drone footage, delivered to the couple as a keepsake of the moment.",
     metrics: [
       { label: "Photos delivered and edited", value: "70 photos", isPlaceholder: false },
+      { label: "Video with aerial footage", value: "1 minute", isPlaceholder: false },
     ],
     featuredMedia: {
       type: "image",
