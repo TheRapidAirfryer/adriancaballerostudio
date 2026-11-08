@@ -29,6 +29,27 @@ const SERVICES = [
   },
 ];
 
+const REVIEWS = [
+  {
+    name: "Sara Henley",
+    service: "Website Development",
+    quote:
+      "Adrian did an amazing job building my website! He was professional, responsive, and brought my vision to life. Highly recommend!",
+  },
+  {
+    name: "JoAnn Donahue",
+    service: "Website Modifications",
+    quote:
+      "Great experience working with Adrian! He made all the changes I needed to my website quickly and efficiently. Excellent service!",
+  },
+  {
+    name: "Theresa de la Rosa",
+    service: "Website Modifications",
+    quote:
+      "Adrian was very helpful and easy to work with. He updated my website exactly how I wanted. I'm very happy with the results!",
+  },
+];
+
 const STEPS = [
   {
     number: "01",
@@ -104,6 +125,25 @@ export default function StartPage() {
               <h3 className="text-lg font-medium tracking-tight">{service.name}</h3>
               <p className="mt-2 text-sm leading-relaxed text-neutral-500">{service.summary}</p>
             </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="flex flex-col gap-10">
+        <h2 className="text-2xl font-medium tracking-tight md:text-3xl">What clients say.</h2>
+        <div className="grid gap-8 md:grid-cols-3">
+          {REVIEWS.map((review) => (
+            <figure key={review.name} className="flex flex-col gap-4 border-t border-black/10 pt-5">
+              <blockquote className="text-sm leading-relaxed text-neutral-600">
+                &ldquo;{review.quote}&rdquo;
+              </blockquote>
+              <figcaption className="text-sm">
+                <span className="block font-medium tracking-tight text-black">{review.name}</span>
+                <span className="font-mono text-[11px] uppercase tracking-wide text-neutral-500">
+                  {review.service}
+                </span>
+              </figcaption>
+            </figure>
           ))}
         </div>
       </section>
