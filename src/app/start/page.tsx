@@ -1,13 +1,12 @@
 import type { Metadata } from "next";
 import Link from "next/link";
 import Image from "next/image";
-import { PayPalButton } from "@/components/payments/PayPalButton";
 import { siteConfig } from "@/lib/site-config";
 
 export const metadata: Metadata = {
   title: "Book a Discovery Call | Adrian Caballero Studio",
   description:
-    "Book a paid 30-minute discovery call to discuss your website, app, business system, or video project with Adrian Caballero Studio.",
+    "Book a free 30-minute discovery call to discuss your website, app, business system, or video project with Adrian Caballero Studio.",
 };
 
 const SERVICES = [
@@ -53,8 +52,8 @@ const REVIEWS = [
 const STEPS = [
   {
     number: "01",
-    title: "Book & pay for your call",
-    description: "Reserve a 30-minute discovery call for $25, paid upfront through PayPal.",
+    title: "Book your call",
+    description: "Schedule a free 30-minute discovery call directly on our calendar.",
   },
   {
     number: "02",
@@ -80,11 +79,11 @@ export default function StartPage() {
       <section className="flex flex-col gap-6">
         <p className="font-mono text-[11px] uppercase tracking-[0.3em] text-neutral-500">Start here</p>
         <h1 className="max-w-xl text-balance text-4xl font-medium leading-[1.05] tracking-tight md:text-6xl">
-          Let&apos;s talk about your project — $25, 30 minutes.
+          Let&apos;s talk about your project.
         </h1>
         <p className="max-w-lg text-balance text-base leading-relaxed text-neutral-600 md:text-lg">
           Adrian Caballero Studio builds websites, apps, business systems, and video content.
-          Every project starts with a short paid call so we both know, before anything else
+          Every project starts with a short, free call so we both know, before anything else
           happens, that this is worth both of our time.
         </p>
         <div className="mt-2">
@@ -92,7 +91,7 @@ export default function StartPage() {
             href="#book"
             className="inline-flex items-center justify-center rounded-full bg-black px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
           >
-            Book the call — $25
+            Book the call
           </a>
         </div>
       </section>
@@ -109,8 +108,9 @@ export default function StartPage() {
           ))}
         </ol>
         <p className="text-sm leading-relaxed text-neutral-500">
-          Payment is required upfront, for the call and for every block of work — no exceptions.
-          It keeps things simple and fair on both sides.
+          The discovery call is free. Once we agree on scope and hours, payment is required
+          upfront for every block of work — no exceptions. It keeps things simple and fair on
+          both sides.
         </p>
       </section>
 
@@ -148,15 +148,22 @@ export default function StartPage() {
       <section id="book" className="scroll-mt-10 border-t border-black/10 pt-12">
         <h2 className="text-2xl font-medium tracking-tight md:text-3xl">Book your call.</h2>
         <div className="mt-6 flex items-baseline gap-3">
-          <span className="text-4xl font-medium tracking-tight">$25 USD</span>
-          <span className="font-mono text-xs uppercase tracking-wide text-neutral-500">30 minutes · paid in advance</span>
+          <span className="text-4xl font-medium tracking-tight">Free</span>
+          <span className="font-mono text-xs uppercase tracking-wide text-neutral-500">30 minutes</span>
         </div>
         <p className="mt-4 max-w-md text-sm leading-relaxed text-neutral-500">
-          After payment, we&apos;ll reach out to {siteConfig.contact.email} — or you can email us directly — to
-          schedule a time that works for you.
+          Pick a time that works for you on our calendar, or email us directly at{" "}
+          {siteConfig.contact.email}.
         </p>
-        <div className="mt-8 max-w-sm">
-          <PayPalButton />
+        <div className="mt-8">
+          <a
+            href={siteConfig.contact.calendlyLink}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-full bg-black px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
+          >
+            Book the meeting
+          </a>
         </div>
       </section>
 
