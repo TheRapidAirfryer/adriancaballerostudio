@@ -71,13 +71,10 @@ const STEPS = [
 export default function StartPage() {
   return (
     <div className="mx-auto flex max-w-[760px] flex-col gap-20 px-6 py-16 md:py-24">
-      <header className="flex items-center justify-between">
+      <header className="flex items-center">
         <Link href="/" className="flex items-center" aria-label="Adrian Caballero Studio — home">
           <Image src="/logo.svg" alt="Adrian Caballero Studio" width={277} height={62} priority className="h-7 w-auto" />
         </Link>
-        <span className="font-mono text-[11px] uppercase tracking-[0.2em] text-neutral-500">
-          Honduras → United States
-        </span>
       </header>
 
       <section className="flex flex-col gap-6">
