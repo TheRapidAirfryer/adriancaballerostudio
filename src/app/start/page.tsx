@@ -158,8 +158,6 @@ export default function StartPage() {
         <div className="mt-8">
           <a
             href={siteConfig.contact.calendlyLink}
-            target="_blank"
-            rel="noopener noreferrer"
             className="inline-flex items-center justify-center rounded-full bg-black px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
           >
             Book the meeting
