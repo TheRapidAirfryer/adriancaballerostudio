@@ -421,6 +421,53 @@ export const projects: Project[] = [
     seoTitle: "Gestión de redes sociales para Bodega Marisol | Portafolio Adrian Caballero Studio",
     seoDescription: "Caso de estudio: manejo de redes sociales, creación de contenido y campañas en Meta Ads para Bodega Marisol.",
   },
+  {
+    slug: "pedida-de-mano-arnold-katerine",
+    title: "Sesión Fotográfica — Arnold y Katerine",
+    client: "Arnold y Katerine",
+    industry: "Evento personal",
+    categories: ["fotografia"],
+    services: ["fotografia"],
+    year: "2026",
+    isPlaceholder: false,
+    summary: "Sesión fotográfica de pedida de mano en la playa para Arnold y Katerine, documentando el momento de la propuesta al atardecer.",
+    objective: "Capturar el momento de la pedida de mano de Arnold y Katerine en la playa de forma natural y emotiva.",
+    challenge: "Fotografiar con poca luz durante el atardecer y la noche, manteniendo la calidad y la espontaneidad del momento.",
+    solution: "Cobertura fotográfica discreta y bien planificada, enfocada en captar la decoración, la propuesta y las reacciones genuinas de la pareja.",
+    processNotes: [
+      "Levantamiento previo de la locación y el montaje en la playa.",
+      "Cobertura fotográfica del momento de la pedida de mano.",
+      "Selección y edición de las fotografías finales.",
+    ],
+    results: "Cobertura fotográfica profesional con 70 imágenes editadas, entregadas a la pareja como recuerdo del momento.",
+    metrics: [
+      { label: "Fotografías entregadas y editadas", value: "70 fotos", isPlaceholder: false },
+    ],
+    featuredMedia: {
+      type: "image-vertical",
+      label: "Pedida de mano de Arnold y Katerine en la playa",
+      src: "/portfolio/arnold-katerine/pedida-mano-playa-portada.jpg",
+    },
+    gallery: [
+      {
+        type: "image-vertical",
+        label: "Pedida de mano en la playa",
+        src: "/portfolio/arnold-katerine/pedida-mano-playa-1.jpg",
+      },
+      {
+        type: "image-vertical",
+        label: "Intercambio del anillo",
+        src: "/portfolio/arnold-katerine/pedida-mano-playa-2.jpg",
+      },
+      {
+        type: "image-vertical",
+        label: "Silueta de la propuesta en la playa",
+        src: "/portfolio/arnold-katerine/pedida-mano-playa-3.jpg",
+      },
+    ],
+    seoTitle: "Sesión fotográfica de pedida de mano — Arnold y Katerine | Portafolio Adrian Caballero Studio",
+    seoDescription: "Caso de estudio: sesión fotográfica de pedida de mano en la playa para Arnold y Katerine.",
+  },
 ];
 
 export const projectsEn: Project[] = [
@@ -755,6 +802,53 @@ export const projectsEn: Project[] = [
     ],
     seoTitle: "Social media management for Bodega Marisol | Adrian Caballero Studio Portfolio",
     seoDescription: "Case study: social media management and content creation for Bodega Marisol.",
+  },
+  {
+    slug: "pedida-de-mano-arnold-katerine",
+    title: "Photo Session — Arnold & Katerine",
+    client: "Arnold and Katerine",
+    industry: "Personal event",
+    categories: ["fotografia"],
+    services: ["fotografia"],
+    year: "2026",
+    isPlaceholder: false,
+    summary: "Beach proposal photo session for Arnold and Katerine, documenting the proposal moment at sunset.",
+    objective: "Capture Arnold and Katerine's beach proposal in a natural, emotional way.",
+    challenge: "Shooting in low light during sunset and nighttime, while keeping the quality and spontaneity of the moment.",
+    solution: "Discreet, well-planned photo coverage focused on the setup, the proposal, and the couple's genuine reactions.",
+    processNotes: [
+      "Advance survey of the beach location and setup.",
+      "Photo coverage of the proposal moment.",
+      "Selection and editing of the final photographs.",
+    ],
+    results: "Professional photo coverage with 70 edited images, delivered to the couple as a keepsake of the moment.",
+    metrics: [
+      { label: "Photos delivered and edited", value: "70 photos", isPlaceholder: false },
+    ],
+    featuredMedia: {
+      type: "image-vertical",
+      label: "Arnold and Katerine's beach proposal",
+      src: "/portfolio/arnold-katerine/pedida-mano-playa-portada.jpg",
+    },
+    gallery: [
+      {
+        type: "image-vertical",
+        label: "Beach proposal moment",
+        src: "/portfolio/arnold-katerine/pedida-mano-playa-1.jpg",
+      },
+      {
+        type: "image-vertical",
+        label: "Ring exchange",
+        src: "/portfolio/arnold-katerine/pedida-mano-playa-2.jpg",
+      },
+      {
+        type: "image-vertical",
+        label: "Proposal silhouette on the beach",
+        src: "/portfolio/arnold-katerine/pedida-mano-playa-3.jpg",
+      },
+    ],
+    seoTitle: "Beach proposal photo session — Arnold & Katerine | Adrian Caballero Studio Portfolio",
+    seoDescription: "Case study: beach proposal photo session for Arnold and Katerine.",
   },
 ];
 
