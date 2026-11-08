@@ -237,6 +237,7 @@ export const projects: Project[] = [
       label: "Feria de la salud — Cooperativa Peniel",
       src: "/portfolio/compeniel/compeniel-evento.png",
     },
+    photoCredit: { name: "Linda Valle", href: "https://www.instagram.com/lindanaomiphoto/" },
     gallery: [
       {
         type: "image",
@@ -622,6 +623,7 @@ export const projectsEn: Project[] = [
       label: "Health Fair — Cooperativa Peniel",
       src: "/portfolio/compeniel/compeniel-evento.png",
     },
+    photoCredit: { name: "Linda Valle", href: "https://www.instagram.com/lindanaomiphoto/" },
     gallery: [
       {
         type: "image",
