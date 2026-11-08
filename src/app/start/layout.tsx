@@ -20,9 +20,12 @@ export const metadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: "Book a Discovery Call | Adrian Caballero Studio",
   description:
-    "Book a paid 30-minute discovery call to discuss your website, app, business system, or video project with Adrian Caballero Studio.",
+    "Book a free 30-minute discovery call to discuss your website, app, business system, or video project with Adrian Caballero Studio.",
   robots: { index: true, follow: true },
   alternates: { canonical: "/start" },
+  // Overrides the site-wide PWA manifest so links shared from apps (e.g. WhatsApp)
+  // open as a plain webpage instead of showing the app icon/standalone chrome.
+  manifest: null,
 };
 
 export const viewport: Viewport = {
