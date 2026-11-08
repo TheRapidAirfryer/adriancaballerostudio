@@ -446,7 +446,7 @@ export const projects: Project[] = [
       { label: "Fotografías entregadas y editadas", value: "70 fotos", isPlaceholder: false },
     ],
     featuredMedia: {
-      type: "image-vertical",
+      type: "image",
       label: "Pedida de mano de Arnold y Katerine en la playa",
       src: "/portfolio/arnold-katerine/pedida-mano-playa-portada.jpg",
     },
@@ -829,7 +829,7 @@ export const projectsEn: Project[] = [
       { label: "Photos delivered and edited", value: "70 photos", isPlaceholder: false },
     ],
     featuredMedia: {
-      type: "image-vertical",
+      type: "image",
       label: "Arnold and Katerine's beach proposal",
       src: "/portfolio/arnold-katerine/pedida-mano-playa-portada.jpg",
     },
