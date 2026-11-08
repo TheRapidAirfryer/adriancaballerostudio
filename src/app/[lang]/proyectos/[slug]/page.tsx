@@ -103,6 +103,16 @@ export default async function ProjectPage({ params }: Props) {
           dark
           priority
         />
+        {project.photoCredit ? (
+          <a
+            href={project.photoCredit.href}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="mt-3 inline-block font-mono text-[11px] uppercase tracking-wide text-neutral-500 hover-underline"
+          >
+            {dict.projectDetail.photoBy} {project.photoCredit.name}
+          </a>
+        ) : null}
       </div>
 
       <div className="mx-auto max-w-[1400px] px-6 py-16 md:px-10 md:py-24">

@@ -82,6 +82,8 @@ export interface Project {
   results: string;
   metrics: ProjectMetric[];
   featuredMedia: ProjectMedia;
+  /** Crédito opcional del fotógrafo/a, mostrado bajo la foto de portada. */
+  photoCredit?: { name: string; href: string };
   gallery: ProjectMedia[];
   /** Sección opcional "Artes" para piezas gráficas verticales, debajo de la galería principal. */
   artGallery?: ProjectMedia[];
@@ -448,6 +450,7 @@ export const projects: Project[] = [
       label: "Pedida de mano de Arnold y Katerine en la playa",
       src: "/portfolio/arnold-katerine/pedida-mano-playa-portada.jpg",
     },
+    photoCredit: { name: "Linda Valle", href: "https://www.instagram.com/lindanaomiphoto/" },
     gallery: [
       {
         type: "image-vertical",
@@ -830,6 +833,7 @@ export const projectsEn: Project[] = [
       label: "Arnold and Katerine's beach proposal",
       src: "/portfolio/arnold-katerine/pedida-mano-playa-portada.jpg",
     },
+    photoCredit: { name: "Linda Valle", href: "https://www.instagram.com/lindanaomiphoto/" },
     gallery: [
       {
         type: "image-vertical",

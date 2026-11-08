@@ -148,6 +148,7 @@ const es = {
   projectDetail: {
     breadcrumbPortfolio: "Portafolio",
     placeholderTag: "Caso de ejemplo — pendiente de reemplazar con proyecto real",
+    photoBy: "Foto por",
     client: "Cliente",
     industry: "Industria",
     year: "Año",
@@ -492,6 +493,7 @@ const enOverrides = {
   projectDetail: {
     breadcrumbPortfolio: "Portfolio",
     placeholderTag: "Example case — pending replacement with a real project",
+    photoBy: "Photo by",
     client: "Client",
     industry: "Industry",
     year: "Year",
