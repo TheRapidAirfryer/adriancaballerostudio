@@ -399,7 +399,7 @@ const enOverrides = {
     metaTitle: "Adrian Caballero Studio — Content, design and technology",
     hero: {
       line1: "We help your brand",
-      line2: "look sharp, connect,",
+      line2: "stand out, connect,",
       line3: "and grow.",
       description:
         "We're a creative technology studio. We produce video, photography, and campaigns — and build the sites, apps, and systems that bring them to life.",
