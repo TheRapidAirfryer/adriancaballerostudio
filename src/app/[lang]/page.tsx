@@ -48,6 +48,7 @@ export default async function Home({ params }: Props) {
         lang={lang}
         heading={dict.home.finalCta.heading}
         description={dict.home.finalCta.description}
+        primaryHref="/start"
         secondaryLabel={dict.home.finalCta.secondaryLabel}
         secondaryHref={withLocale(lang, "/portafolio")}
       />
