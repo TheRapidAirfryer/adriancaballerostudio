@@ -4,7 +4,7 @@ import Link from "next/link";
 import Image from "next/image";
 import { useEffect, useState } from "react";
 import { usePathname } from "next/navigation";
-import { NAV_LINKS, siteConfig } from "@/lib/site-config";
+import { NAV_LINKS } from "@/lib/site-config";
 import { cn } from "@/lib/utils";
 import { MobileMenu } from "./MobileMenu";
 import { getDictionary } from "@/lib/i18n/dictionaries";
@@ -79,14 +79,12 @@ export function Header({ lang }: { lang: Locale }) {
         </nav>
 
         <div className="hidden md:block">
-          <a
-            href={siteConfig.contact.calendlyLink}
-            target="_blank"
-            rel="noopener noreferrer"
+          <Link
+            href="/start"
             className="inline-flex items-center justify-center rounded-full bg-black px-5 py-2.5 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
           >
             {dict.cta.talkToUs}
-          </a>
+          </Link>
         </div>
 
         <MobileMenu lang={lang} />
