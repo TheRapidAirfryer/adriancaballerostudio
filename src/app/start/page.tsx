@@ -88,7 +88,7 @@ export default function StartPage() {
         </p>
         <div className="mt-2">
           <a
-            href="#book"
+            href={siteConfig.contact.calendlyLink}
             className="inline-flex items-center justify-center rounded-full bg-black px-7 py-3.5 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
           >
             Book the call
