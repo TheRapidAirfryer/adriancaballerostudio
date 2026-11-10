@@ -71,6 +71,10 @@ const es = {
       description: "Una muestra de cómo unimos contenido, diseño y tecnología en proyectos reales.",
       viewPortfolio: "Ver portafolio completo",
     },
+    testimonials: {
+      eyebrow: "Clientes",
+      title: "Lo que dicen nuestros clientes.",
+    },
     process: {
       eyebrow: "Cómo trabajamos",
       title: "Un proceso claro, de principio a fin.",
@@ -418,6 +422,10 @@ const enOverrides = {
       title: "Recent projects.",
       description: "A look at how we bring content, design, and technology together on real projects.",
       viewPortfolio: "View full portfolio",
+    },
+    testimonials: {
+      eyebrow: "Clients",
+      title: "What clients say.",
     },
     process: {
       eyebrow: "How we work",

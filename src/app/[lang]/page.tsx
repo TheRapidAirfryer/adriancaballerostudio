@@ -2,6 +2,7 @@ import { Hero } from "@/components/home/Hero";
 // import { ShowreelSection } from "@/components/home/ShowreelSection"; // Sin reel real todavía
 import { ServicesOverview } from "@/components/home/ServicesOverview";
 import { FeaturedProjects } from "@/components/home/FeaturedProjects";
+import { Testimonials } from "@/components/home/Testimonials";
 import { ProcessSection } from "@/components/home/ProcessSection";
 import { MetricsSection } from "@/components/home/MetricsSection";
 import { AboutTeaser } from "@/components/home/AboutTeaser";
@@ -40,6 +41,7 @@ export default async function Home({ params }: Props) {
       {/* <ShowreelSection /> — sin reel real todavía */}
       <ServicesOverview lang={lang} />
       <FeaturedProjects lang={lang} />
+      <Testimonials lang={lang} />
       <ProcessSection lang={lang} />
       <MetricsSection lang={lang} />
       <AboutTeaser lang={lang} />
