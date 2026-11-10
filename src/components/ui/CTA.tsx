@@ -1,6 +1,6 @@
 import { Button } from "./Button";
 import { getDictionary } from "@/lib/i18n/dictionaries";
-import { withLocale, type Locale } from "@/lib/i18n/config";
+import type { Locale } from "@/lib/i18n/config";
 
 interface CTAProps {
   lang: Locale;
@@ -23,7 +23,7 @@ export function CTA({
 }: CTAProps) {
   const dict = getDictionary(lang);
   const resolvedPrimaryLabel = primaryLabel ?? dict.cta.defaultPrimaryLabel;
-  const resolvedPrimaryHref = primaryHref ?? withLocale(lang, "/contacto");
+  const resolvedPrimaryHref = primaryHref ?? "/start";
   return (
     <section className="border-t border-black/10 bg-black py-20 text-white md:py-28">
       <div className="mx-auto max-w-[1400px] px-6 md:px-10">
