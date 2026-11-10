@@ -431,7 +431,7 @@ const enOverrides = {
       eyebrow: "The Studio",
       title: "A team that gets both creativity and technology, under one roof.",
       description:
-        "We don't think in one-off projects. Every piece of content, every campaign, and every line of code serves the same goal: making your brand work better, end to end.",
+        "We don't treat each project as a one-off. Every piece of content, every campaign, and every line of code serves the same goal: making your brand work better, end to end.",
       cta: "Meet the studio",
     },
     latestArticles: {
@@ -533,7 +533,7 @@ const enOverrides = {
       {
         title: "Technology should solve problems, not just exist",
         description:
-          "A site, an app, or a system isn't worth its tech stack — it's worth the real problem it solves for the business and the people using it.",
+          "A site, an app, or a system isn't defined by its tech stack — it's defined by the real problem it solves for the business and the people who use it.",
       },
       {
         title: "Creativity and technology work better together",

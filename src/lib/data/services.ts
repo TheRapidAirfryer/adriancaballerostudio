@@ -644,7 +644,7 @@ export const servicesEn: Service[] = [
     forWho: [
       "Real estate companies and developers that need to show the scale of a project.",
       "Organizers of outdoor or large-format events.",
-      "Tourism or hospitality brands, or businesses with visually striking locations from the air.",
+      "Tourism and hospitality brands, or any business with a location that looks great from above.",
       "Audiovisual productions that need aerial shots as part of their narrative.",
     ],
     includes: [
@@ -681,7 +681,7 @@ export const servicesEn: Service[] = [
       "Product, corporate, space and brand photography with art direction. Studio or on-location production.",
     summary: "Product, brand and corporate photography with art direction consistent with your visual identity.",
     intro: [
-      "A well-directed photograph communicates quality before anyone reads a single word. A poorly lit one, or one shot without judgment, does exactly the opposite, no matter how good the product or service is.",
+      "A well-directed photograph communicates quality before anyone reads a single word. A poorly lit photo, or one shot without any real direction, does exactly the opposite, no matter how good the product or service is.",
       "We produce professional photography of product, brand, spaces and teams, with art direction that respects each client's visual identity instead of applying a generic formula.",
     ],
     whatWeDo: [
@@ -834,7 +834,7 @@ export const servicesEn: Service[] = [
     whatWeDo: [
       { title: "Process diagnosis", description: "We identify which manual processes make sense to turn into software." },
       { title: "System design", description: "We define modules, user roles and information flows." },
-      { title: "Custom development", description: "We build the system fitted to the business's real operation, not a generic mold." },
+      { title: "Custom development", description: "We build the system around how the business actually operates, not a generic mold." },
       { title: "Integrations", description: "We connect the system with other tools the company already uses when needed." },
     ],
     forWho: [
@@ -914,7 +914,7 @@ export const servicesEn: Service[] = [
     ],
     portfolioFilter: "publicidad",
     relatedSlugs: ["redes-sociales", "videos-redes-sociales", "desarrollo-web"],
-    ctaHeading: "Isn't your ad spend giving you clear results?",
+    ctaHeading: "Not seeing clear results from your ad spend?",
     ctaText: "Tell us what you've tried and we'll review together what's not working.",
   },
   {

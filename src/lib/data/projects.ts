@@ -656,7 +656,7 @@ export const projectsEn: Project[] = [
     summary: "Audiovisual coverage of Fisherman's Day, a kayak race sponsored by JF Marítimos.",
     objective: "Document JF Marítimos' participation as a sponsor of Fisherman's Day and its kayak race.",
     challenge: "Film in La Ceiba under strong sun and from moving boats, capturing good shots of the race.",
-    solution: "Filmed a recap video of the event and the kayak race, including an interview with the winner.",
+    solution: "We filmed a recap video of the event and the kayak race, including an interview with the winner.",
     processNotes: [
       "Advance survey of the venue and event schedule.",
       "Video coverage of the event and the kayak race.",
