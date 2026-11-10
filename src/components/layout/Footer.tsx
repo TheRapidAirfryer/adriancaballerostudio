@@ -17,7 +17,7 @@ export function Footer({ lang }: { lang: Locale }) {
             {dict.footer.ctaHeading}
           </p>
           <Link
-            href={withLocale(lang, "/contacto")}
+            href="/start"
             className="hover-underline mt-6 inline-flex items-center gap-2 text-lg font-medium"
           >
             {dict.footer.ctaLink}

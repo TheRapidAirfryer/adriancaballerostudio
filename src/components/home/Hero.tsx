@@ -25,7 +25,7 @@ export function Hero({ lang }: { lang: Locale }) {
           </p>
           <div className="flex w-full flex-col gap-3 sm:w-auto sm:flex-row">
             <Link
-              href={withLocale(lang, "/contacto")}
+              href="/start"
               className="inline-flex items-center justify-center rounded-full bg-black px-6 py-3.5 text-sm font-medium text-white transition-colors hover:bg-neutral-800"
             >
               {dict.home.hero.ctaPrimary}
